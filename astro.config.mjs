@@ -3,11 +3,12 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://github.com/binarycoder777/personal-weekly',
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'BinaryCoder777',
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/binarycoder777',
 			},
 			sidebar: [
 				{
