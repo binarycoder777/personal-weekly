@@ -8,17 +8,29 @@ hero:
     file: ../../../assets/hero.jpeg
   actions:
     - text: 开始探索
-      link: /zh-cn/2024年/7月/001期
+      link: /zh-cn/介绍
       icon: right-arrow
       variant: primary
     - text: 我要订阅
-      link: https://starlight.astro.build
+      link: https://starlight.astro.build/zh-cn/reference/configuration/#head
       icon: external
 prev: false
 next: false
 ---
+import { Head } from '@astrojs/mdx';
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+
+
+<head>
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="科技奇闻汇"
+    href={new URL('rss.xml', 'https://github.com/binarycoder777/binarycoder777.github.io')}
+  />
+</head>
+
 
 {/* ## About */}
 

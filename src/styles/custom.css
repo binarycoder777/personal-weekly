@@ -16,7 +16,7 @@
 }
 
 .hero > img {
-    width: 330px;
+    width: 600px;
     height: 100%;
     border-radius: 50%; /* 将图片变为圆形 */
     object-fit: cover; /* 确保图片在圆形内不变形 */
