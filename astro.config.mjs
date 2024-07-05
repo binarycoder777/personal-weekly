@@ -5,7 +5,6 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	favicon: '/favicon.ico',
 	site: 'https://github.com/binarycoder777/binarycoder777.github.io',
-	integrations: [starlight({ title: 'Site with sitemap' })],
 	integrations: [
 		starlight({
 			customCss: [
