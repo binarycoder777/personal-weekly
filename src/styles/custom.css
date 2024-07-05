@@ -14,3 +14,10 @@
     font-family: 'Dancing Script Variable', cursive;
     color: var(--site-title-color);
 }
+
+.hero > img {
+    width: 330px;
+    height: 100%;
+    border-radius: 50%; /* 将图片变为圆形 */
+    object-fit: cover; /* 确保图片在圆形内不变形 */
+}
