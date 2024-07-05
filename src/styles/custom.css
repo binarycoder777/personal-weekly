@@ -1,0 +1,16 @@
+:root,
+::backdrop {
+    --sl-site-title-color-white: hsl(0, 0%, 100%); /* “white” */
+    --site-title-color: var(--sl-site-title-color-white)
+}
+
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
+    --sl-site-title-color-black: hsl(224, 10%, 10%);
+    --site-title-color: var(--sl-site-title-color-black)
+}
+
+.site-title {
+    font-family: 'Dancing Script Variable', cursive;
+    color: var(--site-title-color);
+}

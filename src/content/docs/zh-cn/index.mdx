@@ -1,0 +1,39 @@
+---
+title: 欢迎来到科技奇闻汇
+description: 每周带你探索最新科技动态与奇趣故事，一键开启你的探索之旅！
+template: splash
+hero:
+  tagline: 前沿科技，奇趣故事，一键开启你的探索之旅！
+  image:
+    file: ../../../assets/hero.jpeg
+  actions:
+    - text: 开始探索
+      link: /zh-cn/2024年/7月/001期
+      icon: right-arrow
+      variant: primary
+    - text: 我要订阅
+      link: https://starlight.astro.build
+      icon: external
+prev: false
+next: false
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+{/* ## About */}
+
+<CardGrid stagger>
+	<Card title="最新科技动态" icon="rocket">
+		了解最新的科技进展，探索未来的无限可能。
+	</Card>
+	<Card title="趣闻轶事" icon="lightbulb">
+		奇闻趣事大集合，带你发现生活中的神奇故事。
+	</Card>
+	<Card title="科技奇闻专栏" icon="microscope">
+		深入剖析那些不可思议的科技发现与研究。
+	</Card>
+	<Card title="订阅我们的周刊" icon="mail">
+		每周获取最新科技资讯与趣闻趣事，订阅我们的电子周刊。
+	</Card>
+</CardGrid>
+
