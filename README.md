@@ -1,6 +1,45 @@
 <p align="center">
-<img width="200" src="https://raw.githubusercontent.com/binarycoder777/binarycoder777.github.io/main/public/favicon.ico">
+    <img width="200" src="https://raw.githubusercontent.com/binarycoder777/binarycoder777.github.io/main/public/favicon.ico">
 </p>
+
+
+<p align="center">
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=lckHFUP7nJhG&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+
+    <a target="_blank">
+        <img src="https://github.com/withastro/starlight/assets/357379/494fcd83-42aa-4891-87e0-87402fa0b6f3" style="width: 50px; height: 50px;"/>
+    </a>
+  
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=13841&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=yauDoZYEux9L&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=12192&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+</p>
+
+
+<h1 align="center">《科技奇闻汇》· 关注每周新鲜事~ </h1>
+
+<div align="center">
+
+
+
+<p>基于Astro，支持RSS订阅、Giuss评论、中英双语阅读、明暗主题等</p>
+
+```
+🕙 项目保持每周六或周日更新，喜欢的朋友可以免费订阅，不错过每周发生的科技奇闻趣事～
+```
+
+</div>
+
 
 # 科技奇闻汇
 
