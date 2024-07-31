@@ -7,21 +7,20 @@
     <a target="_blank">
         <img src="https://img.icons8.com/?size=100&id=lckHFUP7nJhG&format=png&color=000000" style="width: 50px; height: 50px;"/>
     </a>
-
     <a target="_blank">
         <img src="https://github.com/withastro/starlight/assets/357379/494fcd83-42aa-4891-87e0-87402fa0b6f3" style="width: 50px; height: 50px;"/>
     </a>
-  
     <a target="_blank">
         <img src="https://img.icons8.com/?size=100&id=13841&format=png&color=000000" style="width: 50px; height: 50px;"/>
     </a>
-
     <a target="_blank">
         <img src="https://img.icons8.com/?size=100&id=yauDoZYEux9L&format=png&color=000000" style="width: 50px; height: 50px;"/>
     </a>
-
     <a target="_blank">
         <img src="https://img.icons8.com/?size=100&id=12192&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=76thz6hgYpSk&format=png&color=000000" style="width: 50px; height: 50px;"/>
     </a>
 </p>
 
