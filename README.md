@@ -1,54 +1,68 @@
-# Starlight Starter Kit: Basics
+<p align="center">
+    <img width="200" src="https://raw.githubusercontent.com/binarycoder777/binarycoder777.github.io/main/public/favicon.ico">
+</p>
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+
+<p align="center">
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=lckHFUP7nJhG&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+    <a target="_blank">
+        <img src="https://github.com/withastro/starlight/assets/357379/494fcd83-42aa-4891-87e0-87402fa0b6f3" style="width: 50px; height: 50px;"/>
+    </a>
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=13841&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=yauDoZYEux9L&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=12192&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=76thz6hgYpSk&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+</p>
+
+
+<h1 align="center">《科技奇闻汇》· 关注每周新鲜事~ </h1>
+
+<div align="center">
+
+
+
+<p>基于Astro，支持RSS订阅、Giscus评论、中英双语阅读、明暗主题等</p>
 
 ```
-npm create astro@latest -- --template starlight
+🕙 一个记录互联网上实时发生的科技新闻和奇闻趣事的站点，项目保持每周六或周日更新，喜欢的朋友可以免费订阅，不错过每周发生的科技奇闻趣事～
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwithastro%2Fstarlight%2Ftree%2Fmain%2Fexamples%2Fbasics&project-name=my-starlight-docs&repository-name=my-starlight-docs)
+</div>
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-## 🚀 Project Structure
+## 关于站点
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+站点通过[starlight主题](https://starlight.astro.build/getting-started/)进行搭建（一个建立在 [Astro](https://astro.build/) 框架之上的全功能文档主题），站点内容遵循MIT 授权许可，详情可参阅[LICENSE](https://github.com/binarycoder777/binarycoder777.github.io?tab=MIT-1-ov-file)
 
+## 快速上手
+
+**步骤**
 ```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   ├── docs/
-│   │   └── config.ts
-│   └── env.d.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+1. clone the repo
+2. npm install
+3. npm run dev
+4. change astro.config.mjs config
+5. more info refer to https://astro.build/ or https://starlight.astro.build/
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+## 投稿分享
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+如果你有任何建议、想法或者想要投稿，欢迎通过电子邮件联系我：atao67276@gmail.com。
 
-Static assets, like favicons, can be placed in the `public/` directory.
+## 订阅
 
-## 🧞 Commands
+喜欢科技奇闻汇的朋友可以通过 [这里]([http://localhost:4321/rss.xml](https://binarycoder777.github.io/zh-cn)) 免费订阅我的更新。 感谢您的关注和支持！
 
-All commands are run from the root of the project, from a terminal:
+## 期刊目录
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+- [001期：Microsoft CrowdStrike 事件的技术故障](https://binarycoder777.github.io/zh-cn/2024%E5%B9%B4/7%E6%9C%88/001%E6%9C%9F/)
