@@ -6,7 +6,7 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   favicon: '/favicon.ico',
-  site: 'https://github.com/binarycoder777',
+  site: 'https://binarycoder777.github.io',
   base: '/personal-weekly',
   integrations: [starlight({
     customCss: [
