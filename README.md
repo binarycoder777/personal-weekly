@@ -67,7 +67,7 @@
 
 ## 版权说明
 
-该项目签署了MIT 授权许可，详情请参阅[LICENSE]()
+该项目签署了MIT 授权许可，详情请参阅[LICENSE](https://github.com/binarycoder777/personal-weekly/blob/main/LICENSE)。
 
 ## 投稿分享
 
