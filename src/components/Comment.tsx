@@ -45,10 +45,10 @@ const Comments = () => {
       {mounted ? (
         <Giscus
           id={id}
-          repo="binarycoder777/binarycoder777.github.io"
-          repoId="R_kgDOKeudTw"
+          repo="binarycoder777/personal-weekly"
+          repoId="R_kgDOMRwFCQ"
           category="Announcements"
-          categoryId="DIC_kwDOKeudT84Cch4W"
+          categoryId="DIC_kwDOMRwFCc4ChU84"
           mapping="title"
           reactionsEnabled="1"
           emitMetadata="0"
