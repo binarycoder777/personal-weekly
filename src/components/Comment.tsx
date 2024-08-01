@@ -6,7 +6,7 @@ const id = 'inject-comments'
 // 获取 localStorage 中 theme 的值
 function getSavedTheme() {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme')) {
-        return localStorage.getItem('starlight-theme');
+        return localStorage.getItem('starlight-theme') || 'light';
     }
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         return 'dark';
