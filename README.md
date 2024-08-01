@@ -1,16 +1,59 @@
 <p align="center">
-<img width="200" src="https://raw.githubusercontent.com/binarycoder777/binarycoder777.github.io/main/public/favicon.ico">
+    <img width="200" src="https://raw.githubusercontent.com/binarycoder777/binarycoder777.github.io/main/public/favicon.ico">
 </p>
 
-# 科技奇闻汇
+
+<p align="center">
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=lckHFUP7nJhG&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+    <a target="_blank">
+        <img src="https://github.com/withastro/starlight/assets/357379/494fcd83-42aa-4891-87e0-87402fa0b6f3" style="width: 50px; height: 50px;"/>
+    </a>
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=13841&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=yauDoZYEux9L&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=12192&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+    <a target="_blank">
+        <img src="https://img.icons8.com/?size=100&id=76thz6hgYpSk&format=png&color=000000" style="width: 50px; height: 50px;"/>
+    </a>
+</p>
+
+
+<h1 align="center">《科技奇闻汇》· 关注每周新鲜事~ </h1>
+
+<div align="center">
 
 
 
-[科技奇闻汇](https://binarycoder777.github.io/zh-cn/)，一个记录互联网上实时发生的科技新闻和奇闻趣事的站点,每周六或周日不定时更新。喜欢的朋友可以[免费订阅]( http://localhost:4321/rss.xml)。
+<p>基于Astro，支持RSS订阅、Giscus评论、中英双语阅读、明暗主题等</p>
+
+```
+🕙 一个记录互联网上实时发生的科技新闻和奇闻趣事的站点，项目保持每周六或周日更新，喜欢的朋友可以免费订阅，不错过每周发生的科技奇闻趣事～
+```
+
+</div>
+
 
 ## 关于站点
 
-站点通过[tarlight主题](https://starlight.astro.build/getting-started/)进行搭建（一个建立在 [Astro](https://astro.build/) 框架之上的全功能文档主题）
+站点通过[starlight主题](https://starlight.astro.build/getting-started/)进行搭建（一个建立在 [Astro](https://astro.build/) 框架之上的全功能文档主题），站点内容遵循MIT 授权许可，详情可参阅[LICENSE](https://github.com/binarycoder777/binarycoder777.github.io?tab=MIT-1-ov-file)。
+
+## 快速上手
+
+**步骤**
+```
+1. clone the repo
+2. npm install
+3. npm run dev
+4. change astro.config.mjs config
+5. more info refer to https://astro.build/ or https://starlight.astro.build/
+```
 
 ## 投稿分享
 
@@ -18,6 +61,7 @@
 
 ## 订阅
 
+<<<<<<< HEAD
 喜欢科技奇闻汇的朋友可以通过 [这里](http://localhost:4321/rss.xml) 免费订阅我的更新。
 
 感谢您的关注和支持！
@@ -25,6 +69,9 @@
 ## 版权说明
 
 该项目签署了MIT 授权许可，详情请参阅[LICENSE]()
+=======
+喜欢科技奇闻汇的朋友可以通过 [这里]([http://localhost:4321/rss.xml](https://binarycoder777.github.io/zh-cn)) 免费订阅我的更新。 感谢您的关注和支持！
+>>>>>>> c492db7ec8c1a9c3bb8aad59c0ca18bf8d137530
 
 ## 期刊目录
 
