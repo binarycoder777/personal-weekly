@@ -12,7 +12,7 @@ export default defineConfig({
     // 你的自定义 CSS 文件的相对路径
     './src/styles/custom.css', '@fontsource-variable/dancing-script'],
     title: {
-      'zh-CN': 'BinaryCoder777的周刊',
+      'zh-CN': 'BinaryCoder777 weekly',
       en: 'BinaryCoder777 Weekly'
     },
     logo: {
