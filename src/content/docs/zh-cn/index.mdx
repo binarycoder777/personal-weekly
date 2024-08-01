@@ -21,6 +21,8 @@ next: false
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
+import Comments from "/src/components/Comment";
+
 
 
 {/* ## About */}
@@ -40,3 +42,5 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 	</Card>
 </CardGrid>
 
+
+<Comments client:only="react" />

@@ -42,7 +42,7 @@
 
 ## 关于站点
 
-站点通过[starlight主题](https://starlight.astro.build/getting-started/)进行搭建（一个建立在 [Astro](https://astro.build/) 框架之上的全功能文档主题），站点内容遵循MIT 授权许可，详情可参阅[LICENSE](https://github.com/binarycoder777/binarycoder777.github.io?tab=MIT-1-ov-file)
+站点通过[starlight主题](https://starlight.astro.build/getting-started/)进行搭建（一个建立在 [Astro](https://astro.build/) 框架之上的全功能文档主题），站点内容遵循MIT 授权许可，详情可参阅[LICENSE](https://github.com/binarycoder777/binarycoder777.github.io?tab=MIT-1-ov-file)。
 
 ## 快速上手
 
