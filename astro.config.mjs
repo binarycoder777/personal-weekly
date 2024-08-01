@@ -7,7 +7,7 @@ import react from "@astrojs/react";
 export default defineConfig({
   favicon: '/favicon.ico',
   site: 'https://github.com/binarycoder777',
-  base: 'personal-weekly',
+  base: '/personal-weekly',
   integrations: [starlight({
     customCss: [
     // 你的自定义 CSS 文件的相对路径
