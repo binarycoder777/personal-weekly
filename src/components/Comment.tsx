@@ -3,28 +3,26 @@ import Giscus from '@giscus/react'
 
 const id = 'inject-comments'
 
-// 获取 localStorage 中 theme 的值
-function getSavedTheme() {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme')) {
+const getSavedTheme = () => {
+    if (typeof window !== 'undefined' && localStorage.getItem('starlight-theme')) {
         return localStorage.getItem('starlight-theme') || 'light';
     }
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         return 'dark';
     }
     return 'light';
 }
-
 
 const Comments = () => {
   const [mounted, setMounted] = React.useState(false)
   const [theme, setTheme] = React.useState('light')
 
   React.useEffect(() => {
+    // 仅在客户端执行的代码
     const theme = getSavedTheme()
     setTheme(theme)
-    // 监听主题变化
+
     const observer = new MutationObserver(() => {
-      console.log(getSavedTheme())
       setTheme(getSavedTheme())
     })
     observer.observe(document.documentElement, {
@@ -63,4 +61,5 @@ const Comments = () => {
     </div>
   )
 }
+
 export default Comments

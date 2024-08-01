@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-
 import react from "@astrojs/react";
+
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
@@ -34,5 +35,5 @@ export default defineConfig({
     social: {
       github: 'https://github.com/binarycoder777'
     }
-  }), react()]
+  }), react(), mdx()]
 });
