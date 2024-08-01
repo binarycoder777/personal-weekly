@@ -54,21 +54,13 @@
 4. change astro.config.mjs config
 5. more info refer to https://astro.build/ or https://starlight.astro.build/
 ```
+## 订阅
+
+喜欢科技奇闻汇的朋友可以通过 [这里](https://binarycoder777.github.io/zh-cn) 免费订阅我的更新。 感谢您的关注和支持！
 
 ## 投稿分享
 
 如果你有任何建议、想法或者想要投稿，欢迎通过电子邮件联系我：atao67276@gmail.com。
-
-## 订阅
-
-喜欢科技奇闻汇的朋友可以通过 [这里](http://localhost:4321/rss.xml) 免费订阅我的更新。
-
-感谢您的关注和支持！
-
-## 投稿分享
-
-喜欢科技奇闻汇的朋友可以通过 [这里]([http://localhost:4321/rss.xml](https://binarycoder777.github.io/zh-cn)) 免费订阅我的更新。 感谢您的关注和支持！
-
 
 ## 期刊目录
 
