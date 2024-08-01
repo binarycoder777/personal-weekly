@@ -2,7 +2,7 @@ import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
 export async function GET(context) {
-  const blog = await getCollection('blog');
+  const blog = await getCollection('docs');
   return rss({
     title: '科技奇闻汇',
     description: '一个记录互联网上实时发生的科技新闻和奇闻趣事的站点，项目保持每周六或周日更新。',
