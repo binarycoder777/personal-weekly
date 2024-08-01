@@ -65,10 +65,6 @@
 
 感谢您的关注和支持！
 
-## 版权说明
-
-该项目签署了MIT 授权许可，详情请参阅[LICENSE](https://github.com/binarycoder777/personal-weekly/blob/main/LICENSE)。
-
 ## 投稿分享
 
 喜欢科技奇闻汇的朋友可以通过 [这里]([http://localhost:4321/rss.xml](https://binarycoder777.github.io/zh-cn)) 免费订阅我的更新。 感谢您的关注和支持！
