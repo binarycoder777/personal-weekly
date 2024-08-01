@@ -10,11 +10,11 @@ export async function GET(context) {
     items: blog.map((post) => ({
       title: post.data.title,
       pubDate: new Date(),
-      description: post.data.description
+      description: post.data.description,
     //   customData: post.data.customData,
       // 从 `slug` 属性计算出 RSS 链接
       // 这个例子假设所有的文章都被渲染为 `/blog/[slug]` 路由
-    //   link: `/zh-cn/${post.slug}/`,
+      link: `/${post.slug}/`,
     })),
   });
 }
