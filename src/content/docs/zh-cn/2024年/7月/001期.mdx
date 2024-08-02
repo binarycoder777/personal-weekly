@@ -1,0 +1,116 @@
+---
+title: 第001期
+description: Microsoft CrowdStrike 事件的技术故障 
+---
+<h1 align="center">《科技奇闻汇》· 第001期 </h1>
+
+<div align="center">
+
+```
+🕙 本杂志秉持开放的态度，欢迎各位读者踊跃投稿，分享你们的见解和发现～
+```
+
+</div>
+
+import Comments from "/src/components/Comment";
+
+## 随便聊聊
+
+![](https://raw.githubusercontent.com/binarycoder777/personal-pic/main/pic/20240802102531.png)
+
+最近在网上看到一个话题，初级开发人员如何在这个就业市场上保持竞争力？确实，当今环境经济下行，各个公司都在降本增效，同时随着学历的普及、从业人员增多，市场饱和等多方面因素下，对于刚出社会，没有多少经验的初级开发人员确实不太友好。而自己作为一名行内人员这也是一直在思考相关的问题，亦或可以说成是思考自己的职业发展。
+
+技术深度？技术广度？业务熟练度？亦或是除了技术能力外的其他能力？作为一名在行业内初耕的开发人员，说实话自己对这些确实也比较迷茫，大多建议或观点都是网络上人云亦云。但从我个人来讲，我觉得技术深度也好，广度也摆，还是说业务能力和其他能力，都不是一蹴而就的，需要需要长期的坚持。
+
+诚然坚持是一种考验，一天、两天眨眨眼就过去了，一周两周仿佛也是一瞬的事，但是一个月两个月呢？一年两年呢？想要坚持，必然要找到坚持的动力，特别是对于职业来讲，这种会伴随自己大半生的事情，当你找到了坚持的理由和动力，相信必然会投入足够多的精力与时间，而这时候我相信，如何保持竞争力已经不再是你思考的问题了。
+
+成功源于时间的复利。与其思考如何如何做，不如投入更多的热情与兴趣，坚持下去，不焦虑，不放弃，这就是我认为的答案。你们的答案呢？
+
+## 每周新闻
+
+### [Windows 安全实践](https://www.microsoft.com/en-us/security/blog/2024/07/27/windows-security-best-practices-for-integrating-and-managing-security-tools/)
+
+Windows 作为广泛应用的平台，其开放性与灵活性备受认可。然而，近期 CrowdStrike 的故障却导致数百万台电脑蓝屏无法启动。经探究，是 CSagent.sys 驱动中的内存安全错误，即读越界访问违规所致。众多安全厂商采用内核驱动架构，因其能提供系统可见性、便于早期检测威胁，还可能在性能上有优势及具备防篡改能力。Windows 积极与第三方安全厂商合作，不断提升系统安全性。
+
+### [在线求职市场的困境](https://www.salon.com/2024/07/28/everlasting-jobstoppers-how-an-ai-bot-destroyed-the-online-job-market/)
+![](https://mediaproxy.salon.com/width/1200/https://media2.salon.com/2024/07/coded_hand_passing_a_folder_1441345445_1322519736.jpg)
+
+如今的在线求职市场乱象丛生。“幽灵工作”现象频繁出现，雇主发布大量虚假或已满员的职位信息，却仍收集求职者简历。AI 技术的融入使求职市场陷入激烈竞赛，求职者用 AI 优化简历，雇主用 AI 检测，求职过程复杂，压力增大。网络骗子也借机制造虚假职位骗信息，求职者面临双重挑战。
+
+### [专家称应该允许孩子感到无聊](https://www.bbc.com/news/education-21895704)
+![孩子发呆的图片](https://ichef.bbci.co.uk/news/976/mcs/media/images/66559000/jpg/_66559544_childflower.jpg)
+
+一位教育专家表示，应允许孩子感到无聊，以发展其创造力。特蕾莎·贝尔顿博士指出，文化期望孩子时刻活跃，可能阻碍想象力。她采访多位作家、艺术家和科学家，如米拉·赛尔称无聊促使她写作，格雷森·佩里称无聊是创造性状态。贝尔顿博士称无聊是“不舒服的感觉”，但社会期望不断忙碌和受刺激。她警告发挥创造力需开发内在刺激，如今孩子无事做就看屏幕，这阻碍想象力，孩子需要有站立和凝视的时间来激发想象力。 
+
+### [LG 和三星的透明电视技术](https://spectrum.ieee.org/transparent-tv)
+![LG 和 Samsung 透明电视展示](https://spectrum.ieee.org/media-library/an-image-of-an-array-of-15-transparent-tvs-shot-with-a-fish-eye-lens-and-displaying-white-trees-with-pink-and-green-swaths-of-c.png?id=52961258&width=1000&quality=85)
+
+LG 和 Samsung 在 CES 2024 上展示的透明电视令人惊艳。LG 借助 OLED 显示技术，通过特定材料提高透明度，但仍逊于普通窗户玻璃。Samsung 采用的 microLED 技术有独特优势，如不受氧气和湿气影响、可拼接大尺寸无缝显示屏等，但仍处于起步阶段，面临成本高、亮度与颜色均匀性等难题。目前，透明电视因价格高昂，短期内难以普及家庭，更可能先在特定领域应用。
+
+## 计算机相关
+
+### [同时多线程技术的原理](https://blog.codingconfessions.com/p/simultaneous-multithreading)
+![](https://raw.githubusercontent.com/binarycoder777/personal-pic/main/pic/20240802090831.png)
+
+同时多线程（SMT）能让处理器同时处理两个不同线程指令。其旨在提升处理器资源利用率，解决传统处理器在指令级并行性方面的浪费问题。在 Intel 处理器中，SMT 实现涉及多个环节。不过，SMT 对性能的影响因情况而异，单个线程可能受负面影响，两个线程则取决于多种因素。此外，SMT 存在安全漏洞，可能导致敏感数据泄露。
+
+### [证书与证书颁发机构](https://www.pixelstech.net/article/1722045726-All-I-Know-About-Certificates----Certificate-Authority)
+
+证书在网站身份验证中至关重要，确保合法持有者获取相应证书。证书颁发机构（CA）肩负多重职责，包括验证网站身份、保护私钥及获取客户端信任。CA 通过特定方式核实申请者身份，利用中间证书颁发，并依靠数字签名保证证书真实完整。客户端信任是信任链基础，通过存储 CA 证书校验其他证书可信度。新 CA 需其他受信任 CA 签名获取信任。
+
+### [Facebook 是如何拦截竞争对手的加密移动应用流量的？](https://doubleagent.net/onavo-facebook-ssl-mitm-technical-analysis/)
+
+Meta（前 Facebook）目前面临一项集体诉讼，指控其通过 Onavo Protect 应用程序未经用户同意，拦截了加密的 HTTPS 流量。这种做法被认为是一种 MITM（中间人攻击）技术，Facebook 称之为“ssl bump”，主要用于解密 Snapchat、YouTube 和 Amazon 等域名的流量。此举可能违反了《窃听法》，尤其是在 Onavo Protect 被用于收集竞争对手的流量数据的情况下。
+
+### [关于系统连接互联网的探讨](https://computer.rip/2024-07-31-just-disconnect-the-internet.html)
+
+文章围绕系统是否应连接互联网展开讨论。指出现代商用计算机多为通信设备，网络连接对其有重要价值，如便于维护和适应业务变化。文中列举多种“未连接互联网”的形式，强调此概念的模糊性及不同形式的差异。还提到非互联网连接系统存在诸多麻烦，如软件操作受限、成本增加、耗时费力等。最后提出应采取限制性网络策略、考虑离线环境、避免部署依赖等建议。 
+
+### [不要让您的域名成为“活靶子”](https://krebsonsecurity.com/2024/07/dont-let-your-domain-name-become-a-sitting-duck/)
+![域名相关图片](https://krebsonsecurity.com/wp-content/uploads/2024/07/duckstarget.png)
+新研究表明，由于身份验证漏洞，超百万个域名易受网络犯罪分子攻击，包括财富 100 强企业和品牌保护公司的域名。域名 DNS 记录不完整会引发问题，许多网络托管和 DNS 提供商存在漏洞，导致域名可被非法控制。多个网络犯罪集团借此进行多种恶意活动，如掩盖流量来源、网络钓鱼等。被盗域名多具有三个易被接管的属性，一些提供商正努力解决，若各方不加强合作，此类攻击将持续增加。 
+
+## 工具
+
+### [PasteBar – 适用于 Mac 和 Windows 的无限免费剪贴板管理器。](https://github.com/PasteBar/PasteBarApp)
+
+这是一款适用于 Mac 和 Windows 的剪贴板管理器，为您提供无限的免费服务。它能够极大地提升您在复制粘贴操作时的效率，轻松管理您的剪贴板历史记录。
+
+### [Burrow 是一个无服务器和全球分布式的 Go HTTP 代理，基于 AWS Lambda。](https://github.com/myzie/burrow)
+
+它被设计为与标准 Go 完全兼容，这意味着它可以透明地添加到许多现有的应用程序中。Burrow 提供代理接口的实现，通过函数 URL 公开的一个或多个 AWS Lambda 函数发出请求，并提供循环传输功能，便于在不同区域的多个 Lambda 函数之间自动轮换。
+
+### [扣子](https://www.coze.cn)
+
+扣子是新一代 AI 大模型智能体开发平台。整合了插件、长短期记忆、工作流、卡片等丰富能力，为您的开发工作提供强大支持。
+
+### [cardie](https://github.com/nfoert/cardie?tab=readme-ov-file)
+
+一个开源的名片设计器和共享平台，让您轻松设计并分享个性化的名片。
+
+## 资源
+
+### [Wi is Fi](https://www.wiisfi.com/)
+
+详细介绍了 Wi-Fi 在美国的工作原理。虽然本文的大部分内容也适用于其他国家/地区，但其他国家/地区的 Wi-Fi 会存在细微差异（支持的信道、允许的 Tx 功率等）。
+
+### [免费的公共 API 库](https://github.com/public-apis/public-apis?tab=readme-ov-file)
+
+APILayer 是将 API 集成到任何产品中的最快方式。这个存储库是为了支持社区轻松查找公共 API 而创建的。
+
+### [Shields.io](Shields.io)
+
+一个非常有用的在线工具，用来生成各种各样的“徽章”（也就是小图标），这些徽章通常用于在 GitHub 仓库或项目网站上展示一些关键信息。
+
+### [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
+
+一个在线工具，用于快速查找和复制常用的表情符号（emoji）。这对于在社交媒体、聊天应用、电子邮件或任何支持 emoji 的平台中使用表情符号非常有用。
+
+### [Icons8](https://icons8.com)
+
+一个资源丰富的平台，提供各种设计素材，帮助设计师和开发者轻松创建高质量的设计作品。
+
+
+（完） 
+
+<Comments client:only="react" />
