@@ -1,7 +1,6 @@
 ---
 title: 《科技奇闻汇》· 第002期
 description: Microsoft CrowdStrike 事件的技术故障 
-draft: true
 ---
 
 <div align="center">
@@ -16,8 +15,26 @@ import Comments from "/src/components/Comment";
 
 ## 随便聊聊
 
+今天想聊聊：阅读能让你更快乐吗？小时候老家院子里的小孩都比自己大，在他们上初中去了后，平时放学阅读就成了最大的乐趣，当时学校有个图书角，我是负责去图书馆管理和登记班上书籍借阅情况的，因此称者职位之便，每次去图书馆总能找到符合自己胃口的书籍，散文、科普、名著、小说故事等等一律来者不拒。
+然后带回班上，班上又没有人借阅，便可以美美的自己借阅。有时候看到吸引人的章节内容，总觉得时间过得太快。而每每看完一本书，都有一种恍然若失的感觉，喜欢将自己代入到书中故事。后面，在别人的影响下又渐渐步入了小说圈。这也算是彻底入迷的时候，老爸的旧手机仍在家里没用，便偷偷拿出来，然后用节省的零花钱
+去办理手机卡开流量下载小说。当时办卡不需要身份认证啥的，5块钱的花费买30M流量可以看不少小说，但往往就是30M、甚至10元70M都不够用。为此还经常求助于比我大的哥哥姐姐，让他们帮忙在电脑上下小说来看。此时看小说可以算是废寝忘食也不为过。除了集体活动外的个人私下时间，几乎都是拿来看小说了，后来上了初中
+寄宿在学校，远离了家人的管辖，经常是看小说熬到大半夜（这也是为后面眼睛近视埋下伏笔）。到了高中、大学甚至现在。反而没有以前那么痴狂于看小说之类。但可能是习惯还是什么，包括现在，学习技术还是什么，都习惯性的看书，看书看不懂再看视频。对我个人而言，或许看书能将自己代入身临其境，比看视频在别人的引导下进行更能引发自己的思考。
+同时认真的阅读完一本书，确实也能带给我很多快乐。对我而言，阅读是一件快乐的事情，特别是在碎片化知识和短视频的充斥的现在，能够静下心来认认真真看完一本书，也实属不易。而对于你们来说，阅读是一件能让你快乐的事情吗？
+
+![](https://github.com/binarycoder777/personal-pic/blob/main/pic/%E5%9B%BE%E4%B9%A6%E9%A6%86.jpg)
+**2022年在杭州实习的时候经常去的图书馆**
 
 ## 每周新闻
+
+### [南极洲出现破纪录热浪](https://edition.cnn.com/2024/08/03/climate/antarctica-heat-wave-sea-level-rise/index.html)
+![](https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2147738758.jpg?c=16x9&q=h_653,w_1160,c_fill/f_webp)
+南极洲在本应是最冷的时候出现破纪录的热浪，部分地区气温比正常高出 50 华氏度。自 7 月中旬以来，异常温暖的天气可能会持续到 8 月上半月。东南极洲的部分地区原本气温通常在零下 58 到零下 76 华氏度之间，现在接近零下 13 到零下 22 华氏度。
+
+### [Game Informer 正在关闭](https://www.theverge.com/2024/8/2/24212016/game-informer-shutting-down-layoffs-gamestop)
+
+![](https://duet-cdn.vox-cdn.com/thumbor/0x0:1080x1080/640x427/filters:focal(540x540:541x541):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/25557085/GT_N8lOW4AIrE_C.jpeg)
+
+GameStop 旗下的游戏杂志 Game Informer 在运营 33 年后关闭，其全体员工被解雇。该出版物未给出关闭原因，GameStop 未立即回复置评请求。此前 GameStop 首席执行官曾表示要审查开支、消除浪费。今年 3 月 Game Informer 推出了直接订阅方式，但仍未能避免关闭。其在声明中表达了对忠实读者的感谢。
 
 ### [英特尔将裁员15,000人](https://techcrunch.com/2024/08/01/intel-to-lay-off-15000-employees/)
 
@@ -45,6 +62,11 @@ import Comments from "/src/components/Comment";
 
 ## 计算机相关
 
+### [开发者欺骗 App Store 审核的手段](https://9to5mac.com/2024/08/02/developers-trick-app-store-review/)
+![](https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2024/05/App-Store-fraud.webp?w=1500&quality=82&strip=all&ssl=1)
+
+一些开发者通过地理围栏等技术欺骗 App Store 审核，使恶意应用上架。如“Collect Cards”等应用，使用 React Native 框架和 CodePush SDK，通过特定 API 检查设备位置，首次打开时延迟调用地理定位 API 以规避审核。苹果批准后，开发者用 CodePush 更新应用显示真实界面。苹果虽有审核团队，但仍有应用能欺骗审核系统，应采取措施加强防范，如实施额外测试、更积极删除欺诈应用。此前 Uber 曾被指控在苹果总部设置“地理围栏”。苹果已删除相关应用，但未提供防止类似应用获批的措施详情。
+
 ### [HashiCorp 云基础设施的演进之路](https://platocommunity.substack.com/p/22-how-we-evolved-our-cloud-infrastructure)
 ![HashiCorp 相关图片](https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe9c3654b-bdb4-4f1a-88b4-d26ff11100aa_1560x870.png)
 
@@ -54,17 +76,38 @@ import Comments from "/src/components/Comment";
 
 文章主要围绕 C99 语言是否图灵完备展开了一系列讨论。一些观点认为由于 C 语言中指针数量、可寻址空间等存在限制，难以直接认定其为图灵完备。但也有人提出通过一些特殊方法，如利用可变参数、非标准算术、C 预处理器等，可能使 C 语言具备图灵完备性。还有观点从理论和实践角度分析了各种实现方式的可行性及存在的问题。 
 
+### [电子设备防篡改措施](https://www.anarsec.guide/posts/tamper/)
+
+平时没有考虑过电子设备安全问题的可以读一读，挺有意思的。文章指出警方若能接触电子设备，可在硬件、固件或软件层面轻易入侵，可通过使设备具备防篡改特性来降低风险，具体措施包括：
+1. **防篡改笔记本电脑螺丝**：用闪光指甲油涂螺丝，形成独特图案并拍照记录，以检测是否被篡改，注意螺丝孔深度、指甲油密度等因素，可使用“眨眼比较”或Blink Comparison应用验证。
+2. **防篡改存储**：将电子设备放入透明盒子，用彩色混合物覆盖并拍照备份，混合物如红扁豆和白鲸扁豆等，可包裹设备防受损。
+3. **防篡改软件和固件**：GrapheneOS的Auditor或Tails/Qubes OS的Heads可检测固件或软件篡改，检测到篡改应视设备不可信并进行取证分析。
+4. **物理入侵检测**：推荐使用Haven应用或视频监控系统检测入侵者，Haven应用可利用手机传感器监测并记录。
+
+文章强调这些措施增加了攻击难度和成本，降低了被攻击可能性，同时附录了破解保险箱的方法，如稀土磁铁、安全弹跳、管理重置代码等。
+
 ## 工具
+
+### [Go Donut：将直播转换为 WebRTC ](https://github.com/flavioribeiro/donut)
+![](https://user-images.githubusercontent.com/244265/200068510-7c24d5c7-6ba0-44ee-8e60-0f157f990b90.png)
+
+Go Donut是由Pion提供支持的零设置SRT（MPEG-TS）和RTMP到WebRTC桥接器。
+
 
 ### [Peerfetch – 基于 WebRTC 的点对点 HTTP](https://github.com/ambianic/peerfetch)
 
 Peerfetch是一个基于 WebRTC 的点对点 HTTP开源库。通过 WebRTC DataChannel 实现 http 客户端包装器（类似于 HTML fetch）和相应的服务器端 HTTP 代理。允许从 Web 浏览器直接安全访问隐藏在防火墙后面的边缘设备（IoT 或服务器）。
 
+### [A* 搜索：在 Lisp 中优化实现](https://gitlab.com/lockie/cl-astar)
+
+A* 是视频游戏中最受欢迎的寻路算法选择，并且其他应用程序，因为它相当灵活，可以在广泛的范围内使用上下文范围。
 
 
 ## 资源
 
+### [推荐格式声明](https://www.loc.gov/preservation/resources/rfs/TOC.html)
 
+好的内容格式是不仅方便用户，也方便自身。该网页介绍了推荐格式声明，包括数字格式首选项摘要表以及各类创意内容的格式，如文字作品（印刷品、数字、电子连续出版物）、静态图像作品（照片、其他图形图像、微缩形式）、移动影像作品（电影、视频）、音频作品（有形媒体、独立于媒体）、乐谱（打印、数字）、数据、GIS、地理空间和非 GIS 制图、设计与 3D、软件和视频游戏、网络档案、电子邮件等。
 
 ### [你的计算机科学教育中缺失的学期](https://missing.csail.mit.edu/)
 
