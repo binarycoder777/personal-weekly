@@ -64,6 +64,8 @@
 
 ## 期刊目录
 
-- [001期：Microsoft CrowdStrike 事件的技术故障](https://binarycoder777.github.io/zh-cn/2024%E5%B9%B4/7%E6%9C%88/001%E6%9C%9F/)
-- [002期：英特尔将裁员15,000人](https://binarycoder777.com/zh-cn/2024%E5%B9%B4/7%E6%9C%88/002%E6%9C%9F/)
-- [003期：1 万亿美元市值蒸发：市场暴跌重创大型科技公司](https://binarycoder777.com/zh-cn/2024%E5%B9%B4/8%E6%9C%88/003%E6%9C%9F/)
+- [001期：Microsoft CrowdStrike 事件的技术故障](https://binarycoder777.github.io/zh-cn/2024年/7月/001期)
+- [002期：英特尔将裁员15,000人](https://binarycoder777.github.io/zh-cn/2024年/7月/002期)
+- [003期：1 万亿美元市值蒸发：市场暴跌重创大型科技公司](https://binarycoder777.github.io/zh-cn/2024年/8月/003期)
+- [004期：年轻人癌症发病率不断上升](https://binarycoder777.github.io/zh-cn/2024年/8月/009期)
+- [005期：程序员不读书——但你应该读书](https://binarycoder777.github.io/zh-cn/2024年/8月/005期)
