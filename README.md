@@ -69,3 +69,8 @@
 - [003期：1 万亿美元市值蒸发：市场暴跌重创大型科技公司](https://binarycoder777.github.io/zh-cn/2024年/8月/003期)
 - [004期：年轻人癌症发病率不断上升](https://binarycoder777.github.io/zh-cn/2024年/8月/009期)
 - [005期：程序员不读书——但你应该读书](https://binarycoder777.github.io/zh-cn/2024年/8月/005期)
+- [006期：等待时间悖论，或者为什么我的公交车总是晚点？](https://binarycoder777.github.io/zh-cn/2024年/8月/006期)
+- [007期：电动汽车电池起火——需要了解的知识和应对方法](https://binarycoder777.github.io/zh-cn/2024年/8月/007期)
+- [008期：开发人员讨厌他们的工作，但喜欢在工作之外编写代码](https://binarycoder777.github.io/zh-cn/2024年/8月/008期)
+- [009期：价值 15 亿美元的 Bybit 黑客事件：运营安全失败的时代已经到来](https://binarycoder777.github.io/zh-cn/2024年/8月/009期)
+- [010期：继承变得几乎和工作一样重要](https://binarycoder777.github.io/zh-cn/2024年/8月/010期)
