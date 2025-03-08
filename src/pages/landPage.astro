@@ -1,0 +1,357 @@
+---
+// Astro frontmatter
+import Comments from "../components/Comment";
+
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+---
+
+<head>
+  <script
+    type="module"
+    src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"
+  ></script>
+</head>
+
+<main class="landing-container">
+  <div class="hero-section">
+    <div class="content">
+      <div class="header-group">
+        <!-- <model-viewer
+          src="/ssrbs_hololive/scene.gltf"
+          alt="Hololive Model"
+          animation-name="Animation"
+          autoplay
+          camera-target="10m 0m 0m"
+          min-camera-orbit="0deg 75deg 200%"
+          max-camera-orbit="0deg 75deg 200%"
+          min-field-of-view="20deg"
+          max-field-of-view="20deg"
+          interaction-prompt="none"
+          disable-zoom
+          scale="4 4 4"
+          style="--poster-color: transparent;"
+          class="mascot-top"></model-viewer> -->
+        <h1>
+          <span>科技奇闻汇</span>
+          <span class="tagline">每周<span class="highlight">不定时更新</span>~</span>
+        </h1>
+      </div>
+
+      <p class="subtitle">前沿科技，奇趣故事，一键开启你的探索之旅！</p>
+
+      <div class="buttons">
+        <div class="button-container">
+          <a href="https://binarycoder777.com/rss.xml" class="button primary">
+            订阅
+          </a>
+          <a href="/zh-cn/介绍" class="button primary">
+            开始阅读
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <model-viewer
+      src="/space_boi/scene.gltf"
+      alt="Athena Logo"
+      auto-rotate
+      min-camera-orbit="auto auto 200%"
+      max-camera-orbit="auto auto 200%"
+      min-field-of-view="20deg"
+      max-field-of-view="20deg"
+      interaction-prompt="none"
+      disable-zoom
+      scale="30 30 30"
+      class="mascot"></model-viewer>
+  </div>
+
+  <div class="card-grid-container">
+    <CardGrid stagger>
+      <Card title="最新科技动态" icon="rocket">
+        了解最新的科技进展，探索未来的无限可能。
+      </Card>
+      <Card title="趣闻轶事" icon="lightbulb">
+        奇闻趣事大集合，带你发现生活中的神奇故事。
+      </Card>
+      <Card title="科技奇闻专栏" icon="microscope">
+        深入剖析那些不可思议的科技发现与研究。
+      </Card>
+      <Card title="订阅我们的周刊" icon="mail">
+        每周获取最新科技资讯与趣闻趣事，订阅我们的电子周刊。
+      </Card>
+    </CardGrid>
+    <Comments client:only="react" />
+  </div>
+</main>
+
+<style>
+  /* Dark mode colors. */
+  :root {
+    --sl-color-accent-low: #00273d;
+    --sl-color-accent: #0071a7;
+    --sl-color-accent-high: #92d1fe;
+    --sl-color-white: #ffffff;
+    --sl-color-gray-1: #e7eff2;
+    --sl-color-gray-2: #bac4c8;
+    --sl-color-gray-3: #7b8f96;
+    --sl-color-gray-4: #495c62;
+    --sl-color-gray-5: #2a3b41;
+    --sl-color-gray-6: #182a2f;
+    --sl-color-black: #121a1c;
+  }
+  /* Light mode colors. */
+  :root[data-theme="light"] {
+    --sl-color-accent-low: #b0deff;
+    --sl-color-accent: #0073aa;
+    --sl-color-accent-high: #003653;
+    --sl-color-white: #121a1c;
+    --sl-color-gray-1: #182a2f;
+    --sl-color-gray-2: #2a3b41;
+    --sl-color-gray-3: #495c62;
+    --sl-color-gray-4: #7b8f96;
+    --sl-color-gray-5: #bac4c8;
+    --sl-color-gray-6: #e7eff2;
+    --sl-color-gray-7: #f3f7f9;
+    --sl-color-black: #ffffff;
+  }
+  .landing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--sl-color-gray-7);
+    padding: 4rem 0;
+  }
+
+  .hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .content {
+    max-width: 600px;
+    flex: 1;
+    padding: 0 0 3rem 0;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+
+  .header-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  h1 {
+    font-size: 4rem !important;
+    font-weight: bold;
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    line-height: 1.2;
+    margin: 0; /* Reset margin */
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary-light);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .tagline {
+    font-size: 1.25rem;
+    font-weight: normal;
+    line-height: 1.4;
+  }
+
+  .highlight {
+    color: #ff6b00;
+    font-weight: bold;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+  }
+
+  .button-container {
+    display: flex;
+    gap: 1.5rem;
+    width: fit-content;
+  }
+
+  .button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    min-width: 120px;
+    font-weight: 500;
+  }
+
+  .primary {
+    background-color: var(--sl-color-accent);
+    color: #ffffff !important;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .primary:hover {
+    background-color: var(--sl-color-accent-high);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .secondary {
+    background-color: transparent;
+    color: var(--sl-color-black) !important;
+    border: 2px solid var(--sl-color-accent);
+  }
+
+  .secondary:hover {
+    background-color: var(--sl-color-accent-low);
+    border-color: var(--sl-color-accent);
+    transform: translateY(-2px);
+  }
+
+  .mascot {
+    max-width: 500px;
+    height: 400px;
+    width: 500px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 500px;
+  }
+
+  .mascot-top {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 0;
+    margin-left: -4rem;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column;
+      padding: 4rem 2rem;
+      text-align: center;
+      gap: 3rem;
+    }
+
+    .button-container {
+      flex-direction: column;
+      width: 100%;
+      gap: 2rem;
+    }
+
+    .mascot {
+      margin-top: 2rem;
+      width: 350px;
+      height: 280px;
+      flex-basis: 350px;
+      max-width: 350px;
+    }
+
+    .mascot-top {
+      width: 100%;
+      height: 200px;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .landing-container {
+      background: var(--bg-gradient-dark);
+      color: var(--text-primary-dark);
+      box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.05);
+    }
+
+    .subtitle {
+      color: var(--text-secondary-dark);
+    }
+
+    .email-input {
+      background: var(--sl-color-gray-6);
+      border-color: var(--sl-color-gray-4);
+    }
+
+    .email-input::placeholder {
+      color: var(--sl-color-gray-3);
+    }
+
+    .secondary {
+      color: var(--sl-color-white) !important;
+      background-color: transparent;
+      border-color: var(--sl-color-accent);
+    }
+
+    .secondary:hover {
+      background-color: var(--sl-color-accent-low);
+      border-color: var(--sl-color-accent);
+    }
+  }
+
+  .subscribe-form {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .email-input {
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    border: 2px solid var(--sl-color-gray-2);
+    background: var(--sl-color-white);
+    color: var(--sl-color-black);
+    min-width: 250px;
+    transition: all 0.2s ease;
+  }
+
+  .email-input:focus {
+    outline: none;
+    border-color: var(--sl-color-accent);
+    box-shadow: 0 0 0 2px var(--sl-color-accent-low);
+  }
+
+  .email-input::placeholder {
+    color: var(--sl-color-gray-3);
+  }
+
+  @media (max-width: 768px) {
+    .subscribe-form {
+      flex-direction: column;
+      width: 100%;
+      gap: 2rem;
+    }
+
+    .email-input {
+      width: 100%;
+    }
+  }
+
+  .card-grid-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+  }
+</style>
