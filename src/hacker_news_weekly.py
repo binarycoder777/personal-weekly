@@ -13,7 +13,7 @@ from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 
 # DeepSeek API 配置
-DEEPSEEK_API_KEY = "sk-a26f1f0761d8463e895df6bf24e7a71e"  # 在这里填入您的 API 密钥
+DEEPSEEK_API_KEY = ""  # 在这里填入您的 API 密钥
 
 def make_request_with_retry(url, timeout=10, max_retries=3, method='get', headers=None):
     """带有重试机制的请求函数
@@ -210,7 +210,7 @@ def filter_articles(articles):
        - 技术趋势：行业动态、技术展望等
        - 开源社区：开源项目、社区动态等
        - 其他：不属于上述类别但值得关注的内容
-    4. 基于文章实际内容生成摘要，字数不超过150字
+    4. 基于文章实际内容生成摘要，字数不超过150字，不少于100字
     5. 确保摘要准确反映原文内容，不要添加未提及的信息
     6. 内容如果是英文请翻译成中文
     7. 需要返回30篇文章，按重要性和质量排序
