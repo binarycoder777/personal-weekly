@@ -5,7 +5,7 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  favicon: '/favicon.ico',
+  favicon: 'https://raw.githubusercontent.com/binarycoder777/personal-pic/main/pic/favicon.ico',
   site: 'https://binarycoder777.com',
   integrations: [starlight({
     customCss: [
@@ -18,21 +18,17 @@ export default defineConfig({
     logo: {
       src: './src/assets/favicon.webp'
     },
-    // 为此网站设置英语为默认语言。
-    defaultLocale: 'zh-cn',
+    // 为此网站设置中文为默认语言。
     locales: {
-      // 英文文档在 `src/content/docs/en/` 中。
-      en: {
-        label: 'English'
-      },
-      // 简体中文文档在 `src/content/docs/zh-cn/` 中。
-      'zh-cn': {
+      'root': {
         label: '简体中文',
         lang: 'zh-CN'
       }
     },
     social: {
-      github: 'https://github.com/binarycoder777'
+      github: 'https://github.com/binarycoder777/personal-weekly',
+      twitter: 'https://x.com/binarycoder777',
+      discord: 'https://discord.gg/7k3fsuas',
     }
   }), react()]
 });
