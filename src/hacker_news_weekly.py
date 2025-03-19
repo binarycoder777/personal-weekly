@@ -11,9 +11,21 @@ import asyncio
 import aiohttp
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
+import logging
+import sys
+
+# 配置日志
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(sys.stdout),
+        logging.FileHandler('weekly_generation.log')
+    ]
+)
 
 # DeepSeek API 配置
-DEEPSEEK_API_KEY = ""  # 在这里填入您的 API 密钥
+DEEPSEEK_API_KEY = "sk-a26f1f0761d8463e895df6bf24e7a71e"  # 在这里填入您的 API 密钥
 
 def make_request_with_retry(url, timeout=10, max_retries=3, method='get', headers=None):
     """带有重试机制的请求函数
@@ -124,12 +136,16 @@ async def fetch_article_batch(session, stories, target_count):
         try:
             content = await task
             if content:
+                # 获取文章图片
+                image_url = fetch_article_image(story['url'])
+                
                 articles.append({
                     "title": story["title"],
                     "url": story["url"],
                     "content": content[:2000],
                     "score": story.get('score', 0),
-                    "time": story.get('time', 0)
+                    "time": story.get('time', 0),
+                    "image": image_url  # 添加图片URL
                 })
                 print(f"✓ 已获取 {len(articles)}/{target_count}: {story['title']}")
                 
@@ -196,7 +212,7 @@ def get_ai_client():
 def filter_articles(articles):
     """使用 AI 过滤、分类和总结文章"""
     prompt = f"""
-    你是一位资深科技编辑，以下是抓取的文章列表，每篇文章包含标题、URL和内容：
+    你是一位资深科技编辑，以下是抓取的文章列表，每篇文章包含标题、URL、图片和内容：
     {articles}
     
     你的任务：
@@ -210,16 +226,22 @@ def filter_articles(articles):
        - 技术趋势：行业动态、技术展望等
        - 开源社区：开源项目、社区动态等
        - 其他：不属于上述类别但值得关注的内容
-    4. 基于文章实际内容生成摘要，字数不超过150字，不少于100字
-    5. 确保摘要准确反映原文内容，不要添加未提及的信息
-    6. 内容如果是英文请翻译成中文
-    7. 需要返回30篇文章，按重要性和质量排序
+    4. 文章主题。（一个主题）
+    5. 事件或观点。（判断文章是在讲新的事件还是发表观点，三至五个核心事件或观点，如果事件和观点都存在，可以放在一句话里）
+    6. 事件详情或观点依据。（每个事件或观点提炼2-4个详情或依据）
+    7. 重要金句或反常识的观点（1-4个）
+    8. 整体总结。需要内容中看起来像是由AI生成的部分进行重写，可以从语气、视角、过渡词汇等角度进行修改。
+    9. 对总结的内容中可能的语法错误大胆纠正，保证中文文章使用的是中文标点符号，使得文本看起来更像是人类自行创作的结果，改写前后要保持用户原本的文本风格。
+    10. 内容限制在200字内。
+    11. 所有内容必须翻译成中文，包括标题
+    12. 需要返回30篇文章，按重要性和质量排序
     
     输出格式：
-    [{{"title": "...", 
-       "summary": "...", 
+    [{{"title": "...", # 中文标题
+       "summary": "...", # 中文摘要
        "url": "...",
-       "category": "..."  # 添加分类字段
+       "category": "...",  # 添加分类字段
+       "image": "..."  # 保持原有的图片URL
     }}]
     """
     
@@ -302,27 +324,75 @@ def generate_weekly_title():
 
 def translate_to_english(content):
     """将内容翻译成英文"""
-    prompt = f"""
-    请将以下中文内容翻译成英文，保持专业性和可读性：
-    {content}
-    
-    注意：
-    1. 保持 Markdown 格式不变
-    2. 保持链接和图片引用不变
-    3. 技术术语使用通用的英文表达
-    4. 保持专业性和流畅性
-    """
-    
-    client = get_ai_client()
-    response = client.chat.completions.create(
-        model="deepseek-chat",
-        messages=[
-            {"role": "system", "content": "You are a professional translator"},
-            {"role": "user", "content": prompt}
-        ]
-    )
-    
-    return response.choices[0].message.content
+    # 将内容分块处理，避免超出token限制
+    def split_content(text, max_length=4000):
+        parts = []
+        lines = text.split('\n')
+        current_part = []
+        current_length = 0
+        
+        for line in lines:
+            if current_length + len(line) > max_length:
+                parts.append('\n'.join(current_part))
+                current_part = [line]
+                current_length = len(line)
+            else:
+                current_part.append(line)
+                current_length += len(line)
+        
+        if current_part:
+            parts.append('\n'.join(current_part))
+        return parts
+
+    try:
+        content_parts = split_content(content)
+        translated_parts = []
+        client = get_ai_client()
+
+        for part in content_parts:
+            prompt = f"""
+请将以下中文内容翻译成英文，保持专业性和可读性：
+
+{part}
+
+要求：
+1. 保持 Markdown 格式不变
+2. 保持链接和图片引用不变
+3. 技术术语使用通用的英文表达
+4. 保持专业性和流畅性
+5. 保持原文的格式和结构
+"""
+            
+            try:
+                response = client.chat.completions.create(
+                    model="deepseek-chat",
+                    messages=[
+                        {"role": "system", "content": "You are a professional translator"},
+                        {"role": "user", "content": prompt}
+                    ],
+                    temperature=0.7,
+                    max_tokens=4000
+                )
+                
+                # 打印调试信息
+                print(f"Translation API Response: {response}")
+                
+                if hasattr(response.choices[0], 'message'):
+                    translated_text = response.choices[0].message.content
+                    translated_parts.append(translated_text)
+                else:
+                    print(f"警告：响应格式异常: {response}")
+                    return content  # 如果翻译失败，返回原文
+                    
+            except Exception as e:
+                print(f"翻译部分内容时出错: {str(e)}")
+                return content  # 如果翻译失败，返回原文
+        
+        return '\n'.join(translated_parts)
+        
+    except Exception as e:
+        print(f"翻译过程出错: {str(e)}")
+        return content  # 如果翻译失败，返回原文
 
 def get_save_paths(date):
     """根据日期生成保存路径"""
@@ -345,37 +415,33 @@ def get_save_paths(date):
 
 def save_markdown(articles):
     """生成 Markdown 文件"""
-    today = datetime.date.today()
-    
-    # 获取保存路径
-    zh_path, en_path = get_save_paths(today)
-    os.makedirs(zh_path, exist_ok=True)
-    os.makedirs(en_path, exist_ok=True)
-    
-    # 生成期号
-    weekly_title = generate_weekly_title()
-    
-    # 生成中文内容
-    zh_content = generate_markdown_content(articles, weekly_title, "zh")
-    
-    # 生成英文内容
-    en_content = translate_to_english(zh_content)
-    
-    # 保存中文版本
-    zh_filepath = os.path.join(zh_path, f"{today.strftime('%d')}期.mdx")
-    with open(zh_filepath, "w", encoding="utf-8") as f:
-        f.write(zh_content)
-    print(f"✅ 生成中文版本：{zh_filepath}")
-    
-    # 保存英文版本
-    en_filepath = os.path.join(en_path, f"issue-{today.strftime('%d')}.mdx")
-    with open(en_filepath, "w", encoding="utf-8") as f:
-        f.write(en_content)
-    print(f"✅ 生成英文版本：{en_filepath}")
+    try:
+        today = datetime.date.today()
+        
+        # 获取保存路径
+        zh_path, _ = get_save_paths(today)
+        os.makedirs(zh_path, exist_ok=True)
+        
+        # 生成期号
+        weekly_title = generate_weekly_title()
+        
+        # 生成中文内容
+        zh_content = generate_markdown_content(articles, weekly_title, "zh")
+        
+        # 保存中文版本
+        zh_filepath = os.path.join(zh_path, f"{today.strftime('%d')}期.mdx")
+        with open(zh_filepath, "w", encoding="utf-8") as f:
+            f.write(zh_content)
+        print(f"✅ 生成中文版本：{zh_filepath}")
+            
+    except Exception as e:
+        print(f"保存 Markdown 文件时出错: {str(e)}")
+        raise
 
 def generate_markdown_content(articles, weekly_title, lang="zh"):
     """生成 Markdown 内容"""
     today = datetime.date.today().strftime("%Y-%m-%d")
+    week_number = today.isocalendar()[1]
     
     # 从第一篇文章获取标题和描述
     first_article = articles[0] if articles else {
@@ -383,17 +449,9 @@ def generate_markdown_content(articles, weekly_title, lang="zh"):
         'summary': '本周值得关注的技术趋势和开源项目精选'
     }
     
-    # 按分类组织文章
-    categories = {}
-    for article in articles:
-        category = article.get('category', '其他')
-        if category not in categories:
-            categories[category] = []
-        categories[category].append(article)
-    
-    # Markdown 头部
+    # Markdown 头部，添加期号到标题
     header = f"""---
-title: {first_article['title']}
+title: 第{week_number}期 · {first_article['title']}
 description: {first_article['summary']}
 ---
 
@@ -407,6 +465,14 @@ description: {first_article['summary']}
 
 """
     
+    # 按分类组织文章
+    categories = {}
+    for article in articles:
+        category = article.get('category', '其他')
+        if category not in categories:
+            categories[category] = []
+        categories[category].append(article)
+    
     # 生成文章内容
     content_parts = []
     for category, articles_in_category in categories.items():
@@ -415,16 +481,32 @@ description: {first_article['summary']}
             # 标题和链接
             content_parts.append(f"### [{article['title']}]({article['url']})")
             
-            # 如果有图片，添加图片
+            # 添加图片（如果有）
             if article.get('image'):
-                content_parts.append(f"\n![article image]({article['image']})")
+                content_parts.append(f"""
+<div align="center">
+<img src="{article['image']}" width="400" />
+</div>
+""")
             
             # 添加摘要
             content_parts.append(f"\n{article['summary']}\n")
+            
+            # 添加分隔线
+            content_parts.append("---\n")
     
     content = "\n".join(content_parts)
     
-    return header + content
+    # 添加页脚
+    footer = """
+<div align="center">
+
+如果觉得这些内容对你有帮助，欢迎[点个 Star ⭐](https://github.com/your-repo) 或[分享给朋友](https://twitter.com/intent/tweet)
+
+</div>
+"""
+    
+    return header + content + footer
 
 def clean_ai_response(response):
     """清理 AI 返回的响应，移除 Markdown 格式"""
@@ -435,32 +517,39 @@ def clean_ai_response(response):
 def main():
     """主函数"""
     try:
-        print("开始获取文章...")
+        logging.info("开始获取文章...")
         articles = fetch_top_articles()
-        print(f"获取到 {len(articles)} 篇文章")
+        logging.info(f"获取到 {len(articles)} 篇文章")
         
         if not articles:
-            print("未获取到任何文章，程序退出")
-            return
+            logging.error("未获取到任何文章，程序退出")
+            sys.exit(1)
         
-        print("正在过滤文章...")
+        logging.info("正在过滤文章...")
         filtered_response = filter_articles(articles)
         cleaned_response = clean_ai_response(filtered_response)
         
         try:
             articles = json.loads(cleaned_response)
         except json.JSONDecodeError as e:
-            print(f"解析 AI 响应失败: {str(e)}")
-            return
+            logging.error(f"解析 AI 响应失败: {str(e)}")
+            logging.error(f"原始响应: {cleaned_response}")
+            sys.exit(1)
         
-        print(f"过滤后剩余 {len(articles)} 篇文章")
+        logging.info(f"过滤后剩余 {len(articles)} 篇文章")
+        
+        # 确保目录存在
+        today = datetime.date.today()
+        zh_path, _ = get_save_paths(today)
+        os.makedirs(zh_path, exist_ok=True)
+        
         save_markdown(articles)
-        print("✅ 全部处理完成")
+        logging.info("✅ 全部处理完成")
         
     except Exception as e:
-        print(f"❌ 程序执行出错: {str(e)}")
-        import traceback
-        print(traceback.format_exc())
+        logging.error(f"❌ 程序执行出错: {str(e)}")
+        logging.error(traceback.format_exc())
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
