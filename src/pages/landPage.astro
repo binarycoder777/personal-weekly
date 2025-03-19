@@ -46,7 +46,7 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
           <a href="https://binarycoder777.com/rss.xml" class="button primary">
             订阅
           </a>
-          <a href="/zh-cn/介绍" class="button primary">
+          <a href="/介绍" class="button primary">
             开始阅读
           </a>
         </div>
@@ -87,6 +87,9 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 </main>
 
 <style>
+      * {
+    margin: 0 !important;
+   }
   /* Dark mode colors. */
   :root {
     --sl-color-accent-low: #00273d;
@@ -353,5 +356,20 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
     width: 100%;
     max-width: 1200px;
     padding: 0 2rem;
+  }
+
+  /* 添加 dialog-frame 相关样式 */
+  :global(dialog-frame) {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    z-index: 1000 !important;
+  }
+
+  /* 如果需要添加遮罩层 */
+  :global(dialog-frame::backdrop) {
+    background: rgba(0, 0, 0, 0.5);
   }
 </style>
