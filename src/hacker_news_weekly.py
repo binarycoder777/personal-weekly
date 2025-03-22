@@ -13,6 +13,7 @@ from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 import logging
 import sys
+import traceback
 
 # 配置日志
 logging.basicConfig(
@@ -25,7 +26,7 @@ logging.basicConfig(
 )
 
 # DeepSeek API 配置
-DEEPSEEK_API_KEY = "sk-a26f1f0761d8463e895df6bf24e7a71e"  # 在这里填入您的 API 密钥
+DEEPSEEK_API_KEY = ""  # 在这里填入您的 API 密钥
 
 def make_request_with_retry(url, timeout=10, max_retries=3, method='get', headers=None):
     """带有重试机制的请求函数
@@ -318,9 +319,11 @@ def categorize_articles(articles):
 
 def generate_weekly_title():
     """生成周刊标题"""
+    start_date = datetime.date(2024, 7, 1)  # 设置起始日期
     today = datetime.date.today()
-    week_number = today.isocalendar()[1]
-    return f"第{week_number}期 · {today.strftime('%Y.%m.%d')}"
+    days_diff = (today - start_date).days
+    issue_number = (days_diff // 7) + 1  # 从起始日期开始的第几周
+    return f"第{issue_number}期 · {today.strftime('%Y.%m.%d')}"
 
 def translate_to_english(content):
     """将内容翻译成英文"""
@@ -401,7 +404,7 @@ def get_save_paths(date):
     
     # 中文版路径
     zh_path = os.path.join(
-        "content", "docs", "zh-cn",
+        "content", "docs",
         f"{year}年", f"{month}月"
     )
     
@@ -440,7 +443,7 @@ def save_markdown(articles):
 
 def generate_markdown_content(articles, weekly_title, lang="zh"):
     """生成 Markdown 内容"""
-    today = datetime.date.today().strftime("%Y-%m-%d")
+    today = datetime.date.today()  # 保持为 datetime.date 对象，不要转换为字符串
     week_number = today.isocalendar()[1]
     
     # 从第一篇文章获取标题和描述
