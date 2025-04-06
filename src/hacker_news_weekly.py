@@ -159,14 +159,31 @@ async def fetch_article_batch(session, stories, target_count):
 
 async def fetch_top_articles_async(target_count=30):
     """异步获取热门文章"""
-    async with aiohttp.ClientSession() as session:
+    # 设置更长的超时时间
+    timeout = aiohttp.ClientTimeout(total=30)  # 30秒超时
+    
+    async with aiohttp.ClientSession(timeout=timeout) as session:
         # 获取文章列表
-        try:
-            SOURCE_URL = "https://hacker-news.firebaseio.com/v0/topstories.json"
-            async with session.get(SOURCE_URL) as response:
-                story_ids = await response.json()
-        except Exception as e:
-            print(f"获取文章列表失败: {str(e)}")
+        SOURCE_URL = "https://hacker-news.firebaseio.com/v0/topstories.json"
+        
+        # 添加重试机制
+        max_retries = 3
+        for retry in range(max_retries):
+            try:
+                async with session.get(SOURCE_URL) as response:
+                    if response.status == 200:
+                        story_ids = await response.json()
+                        break
+                    else:
+                        print(f"获取文章列表失败，状态码: {response.status}")
+            except Exception as e:
+                if retry == max_retries - 1:
+                    print(f"获取文章列表失败: {str(e)}")
+                    return []
+                print(f"重试 {retry + 1}/{max_retries}")
+                await asyncio.sleep(2 ** retry)  # 指数退避
+        else:
+            print("获取文章列表失败，已达到最大重试次数")
             return []
 
         # 获取文章详情
@@ -175,11 +192,13 @@ async def fetch_top_articles_async(target_count=30):
             try:
                 url = f"https://hacker-news.firebaseio.com/v0/item/{story_id}.json"
                 async with session.get(url) as response:
-                    story = await response.json()
-                    if story and 'url' in story:
-                        stories.append(story)
+                    if response.status == 200:
+                        story = await response.json()
+                        if story and 'url' in story:
+                            stories.append(story)
             except Exception as e:
                 print(f"获取文章详情失败: {story_id}, 错误: {str(e)}")
+                continue  # 继续处理下一篇文章
 
         # 批量获取文章内容
         articles = await fetch_article_batch(session, stories, target_count)

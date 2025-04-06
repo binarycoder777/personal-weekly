@@ -1,0 +1,127 @@
+---
+title: 第15期 · Apple的Darwin OS和XNU内核深度剖析
+description: 本文深入探讨了苹果Darwin OS和XNU内核架构，追溯其从Mach和BSD根源到支持macOS、iOS和Apple Silicon的演变历程。文章分析了混合内核的设计、对新硬件和安全范式的适应，以及XNU为何能成为苹果平台独特而强大的基础。
+---
+
+<div align="center">
+
+# 科技周刊 第15期 · 2025.04.06
+
+本期精选 10 篇高质量科技内容
+
+</div>
+
+## 技术架构
+### [Apple的Darwin OS和XNU内核深度剖析](https://tansanrao.com/blog/2025/04/xnu-kernel-and-darwin-evolution-and-architecture/)
+
+本文深入探讨了苹果Darwin OS和XNU内核架构，追溯其从Mach和BSD根源到支持macOS、iOS和Apple Silicon的演变历程。文章分析了混合内核的设计、对新硬件和安全范式的适应，以及XNU为何能成为苹果平台独特而强大的基础。
+
+---
+
+### [AMD RDNA 4 GPU架构上的动态寄存器分配](https://chipsandcheese.com/p/dynamic-register-allocation-on-amds)
+
+<div align="center">
+<img src="https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F39ad0e36-cde9-4af8-b104-5aeae0ae836e_824x545.webp" width="400" />
+</div>
+
+
+本文详细分析了AMD最新RDNA 4 GPU架构中的动态寄存器分配机制，探讨了其设计原理和性能优势，为GPU开发者提供了深入的技术洞见。
+
+---
+
+### [快速提供矢量切片服务](https://spatialists.ch/posts/2025/04-05-serving-vector-tiles-fast/)
+
+<div align="center">
+<img src="https://spatialists.ch/posts/2025/04-05-serving-vector-tiles-fast/ganesh-partheeban-A9pIo2VEI5A-unsplash.jpg" width="400" />
+</div>
+
+
+Fabian Rechsteiner的基准测试比较了六种开源矢量切片服务器(BBOX、ldproxy、Martin、pg_tileserv、Tegola、TiPg)的性能表现，揭示了它们在速度上的显著差异，为地理空间数据服务提供了选型参考。
+
+---
+
+## 编程开发
+### [在QEMU中模拟iPhone](https://eshard.com/posts/emulating-ios-14-with-qemu)
+
+<div align="center">
+<img src="https://cms.eshard.com:/uploads/i_OS_Emulation_57dd673dc5.gif" width="400" />
+</div>
+
+
+文章记录了在QEMU中模拟iOS 14的完整过程，从黑屏和启动问题到渲染异常和PAC难题，分享了团队如何最终让iOS成功运行的宝贵经验。
+
+---
+
+### [Swift对WebAssembly支持的愿景](https://forums.swift.org/t/pitch-a-vision-for-webassembly-support-in-swift/79060)
+
+<div align="center">
+<img src="https://global.discourse-cdn.com/swift/original/1X/0a90dde98a223f5841eeca49d89dc9f57592e8d6.png" width="400" />
+</div>
+
+
+随着Swift社区对WebAssembly支持的不断改进，作者提出了一个关于Swift中WebAssembly支持的愿景，描述了其发展现状和未来方向，并邀请社区提供反馈。
+
+---
+
+### [Go语言中更快的解释器：追赶C++](https://planetscale.com/blog/faster-interpreters-in-go-catching-up-with-cpp)
+
+<div align="center">
+<img src="https://planetscale.com/assets/faster-interpreters-in-go-catching-up-with-cpp-social-B98VI5vN.jpg" width="400" />
+</div>
+
+
+文章介绍了一种在Go中实现动态语言解释器的新技术，并将其应用于Vitess SQL评估引擎，展示了如何通过创新方法提升Go解释器的性能。
+
+---
+
+### [通过构建SSR React项目理解水合错误](https://www.propelauth.com/post/understanding-hydration-errors)
+
+<div align="center">
+<img src="https://cdn.getmidnight.com/a1241f0fcb8d83a4c0387f234e241914/2025/04/Blog-Post--2-.png" width="400" />
+</div>
+
+
+文章深入分析了服务器端渲染React项目中的水合错误产生原因，通过实际案例展示了如何诊断和解决这类问题，为前端开发者提供了实用指导。
+
+---
+
+## 人工智能
+### [SeedLM：将LLM权重压缩为伪随机生成器的种子](https://machinelearning.apple.com/research/seedlm-compressing)
+
+<div align="center">
+<img src="https://mlr.cdn-apple.com/media/Home_1200x630_48225d82e9.png" width="400" />
+</div>
+
+
+苹果机器学习研究团队提出SeedLM，通过将大型语言模型权重压缩为伪随机生成器的种子，大幅减少模型存储需求，为解决LLM部署中的存储挑战提供了创新方案。
+
+---
+
+## 开源社区
+### [开源联盟宣布'模型签名'以加强ML供应链安全](https://pypi.org/project/model-signing/)
+
+<div align="center">
+<img src="https://pypi.org/static/images/twitter.abaf4b19.webp" width="400" />
+</div>
+
+
+开源社区推出模型签名工具，为机器学习模型提供签名和验证功能，旨在增强ML供应链的安全性，确保模型来源的可信度。
+
+---
+
+### [墨西哥政府开源经验分享](https://lwn.net/Articles/1013776/)
+
+<div align="center">
+<img src="https://static.lwn.net/images/lcorner-ss.png" width="400" />
+</div>
+
+
+文章分享了墨西哥政府在实施开源项目过程中的经验教训，为公共部门采用开源技术提供了实践参考和案例分析。
+
+---
+
+<div align="center">
+
+如果觉得这些内容对你有帮助，欢迎[点个 Star ⭐](https://github.com/your-repo) 或[分享给朋友](https://twitter.com/intent/tweet)
+
+</div>
