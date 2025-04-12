@@ -164,16 +164,23 @@ async def fetch_top_articles_async(target_count=30):
     
     async with aiohttp.ClientSession(timeout=timeout) as session:
         # 获取文章列表
-        SOURCE_URL = "https://hacker-news.firebaseio.com/v0/topstories.json"
+        SOURCE_URL = "https://hacker-news.firebaseio.com/v0/topstories.json"  # 修正URL
         
         # 添加重试机制
         max_retries = 3
         for retry in range(max_retries):
             try:
-                async with session.get(SOURCE_URL) as response:
+                headers = {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+                    'Accept': 'application/json'  # 明确指定接受JSON响应
+                }
+                async with session.get(SOURCE_URL, headers=headers) as response:
                     if response.status == 200:
                         story_ids = await response.json()
-                        break
+                        if isinstance(story_ids, list):  # 验证返回的是列表
+                            break
+                        else:
+                            print("返回的数据格式不正确")
                     else:
                         print(f"获取文章列表失败，状态码: {response.status}")
             except Exception as e:
@@ -191,7 +198,7 @@ async def fetch_top_articles_async(target_count=30):
         for story_id in story_ids[:100]:  # 获取前100个故事
             try:
                 url = f"https://hacker-news.firebaseio.com/v0/item/{story_id}.json"
-                async with session.get(url) as response:
+                async with session.get(url, headers=headers) as response:
                     if response.status == 200:
                         story = await response.json()
                         if story and 'url' in story:
@@ -269,9 +276,10 @@ def filter_articles(articles):
     response = client.chat.completions.create(
         model="deepseek-chat",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant"},
+            {"role": "system", "content": "You are a helpful assistant. Please ensure the response is in valid JSON format."},
             {"role": "user", "content": prompt}
-        ]
+        ],
+        temperature=0.7  # 降低温度以获得更一致的输出
     )
     
     return response.choices[0].message.content
@@ -531,10 +539,39 @@ description: {first_article['summary']}
     return header + content + footer
 
 def clean_ai_response(response):
-    """清理 AI 返回的响应，移除 Markdown 格式"""
-    # 移除 ```json 和 ``` 标记
-    response = response.replace('```json', '').replace('```', '').strip()
-    return response
+    """清理 AI 返回的响应，移除 Markdown 格式并修复 JSON 格式"""
+    try:
+        # 移除 Markdown 格式标记
+        cleaned = response.replace('```json', '').replace('```', '').strip()
+        
+        # 尝试解析 JSON 以验证格式
+        try:
+            json.loads(cleaned)
+            return cleaned
+        except json.JSONDecodeError:
+            # 如果解析失败，尝试修复常见问题
+            # 1. 移除注释
+            lines = [line for line in cleaned.split('\n') if not line.strip().startswith('#')]
+            cleaned = '\n'.join(lines)
+            
+            # 2. 确保所有单引号变成双引号
+            cleaned = cleaned.replace("'", '"')
+            
+            # 3. 移除末尾可能的多余逗号
+            cleaned = cleaned.replace(',]', ']').replace(',}', '}')
+            
+            # 再次尝试解析
+            try:
+                json.loads(cleaned)
+                return cleaned
+            except json.JSONDecodeError as e:
+                logging.error(f"JSON 格式修复失败: {str(e)}")
+                logging.error(f"清理后的响应:\n{cleaned}")
+                raise
+                
+    except Exception as e:
+        logging.error(f"清理响应时出错: {str(e)}")
+        raise
 
 def main():
     """主函数"""
