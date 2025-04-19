@@ -431,7 +431,7 @@ def get_save_paths(date):
     
     # 中文版路径
     zh_path = os.path.join(
-        "content", "docs",
+       "src", "content", "docs",
         f"{year}年", f"{month}月"
     )
     
