@@ -26,7 +26,7 @@ logging.basicConfig(
 )
 
 # DeepSeek API 配置
-DEEPSEEK_API_KEY = "sk-790cc813f7ce477884e3bce7189c4ea1"  # 在这里填入您的 API 密钥
+DEEPSEEK_API_KEY = ""  # 在这里填入您的 API 密钥
 
 def make_request_with_retry(url, timeout=10, max_retries=3, method='get', headers=None):
     """带有重试机制的请求函数
