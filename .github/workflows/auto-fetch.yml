@@ -19,6 +19,7 @@ jobs:
     timeout-minutes: 30
     env:
       DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      DEEPSEEK_MODEL: deepseek-v4-flash
       WEEKLY_TIMEZONE: Asia/Shanghai
       PYTHONUNBUFFERED: "1"
 

@@ -27,7 +27,7 @@ LOG_PATH = ROOT_DIR / "weekly_generation.log"
 HN_API = "https://hacker-news.firebaseio.com/v0"
 TIMEZONE = ZoneInfo(os.getenv("WEEKLY_TIMEZONE", "Asia/Shanghai"))
 TARGET_COUNT = int(os.getenv("WEEKLY_ARTICLE_COUNT", "30"))
-MODEL = os.getenv("DEEPSEEK_MODEL", "deepseek-chat")
+MODEL = os.getenv("DEEPSEEK_MODEL", "deepseek-v4-flash")
 USER_AGENT = "personal-weekly/1.0 (+https://github.com/binarycoder777/personal-weekly)"
 
 logging.basicConfig(

@@ -67,6 +67,8 @@ GitHub Pages 部署流程。
 首次启用时，需要在仓库的 **Settings → Secrets and variables → Actions**
 中添加名为 `DEEPSEEK_API_KEY` 的 Repository secret。配置完成后，可以到
 **Actions → Auto Fetch Weekly Articles → Run workflow** 手动运行一次进行验证。
+默认使用 `deepseek-v4-flash`；如果更看重生成质量，可以在 workflow 中将
+`DEEPSEEK_MODEL` 改为 `deepseek-v4-pro`。
 
 GitHub Actions 的定时任务使用 UTC，因此 workflow 中的
 `0 14 * * 5` 对应北京时间周五 22:00。GitHub 的调度可能有数分钟延迟。
