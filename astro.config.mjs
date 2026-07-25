@@ -1,7 +1,59 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import react from "@astrojs/react";
+
+const docsDirectory = new URL('./src/content/docs/', import.meta.url);
+
+function numericPrefix(name) {
+  return Number.parseInt(name, 10);
+}
+
+function pageTitle(file) {
+  const content = readFileSync(file, 'utf8');
+  const title = content.match(/^title:\s*(.+)$/m)?.[1].trim();
+
+  return title?.replace(/^(['"])(.*)\1$/, '$2');
+}
+
+function weeklySidebar() {
+  const years = readdirSync(docsDirectory, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && /^\d{4}年$/.test(entry.name))
+    .sort((a, b) => numericPrefix(b.name) - numericPrefix(a.name));
+
+  return [
+    { label: '关于科技奇闻汇', link: '/介绍/' },
+    ...years.map((year) => {
+      const yearDirectory = join(fileURLToPath(docsDirectory), year.name);
+      const months = readdirSync(yearDirectory, { withFileTypes: true })
+        .filter((entry) => entry.isDirectory() && /^\d{1,2}月$/.test(entry.name))
+        .sort((a, b) => numericPrefix(b.name) - numericPrefix(a.name));
+
+      return {
+        label: year.name,
+        collapsed: false,
+        items: months.map((month) => {
+          const monthDirectory = join(yearDirectory, month.name);
+          const issues = readdirSync(monthDirectory, { withFileTypes: true })
+            .filter((entry) => entry.isFile() && /\.mdx?$/.test(entry.name))
+            .sort((a, b) => numericPrefix(b.name) - numericPrefix(a.name));
+
+          return {
+            label: month.name,
+            collapsed: false,
+            items: issues.map((issue) => ({
+              label: pageTitle(join(monthDirectory, issue.name)) ?? issue.name.replace(/\.mdx?$/, ''),
+              link: `/${year.name}/${month.name}/${issue.name.replace(/\.mdx?$/, '')}/`,
+            })),
+          };
+        }),
+      };
+    }),
+  ];
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,6 +70,7 @@ export default defineConfig({
     logo: {
       src: './src/assets/favicon.webp'
     },
+    sidebar: weeklySidebar(),
     // 为此网站设置中文为默认语言。
     locales: {
       'root': {
