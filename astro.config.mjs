@@ -6,7 +6,7 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   favicon: 'https://raw.githubusercontent.com/binarycoder777/personal-pic/main/pic/favicon.ico',
-  site: 'https://binarycoder777.com',
+  site: 'https://weekly.binarycoder.org',
   integrations: [starlight({
     customCss: [
     // 你的自定义 CSS 文件的相对路径
