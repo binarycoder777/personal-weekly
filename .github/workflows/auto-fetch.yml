@@ -2,86 +2,71 @@ name: Auto Fetch Weekly Articles
 
 on:
   schedule:
-    - cron: '0 0 * * 6'  # 每周六 UTC 00:00 运行
-  workflow_dispatch:  # 允许手动触发
+    # GitHub cron 使用 UTC：周五 14:00 = 北京时间周五 22:00。
+    - cron: "0 14 * * 5"
+  workflow_dispatch:
+
+concurrency:
+  group: weekly-article-generation
+  cancel-in-progress: false
+
+permissions:
+  contents: write
 
 jobs:
   update-weekly:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # 明确指定写入权限
+    timeout-minutes: 30
+    env:
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      WEEKLY_TIMEZONE: Asia/Shanghai
+      PYTHONUNBUFFERED: "1"
 
     steps:
-    - name: 检出代码
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 1  # 减少克隆深度，加快检出速度
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - name: 设置 Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
-        cache: 'pip'  # 启用 pip 缓存
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
 
-    - name: 安装依赖
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+      - name: 安装依赖
+        run: python -m pip install --requirement requirements.txt
 
-    - name: 创建必要的目录
-      run: |
-        year=$(date +%Y)
-        month=$(date +%m)
-        mkdir -p "content/docs/zh-cn/${year}年/${month}月"
+      - name: 检查 DeepSeek Secret
+        run: |
+          if [ -z "$DEEPSEEK_API_KEY" ]; then
+            echo "::error::请在仓库 Settings > Secrets and variables > Actions 中添加 DEEPSEEK_API_KEY"
+            exit 1
+          fi
 
-    - name: 设置环境变量
-      run: |
-        echo "DEEPSEEK_API_KEY=${{ secrets.DEEPSEEK_API_KEY }}" >> $GITHUB_ENV
-        echo "PYTHONUNBUFFERED=1" >> $GITHUB_ENV  # 实时输出 Python 日志
+      - name: 生成周刊
+        run: python src/hacker_news_weekly.py
 
-    - name: 运行周刊生成脚本
-      run: |
-        python src/hacker_news_weekly.py 2>&1 | tee weekly_generation.log
+      - name: 提交并推送
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/content/docs
 
-    - name: 检查生成的文件
-      run: |
-        find content/docs/zh-cn -type f -name "*.mdx" -mmin -10 | while read file; do
-          echo "新生成的文件: $file"
-          echo "文件内容预览:"
-          head -n 10 "$file"
-        done
+          if git diff --cached --quiet; then
+            echo "内容没有变化，无需提交。"
+            exit 0
+          fi
 
-    - name: 提交更新到 GitHub
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions@github.com"
-        
-        # 获取当前周数和日期
-        week_number=$(date +%V)
-        current_date=$(date +%Y.%m.%d)
-        
-        # 检查是否有变更
-        if git status --porcelain | grep -q "content/docs/"; then
-          git add content/docs/zh-cn/**/*.mdx
-          git commit -m "📅 自动更新第${week_number}期周刊 ${current_date}"
-          git push origin main
-          echo "✅ 成功提交更新"
-        else
-          echo "没有检测到新的变更"
-        fi
+          issue_date=$(TZ=Asia/Shanghai date +%Y.%m.%d)
+          git commit -m "📅 自动更新周刊 ${issue_date}"
+          git push origin HEAD:main
 
-    - name: 上传日志
-      if: always()  # 无论成功失败都上传日志
-      uses: actions/upload-artifact@v3
-      with:
-        name: generation-logs
-        path: weekly_generation.log
-
-    - name: 处理错误
-      if: failure()
-      run: |
-        echo "::error::周刊生成失败，请检查日志"
-        if [ -f weekly_generation.log ]; then
-          echo "错误日志最后 20 行："
-          tail -n 20 weekly_generation.log
-        fi
+      - name: 上传运行日志
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-generation-log-${{ github.run_id }}
+          path: weekly_generation.log
+          if-no-files-found: warn
+          retention-days: 14

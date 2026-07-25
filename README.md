@@ -57,6 +57,20 @@
 4. change astro.config.mjs config
 5. more info refer to https://astro.build/ or https://starlight.astro.build/
 ```
+
+## 自动生成周刊
+
+GitHub Actions 会在每周五北京时间 22:00 自动运行
+`src/hacker_news_weekly.py`，生成新一期 MDX、提交到 `main`，随后触发现有的
+GitHub Pages 部署流程。
+
+首次启用时，需要在仓库的 **Settings → Secrets and variables → Actions**
+中添加名为 `DEEPSEEK_API_KEY` 的 Repository secret。配置完成后，可以到
+**Actions → Auto Fetch Weekly Articles → Run workflow** 手动运行一次进行验证。
+
+GitHub Actions 的定时任务使用 UTC，因此 workflow 中的
+`0 14 * * 5` 对应北京时间周五 22:00。GitHub 的调度可能有数分钟延迟。
+
 ## 订阅
 
 喜欢科技奇闻汇的朋友可以通过 [这里](https://binarycoder777.github.io/zh-cn) 免费订阅我的更新。 感谢您的关注和支持！
