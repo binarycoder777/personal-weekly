@@ -1,0 +1,180 @@
+---
+title: "第34期 · 追踪16年历史的SQLite WAL重置缺陷"
+description: "Tailscale团队在经历数月不稳定后，发现其控制平面依赖的SQLite数据库存在一个长达16年的WAL重置缺陷。该缺陷导致数据库损坏和中断，团队通过深入取证最终定位根因并修复。文章详细描述了Tailscale的分片架构、故障排查过程，以及为SQLite社区贡献修复的经过，强调了数据库底层问题对云服务可靠性的影响。"
+---
+
+<div align="center">
+
+# 科技周刊 第34期 · 2026.08.14
+
+本期精选 15 篇高质量科技内容
+
+</div>
+
+## 技术架构
+
+### [追踪16年历史的SQLite WAL重置缺陷](https://tailscale.com/blog/sqlite-wal-reset-bug)
+
+<div align="center">
+<img src="https://tailscale.com/api/og-image?id=45389fc1-da6e-4e0d-82f6-140651c6ba57" width="400" alt="" loading="lazy" />
+</div>
+
+Tailscale团队在经历数月不稳定后，发现其控制平面依赖的SQLite数据库存在一个长达16年的WAL重置缺陷。该缺陷导致数据库损坏和中断，团队通过深入取证最终定位根因并修复。文章详细描述了Tailscale的分片架构、故障排查过程，以及为SQLite社区贡献修复的经过，强调了数据库底层问题对云服务可靠性的影响。
+
+---
+
+### [选择无聊的技术](https://mcfunley.com/choose-boring-technology)
+
+<div align="center">
+<img src="https://mcfunley.com/assets/images/mountains-square.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+经典文章，作者Dan McKinley提出“创新代币”概念：每家公司只有少量创新预算。选择成熟、可预测的“无聊”技术（如Postgres、PHP）可以降低未知风险。文章强调理解技术失败模式的重要性，并建议全局优化而非局部创新。
+
+---
+
+## 人工智能
+
+### [DeepSeek V4 Pro 0813 发布](https://openrouter.ai/deepseek/deepseek-v4-pro-0813)
+
+<div align="center">
+<img src="https://openrouter.ai/deepseek/deepseek-v4-pro-0813/opengraph-image-1oizug?abd1ffaa6102aa5f" width="400" alt="" loading="lazy" />
+</div>
+
+DeepSeek推出V4 Pro 0813，这是V4 Pro的正式发布版本（GA），采用大规模混合专家（MoE）架构，支持100万上下文窗口，API定价为每百万输入0.435美元、输出0.87美元。OpenRouter已上线该模型，提供多提供商路由、性能监控和基准数据。
+
+---
+
+### [Gemini 3.7 Flash 发布](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/)
+
+<div align="center">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3-7-flash.width-1300.png" width="400" alt="" loading="lazy" />
+</div>
+
+Google发布Gemini 3.7 Flash，被称为“最智能的多面手模型”，专为编码和智能体任务优化。该模型在推理能力、速度和多模态方面均有提升，面向开发者提供更强的工具调用和代理能力，是Gemini系列在速度和性能上的平衡之作。
+
+---
+
+### [Qwen3.8-2.4T-A95B 开源模型](https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B)
+
+<div align="center">
+<img src="https://cdn-thumbnails.huggingface.co/social-thumbnails/models/Qwen/Qwen3.8-2.4T-A95B.png" width="400" alt="" loading="lazy" />
+</div>
+
+阿里巴巴Qwen团队发布Qwen3.8-2.4T-A95B，一个2.4万亿参数的MoE模型，激活参数950亿，支持对话和长上下文。模型在Hugging Face上以Transformers、vLLM、SGLang等多种格式提供，并附有详细使用示例，支持本地和云端部署。
+
+---
+
+### [Cerebras 加速 GPT-5.6 Sol Ultrafast](https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai)
+
+<div align="center">
+<img src="https://cdn.sanity.io/images/e4qjo92p/production/fdfac76baee0b174ea63df807f9d4f975341caea-1672x941.png?rect=0,32,1672,878&amp;w=1200&amp;h=630&amp;fit=max&amp;auto=format" width="400" alt="" loading="lazy" />
+</div>
+
+Cerebras与OpenAI合作推出GPT-5.6 Sol Ultrafast模式，基于Cerebras硬件实现高达750输出token/秒的速度，且不牺牲质量。在Humanity's Last Exam基准上，11小时完成2500题，比Claude Fable 5快近7倍。该服务将带动高时间敏感场景的AI应用。
+
+---
+
+### [Mistral OCR 4.1 发布](https://docs.mistral.ai/models/ocr-4-1)
+
+<div align="center">
+<img src="https://docs.mistral.ai//api/og?title=OCR+4.1&amp;description=Our+latest+OCR+service+powering+our+Document+AI+stack%2C+with+native+paragraph-level+bounding+box+extraction%2C+structural+block+labels%2C+and+block-level+confidence+scores.&amp;eyebraw=v4.1&amp;image=&amp;type=model&amp;v=019d62909957b786bc48bc8b89308bfbe44b1e84&amp;modelIcon=ocr" width="400" alt="" loading="lazy" />
+</div>
+
+Mistral AI推出OCR 4.1服务，支持原生段落级边界框提取、结构块标签和块级置信度评分。定价为每千页4美元，带标注的页面5美元，提供批量处理能力，面向文档智能应用。
+
+---
+
+## 编程开发
+
+### [DeepSeek Harness 开发者预览：一切皆插件](https://deepseek.com/harness/en/)
+
+<div align="center">
+<img src="https://deepseek.com/harness/images/harness/feat-plugin.en.png" width="400" alt="" loading="lazy" />
+</div>
+
+DeepSeek发布Harness开发者预览版，这是一个智能体开发框架，基于Cordis插件系统，将所有能力（模型、工具、技能、会话、沙箱、存储、循环、调度和UI）都设计为可替换组件。支持多种运行模式，每次运行可追溯，便于调试和定制。
+
+---
+
+### [Flutter 3.47 发布](https://flutter.dev/blog/whats-new-in-flutter-3-47)
+
+<div align="center">
+<img src="https://flutter.dev/assets/hero_image.049a8f4d89d8082a040f98f1d74b91b2.gif" width="400" alt="" loading="lazy" />
+</div>
+
+Flutter 3.47正式发布，推出独立的material_ui和cupertino_ui包1.0版本，将设计系统与核心SDK解耦。桌面端默认启用Impeller渲染器，支持iOS/macOS/Xcode 27，并让Widget Previews进入稳定版。
+
+---
+
+### [NP 难题可能被高估了](https://gruhn.me/blog/2026-08-13/)
+
+<div align="center">
+<img src="https://gruhn.me/rss.svg" width="400" alt="" loading="lazy" />
+</div>
+
+作者撰文反驳“NP难问题在实践中不可解”的普遍认知。他指出，尽管最坏情况指数复杂，但实际应用中依赖解析、调度、旅行商等问题常能在合理时间内求得最优解，且算法改进带来的加速远超硬件提升。以SAT/SMT为例，亚马逊每天解决数十亿SMT问题。
+
+---
+
+### [systemd-journald 单条日志导致巨大磁盘写入](https://github.com/systemd/systemd/issues/40262)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/eed6ac539281d094a276ccda04a162e6a6d61e50bb4a0eadb2c594b358e64bb6/systemd/systemd/issues/40262" width="400" alt="" loading="lazy" />
+</div>
+
+GitHub issue报告systemd-journald存在过度IO问题，单条日志行在ext4上产生49KB+、btrfs上110KB+的磁盘写入。用户每秒写2行日志时VM约50 IOPS，远超syslog。该问题与早期issue 15292相关，影响Debian 13等系统。
+
+---
+
+## 技术趋势
+
+### [DRAM 加扰研究：解锁 CPU 隐藏功能](https://github.com/xoreaxeaxeax/skitter-creek-bath-salts)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/27454bc004ecf2a6275f31607d2944e530fff2224e576071af24e285cb929453/xoreaxeaxeax/skitter-creek-bath-salts" width="400" alt="" loading="lazy" />
+</div>
+
+安全研究员公开了skitter-creek-bath-salts项目，通过修改DRAM控制器的地址翻译，重新映射物理内存，从而访问被保留的区域（如平台安全处理器、系统管理模式、CPU微码等）。该技术推翻了基于内存隔离的安全假设，展示了底层硬件攻击的严重性。
+
+---
+
+### [理解成为新的瓶颈](https://www.geoffreylitt.com/2026/07/02/understanding-is-the-new-bottleneck)
+
+<div align="center">
+<img src="https://geoffreylitt.com/images/talks/understanding-bottleneck/card.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+作者在AI工程师会议上提出，随着AI代理编写更多代码，人类理解代码的重要性不降反升。除了验证，理解还使人类能参与创造过程。文中分享了三种高效理解技巧：解释文档、测验和微型世界，并讨论了认知债务的概念。
+
+---
+
+## 产品创新
+
+### [Zed 推出 Delta：多人智能体编程环境](https://zed.dev/blog/introducing-delta)
+
+<div align="center">
+<img src="https://images.zed.dev/blog/introducing-delta/thumbnail.webp" width="400" alt="" loading="lazy" />
+</div>
+
+Zed发布Delta，一个面向智能体编程的多玩家环境，支持开发者和AI代理在同一工作树中协作。DeltaDB实时复制代码和对话，评论锚定在代码上并随演进更新，支持线程内私密协作。该应用旨在让代码审查与生成过程保持上下文连贯。
+
+---
+
+## 开源社区
+
+### [Bluesky 推出 Protocol Services](https://atproto.com/blog/introducing-bluesky-protocol-services)
+
+<div align="center">
+<img src="https://atproto.com/-/blog/introducing-bluesky-protocol-services/opengraph-image.png?d2b4677fa75ef34c" width="400" alt="" loading="lazy" />
+</div>
+
+Bluesky发布Protocol Services，为AT Protocol网络的公共基础设施提供新品牌和门户网站，并推出Jetstream v2，支持网络重放功能，允许开发者从任意历史点同步数据。同时发布新的Jetstream SDK和基于lex的TypeScript SDK，完善生态开发体验。
+
+---
+
+<div align="center">
+
+如果觉得这些内容对你有帮助，欢迎[点个 Star ⭐](https://github.com/binarycoder777/personal-weekly) 或分享给朋友。
+
+</div>
