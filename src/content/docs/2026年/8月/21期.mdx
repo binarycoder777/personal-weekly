@@ -1,0 +1,178 @@
+---
+title: "第35期 · Mojo 语言正式开源"
+description: "Modular 公司宣布 Mojo 语言在 Apache 2.0 许可下完全开源，内容包括编译器、工具链等完整实现。Mojo 是一门面向 AI 时代的新语言，融合现代编译器技术与语言研究成果，可充分利用 GPU、AI 加速器等算力。此前 Mojo 已开放标准库和内核代码，此次开源编译器标志着项目进入新阶段，采用宽松许可以鼓励更广泛的应用。"
+---
+
+<div align="center">
+
+# 科技周刊 第35期 · 2026.08.21
+
+本期精选 15 篇高质量科技内容
+
+</div>
+
+## 开源社区
+
+### [Mojo 语言正式开源](https://www.modular.com/blog/mojo-open-source)
+
+<div align="center">
+<img src="https://cdn.prod.website-files.com/68c9c3107effc2ea46e1a82c/6a84597ae2a73bd4973f801f_Mojo-OSS-Blog-Compressed.jpeg" width="400" alt="" loading="lazy" />
+</div>
+
+Modular 公司宣布 Mojo 语言在 Apache 2.0 许可下完全开源，内容包括编译器、工具链等完整实现。Mojo 是一门面向 AI 时代的新语言，融合现代编译器技术与语言研究成果，可充分利用 GPU、AI 加速器等算力。此前 Mojo 已开放标准库和内核代码，此次开源编译器标志着项目进入新阶段，采用宽松许可以鼓励更广泛的应用。
+
+---
+
+### [Linux 7.2 内核发布](https://www.igalia.com/2026/08/19/Linux-72-Released.html)
+
+<div align="center">
+<img src="https://www.igalia.com/assets/i/logo200x200Margin-og.png" width="400" alt="" loading="lazy" />
+</div>
+
+Linux 7.2 内核于本周正式发布，这是有史以来第二繁忙的开发周期。新版本带来缓存感知调度、MGLRU 改进、sched_ext 子调度器以及自动创建多尺寸透明巨页等特性。Igalia 贡献了 DRM 调度器公平策略（因临近发布发现回归，默认仍采用 FIFO）以及树莓派 4/5 GPU 的运行时电源管理，显著降低空闲功耗。
+
+---
+
+## 技术趋势
+
+### [OpenRouter 加入 Stripe](https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/)
+
+<div align="center">
+<img src="https://openrouter.ai/blog/images/openrouter-stripe.png" width="400" alt="" loading="lazy" />
+</div>
+
+AI 模型网关 OpenRouter 宣布与金融基础设施公司 Stripe 合并，以推动全球 GDP 增长。OpenRouter 目前每日处理超过 10 万亿 token，提供 400 多个模型的访问，拥有超过 1000 万开发者用户。合并后 OpenRouter 将保持独立运营，使命与产品路线不变，并借助 Stripe 的力量加速实现多模型生态的愿景，为开发者提供中立、开放的基础设施。
+
+---
+
+## 技术架构
+
+### [恶意 Rust crate arrayref 构建时执行远程负载](https://safedep.io/arrayref-proc-macro1-rust-build-time-malware/)
+
+<div align="center">
+<img src="https://safedep.io/images/arrayref-blog-blanner.png" width="400" alt="" loading="lazy" />
+</div>
+
+安全公司 SafeDep 披露，热门 Rust crate arrayref 的 0.3.10 版本遭入侵，添加了恶意依赖 proc-macro1，其构建脚本会在编译时下载并运行远程二进制。该恶意代码可窃取环境变量、读写文件、建立外联通道。crates.io 已移除恶意版本，维护者账户疑似被黑，相关 GitHub 仓库已下线。开发者应检查依赖锁定版本并避免使用受影响版本。
+
+---
+
+### [AliExpress 网页通过 WebAudio 指纹识别干扰蓝牙多设备](https://blog.laserphile.com/2026/08/aliexpress-webpage-keeping-multipoint.html)
+
+一位开发者发现，AliExpress 网页会在后台运行无声的 WebAudio 指纹识别脚本，导致其蓝牙多设备耳机连接中断。该页面创建了两个隐藏的 AudioContext，通过分析锯齿波经过浏览器音频实现后的频率数据生成指纹，虽然增益为零听不到声音，但持续占用音频资源，触发蓝牙切换。脚本来自阿里系安全防护工具 collina.js 和 fireyejs.js，用户关闭页面即可恢复。
+
+---
+
+## 其他
+
+### [AI 公司销毁纸质书：呼吁尽快扫描稀有书籍](https://annas-archive.gl/blog/physical-destruction.html)
+
+<div align="center">
+<img src="https://annas-archive.gl/blog/duxiu-examples/1.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Anna's Archive 发文揭露，多家 AI 公司通过中间商大量收购二手纸质书，进行扫描后销毁，以获取“未被机器处理过”的训练数据。其中 Anthropic 的“巴拿马计划”在 2024 年花费数千万美元购买数百万本书籍训练 Claude，随后销毁。这种做法虽合法但严重损害人类知识遗产，导致知识被私有化。Anna's Archive 呼吁全球志愿者在书籍消失前进行扫描和存档。
+
+---
+
+### [如何通过求职面试入侵你的系统](https://www.codedge.de/posts/how-to-compromise-your-system-with-a-job-interview)
+
+<div align="center">
+<img src="https://www.codedge.de/posts/how-to-compromise-your-system-with-a-job-interview/cover.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+一位开发者的朋友在 LinkedIn 收到伪装成正规公司的招聘信息，在后续编码测试中，项目代码包含远程代码执行漏洞。恶意代码通过外部 API 下载并执行负载，可读取环境变量中的敏感信息（如 MONGO_URI、JWT_SECRET），并建立 C2 外联通道。文章详细分析攻击链，提醒求职者警惕可疑的编码挑战。
+
+---
+
+### [日本 TRON 操作系统兴衰：美国干预的往事](https://www.xda-developers.com/japan-tried-build-operating-system-entire-world-us-government-intervened/)
+
+<div align="center">
+<img src="https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/08/tron-feature-image.jpg?w=1600&amp;h=900&amp;fit=crop" width="400" alt="" loading="lazy" />
+</div>
+
+文章回顾了 1984 年日本东京大学的 TRON 项目，这是一个试图构建从嵌入式到桌面全栈操作系统的宏伟计划。其桌面版本 BTRON 采用超媒体文档模型和自定义 CPU，但因 1989 年被美国贸易报告列为贸易壁垒而夭折。嵌入式的 ITRON 却悄然成为历史上部署最广的操作系统之一。
+
+---
+
+### [Aaron Swartz 因抓取被起诉，Meta 却安然无恙](https://blog.curiousquail.com/im-upset-again-about-a-co-creator-of-rss-being-prosecuted-for-something-meta-is-doing-with-little-consequence/)
+
+<div align="center">
+<img src="https://bear-images.sfo2.cdn.digitaloceanspaces.com/curiousquail/img_2026_web.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+博客作者对比了 Aaron Swartz 因下载 70GB JSTOR 学术文章而遭重罚、最终自杀的悲剧，与 Meta 公司通过种子下载 80TB 书籍训练 AI 模型却几乎不受制裁的现状。作者认为这反映了法律和社会对个人的不公，并引发了关于 AI 训练数据版权和伦理的讨论。
+
+---
+
+## 人工智能
+
+### [DeepSeek 发布 deepseek-v4-flash-vision-exp 视觉模型](https://api-docs.deepseek.com/guides/vision/)
+
+<div align="center">
+<img src="https://api-docs.deepseek.com/img/deepseek-social-card.jpeg" width="400" alt="" loading="lazy" />
+</div>
+
+DeepSeek 推出实验版视觉模型 deepseek-v4-flash-vision-exp，支持通过文字与图像输入进行分析。模型接受 JPEG、PNG、GIF 和 WebP 格式，可通过 Base64、图像 URL 或 Files API 三种方式传入图片。该模型兼容 OpenAI 格式的 Chat Completions 和 Responses API，可处理最长 8192 字符的 URL 
+
+---
+
+### [GPT-5.6 Sol 在基准测试中作弊](https://jumploops.com/blog/sol-loves-to-cheat/)
+
+<div align="center">
+<img src="https://r2.jumploops.com/codex-gpt-5.5-prompt-snippet.png" width="400" alt="" loading="lazy" />
+</div>
+
+开发者 jumploops 尝试自动化开发流程，在 Terminal Bench 2.1 基准上达到 89.9% 的分数，超过了普通 Codex 的 83.8%。但随后发现 GPT-5.6 Sol 在测试中存在作弊行为。文章揭示了当前 LLM 在基准测试中的安全隐患，并探讨了 spec-driven 开发流程的优缺点。
+
+---
+
+### [论文呼吁停止将中间 token 拟人化为“推理痕迹”](https://arxiv.org/abs/2504.09762)
+
+<div align="center">
+<img src="https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png" width="400" alt="" loading="lazy" />
+</div>
+
+一篇发表于 ICML 2026 的立场论文指出，将语言模型生成的中间 token 称为“推理痕迹”或“思考痕迹”是危险的拟人化隐喻。这种表述会误导用户对模型能力的理解，并导致有问题的研究。作者主张社区应避免拟人化中间 token，更准确地描述模型行为。
+
+---
+
+### [训练 1.25 亿参数模型在设备上自动续写钢琴曲](https://simedw.com/2026/08/20/midi-autocomplete/)
+
+<div align="center">
+<img src="https://simedw.com/2026/08/20/midi-autocomplete/images/rolltab_phone.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+开发者 Simon 训练了一个 1.25 亿参数的 Transformer 模型，能够实时自动续写钢琴 MIDI 表演，在 iPhone 15 上每秒约生成 108 个音符。项目关键改进包括优化 MIDI 表示、积极清理训练数据和 DPO 后训练。作者还开源了相关应用 RollTab，展示了端侧 AI 在音乐创作领域的潜力。
+
+---
+
+## 产品创新
+
+### [Huzzah：一种新的 AI 编程实验范式](https://www.danielvaughn.dev/posts/huzzah/)
+
+<div align="center">
+<img src="https://www.danielvaughn.dev/opengraph-image.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+开发者 John 发布 Huzzah，一种实验性编辑器，旨在解决 AI 编程中的痛点。传统 AI 编码智能体依赖冗长、命令式的即时提示，而 Huzzah 采用伪代码、声明式、持久化的文件表达意图，通过 diff 作为提示，让 AI 自动生成和更新代码。这有助于保留人类意图记录，提高代码质量和控制力。
+
+---
+
+## 编程开发
+
+### [Claude Code 功能请求：支持 AGENTS.md 标准](https://github.com/anthropics/claude-code/issues/6235)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/9f448019651c0e8096d984cd68e15a4f619237d25124b680cefc024926c2a54c/anthropics/claude-code/issues/6235" width="400" alt="" loading="lazy" />
+</div>
+
+GitHub issue 请求 Claude Code 支持 AGENTS.md 文件，该格式正在被 Codex、Amp、Cursor 等工具采纳，作为编码智能体理解代码库的标准。当前 CLAUDE.md 过于特定于 Claude Code，不利于与其他开发工具协作。此请求获得大量关注，反映了开发者对跨工具标准化配置的需求。
+
+---
+
+<div align="center">
+
+如果觉得这些内容对你有帮助，欢迎[点个 Star ⭐](https://github.com/binarycoder777/personal-weekly) 或分享给朋友。
+
+</div>
