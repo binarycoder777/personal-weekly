@@ -6,7 +6,13 @@ import WeeklyFooter from '../components/WeeklyFooter.astro';
 import { issueDate, sortWeeklyIssues } from '../utils/issues';
 
 const issues = sortWeeklyIssues(await getCollection('docs'));
-const issuesByYear = Object.entries(Object.groupBy(issues, (issue) => issue.slug.split('/')[0]));
+const issuesByYear = Object.entries(
+  issues.reduce<Record<string, CollectionEntry<'docs'>[]>>((groups, issue) => {
+    const year = issue.slug.split('/')[0];
+    (groups[year] ??= []).push(issue);
+    return groups;
+  }, {}),
+);
 const tags = ['科技观察　# 产品动态　# 独立思考', '硬件　# 产品设计　# 用户体验', 'AI　# 应用开发　# 市场机会', '信息管理　# 工具方法　# 数字生活', '写作　# 个人成长　# 知识分享'];
 const date = (issue: CollectionEntry<'docs'>) => new Intl.DateTimeFormat('zh-CN', { year:'numeric', month:'2-digit', day:'2-digit', timeZone:'Asia/Shanghai' }).format(issueDate(issue)).replaceAll('/', '.');
 ---
