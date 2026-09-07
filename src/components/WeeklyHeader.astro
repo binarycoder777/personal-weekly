@@ -1,0 +1,42 @@
+---
+const currentPath = Astro.url.pathname;
+const isCurrent = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+const items = [{ href:'/', label:'首页' }, { href:'/archive/', label:'归档' }, { href:'/介绍/', label:'关于' }];
+---
+<div class="weekly-header">
+  <a class="weekly-wordmark" href="/">BINARY WEEKLY</a>
+  <nav aria-label="主导航">{items.map((item) => <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>)}</nav>
+  <span class="weekly-nav-rule" aria-hidden="true"></span>
+  <button class="weekly-theme-button" type="button" data-theme-toggle aria-label="切换深浅色模式">◒</button>
+</div>
+
+<script>
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]')];
+  const syncThemeButtons = () => {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    buttons.forEach((button) => {
+      button.textContent = dark ? '☀' : '◒';
+      button.setAttribute('aria-label', dark ? '切换到浅色模式' : '切换到深色模式');
+    });
+  };
+  buttons.forEach((button) => button.addEventListener('click', () => {
+    const root = document.documentElement;
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    localStorage.setItem('starlight-theme', next);
+    syncThemeButtons();
+  }));
+  syncThemeButtons();
+</script>
+
+<style>
+  .weekly-header { display:grid; box-sizing:border-box; width:100%; max-width:70.75rem; height:3.2rem; grid-template-columns:1fr auto auto auto; align-items:center; margin:0 auto; border-bottom:1px solid var(--weekly-line); color:var(--weekly-ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; line-height:1.2; }
+  .weekly-wordmark { color:inherit; font-size:.88rem; font-weight:850; letter-spacing:.14em; text-decoration:none; }
+  .weekly-header nav { display:flex; align-self:stretch; align-items:center; gap:2rem; }
+  .weekly-header nav a { position:relative; display:inline-flex; height:100%; align-items:center; color:inherit; font-size:.75rem; text-decoration:none; }
+  .weekly-header nav a:hover,.weekly-header nav a[aria-current='page'] { color:#f04b23; font-weight:700; }
+  .weekly-header nav a[aria-current='page']::after { position:absolute; right:0; bottom:0; left:0; height:2px; background:#f04b23; content:''; }
+  .weekly-nav-rule { width:1px; height:1.15rem; margin-left:2rem; background:var(--weekly-line); }
+  .weekly-theme-button { width:3rem; border:0; background:transparent; color:inherit; cursor:pointer; font-size:1.1rem; }
+  @media(max-width:42rem){ .weekly-header{grid-template-columns:1fr auto auto}.weekly-header nav{display:none}.weekly-nav-rule{margin-left:0}.weekly-theme-button{width:2.25rem} }
+</style>

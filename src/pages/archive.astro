@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import WeeklyFooter from '../components/WeeklyFooter.astro';
+import { issueDate, sortWeeklyIssues } from '../utils/issues';
+
+const issues = sortWeeklyIssues(await getCollection('docs'));
+const issuesByYear = Object.entries(Object.groupBy(issues, (issue) => issue.slug.split('/')[0]));
+const tags = ['科技观察　# 产品动态　# 独立思考', '硬件　# 产品设计　# 用户体验', 'AI　# 应用开发　# 市场机会', '信息管理　# 工具方法　# 数字生活', '写作　# 个人成长　# 知识分享'];
+const date = (issue: CollectionEntry<'docs'>) => new Intl.DateTimeFormat('zh-CN', { year:'numeric', month:'2-digit', day:'2-digit', timeZone:'Asia/Shanghai' }).format(issueDate(issue)).replaceAll('/', '.');
+---
+
+<StarlightPage frontmatter={{ title: '往期归档', description: '浏览科技奇闻汇历期内容。', template: 'splash' }}>
+  <section class="archive-page">
+    <p class="archive-kicker"><i></i> ARCHIVE</p>
+    <h1>归档</h1>
+    <p class="archive-intro">按时间回顾每一期，寻找那些值得再次阅读的内容。</p>
+    <nav class="year-tabs" aria-label="按年份筛选"><a class="active" data-year="all" href="#archive-all">全部</a>{issuesByYear.map(([year]) => { const yearKey = year.replace('年', ''); return <a data-year={yearKey} href={`#archive-${yearKey}`}>{yearKey}</a> })}</nav>
+    <div class="archive-groups">
+      {issuesByYear.map(([year, yearIssues]) => { const yearKey = year.replace('年', ''); return <section class="archive-year" id={`archive-${yearKey}`} aria-labelledby={`heading-${yearKey}`}>
+        <div class="year-heading"><h2 id={`heading-${yearKey}`}>{year}</h2></div>
+        <div class="issue-list">
+          {yearIssues?.map((issue, index) => <a data-issue-row href={`/${issue.slug}/`} class="issue-row">
+            <span class="issue-number">ISSUE {issue.data.title.match(/第(\d+)期/)?.[1]?.padStart(3,'0') ?? String(index + 1).padStart(3,'0')}<small>{date(issue)}</small></span>
+            <strong>{issue.data.title.replace(/^第\d+期\s*[·・—-]?\s*/, '')}</strong>
+            <span class="issue-tags"># {tags[index % tags.length]}</span>
+          </a>)}
+        </div>
+      </section> })}
+    </div>
+  </section>
+  <WeeklyFooter />
+</StarlightPage>
+
+<script>
+  const tabs = [...document.querySelectorAll<HTMLAnchorElement>('.year-tabs a[data-year]')];
+  const groups = [...document.querySelectorAll<HTMLElement>('.archive-year')];
+  const renderYear = () => {
+    const selected = decodeURIComponent(window.location.hash.replace(/^#archive-/, '')) || 'all';
+    tabs.forEach((tab) => tab.classList.toggle('active', tab.dataset.year === selected));
+    groups.forEach((group) => { group.hidden = selected !== 'all' && group.id !== `archive-${selected}`; });
+  };
+  tabs.forEach((tab) => tab.addEventListener('click', (event) => {
+    event.preventDefault();
+    const selected = tab.dataset.year || 'all';
+    window.history.replaceState({}, '', `${window.location.pathname}${window.location.search}#archive-${selected}`);
+    renderYear();
+  }));
+  window.addEventListener('hashchange', renderYear);
+  renderYear();
+</script>
+
+<style>
+  :global(main > .content-panel:first-child){display:none}
+  .archive-page{width:min(100%,70.75rem);margin:0 auto;color:var(--weekly-ink)}
+  .archive-kicker{display:flex;align-items:center;gap:.8rem;margin:0!important;color:var(--weekly-muted);font-size:.68rem;font-weight:800;letter-spacing:.1em}.archive-kicker i{width:2rem;height:2px;background:#f04b23}
+  h1{margin:.8em 0 0!important;font-family:"Songti SC",STSong,"Noto Serif SC",Georgia,serif;font-size:clamp(2.6rem,6vw,4.6rem);letter-spacing:-.075em;line-height:1}
+  .archive-intro{max-width:35rem;margin:.85rem 0 1.2rem!important;color:var(--weekly-muted);line-height:1.75}
+  .year-tabs{display:flex;gap:2.4rem;align-items:center;margin-top:1rem;padding-bottom:.7rem;border-bottom:1px solid var(--weekly-line)}.year-tabs a{position:relative;color:var(--weekly-muted);font-size:.75rem;text-decoration:none}.year-tabs a.active{color:#f04b23;font-weight:700}.year-tabs a.active:after{position:absolute;right:0;bottom:-.72rem;left:0;height:2px;background:#f04b23;content:''}
+  .archive-groups{margin-top:1.7rem}.archive-year+.archive-year{margin-top:1.5rem}.year-heading{margin-bottom:.45rem}.year-heading h2{margin:0!important;font-family:"Songti SC",STSong,"Noto Serif SC",Georgia,serif;font-size:clamp(1.55rem,3vw,2.3rem);letter-spacing:-.06em}.issue-list{border-top:1px solid var(--weekly-line)}
+  .issue-row{display:grid;grid-template-columns:8.2rem minmax(0,1fr) minmax(15rem,auto);gap:1.25rem;align-items:center;padding:.62rem .25rem;border-bottom:1px solid var(--weekly-line);color:inherit;text-decoration:none;transition:background .16s ease,padding .16s ease}.issue-row:hover{padding-inline:.75rem;background:color-mix(in srgb,var(--weekly-ink) 5%,transparent)}.issue-row[hidden],.archive-year[hidden]{display:none}.issue-number{color:var(--weekly-ink)!important;font-size:.68rem!important;font-weight:700;letter-spacing:.08em}.issue-number small{display:block;margin-top:.25rem;color:var(--weekly-muted);font-size:.68rem;font-weight:400;letter-spacing:0}.issue-row strong{font-family:"Songti SC",STSong,"Noto Serif SC",Georgia,serif;font-size:1.05rem;letter-spacing:-.02em}.issue-tags{color:var(--weekly-muted)!important;font-size:.7rem!important;white-space:nowrap}
+  .archive-newsletter{display:grid;grid-template-columns:minmax(0,1fr) minmax(24rem,27rem);gap:3rem;align-items:center;width:min(100%,70.75rem);margin:0 auto;padding:1.25rem 0;border-top:1px solid #d8d7d2;border-bottom:1px solid #d8d7d2}.archive-newsletter p{margin:0!important;font-family:"Songti SC",STSong,"Noto Serif SC",Georgia,serif;font-size:1rem;font-weight:700}.archive-newsletter form{display:grid;grid-template-columns:minmax(0,1fr) 5rem;margin:0!important}.archive-newsletter input{min-width:0;margin:0;padding:.64rem .8rem;border:1px solid #d8d7d2;background:#fff;font:inherit;font-size:.7rem}.archive-newsletter button{margin:0;border:0;background:#f04b23;color:#fff;font-size:.75rem;font-weight:700}.archive-footer{display:flex;justify-content:space-between;align-items:center;width:min(100%,70.75rem);margin:0 auto;padding:1.25rem 0;color:#102033}.archive-footer .footer-brand,.archive-footer nav,.archive-footer nav>div{display:flex;align-items:center;flex-wrap:nowrap}.archive-footer .footer-brand{gap:1.25rem}.archive-footer strong{font-size:.68rem;letter-spacing:.1em}.archive-footer span,.archive-footer nav a{color:#69717b;font-size:.63rem;text-decoration:none}.archive-footer nav{gap:1.65rem}.archive-footer .footer-pages,.archive-footer .footer-social{display:flex;align-items:center;gap:1.65rem}.archive-footer .footer-social{gap:1.25rem;margin-left:3rem!important}.archive-footer svg{width:1rem;height:1rem;fill:currentColor}
+  @media(max-width:75rem){.archive-page{padding-inline:clamp(1.25rem,4vw,2.5rem)}}
+  @media(max-width:60rem){.issue-row{grid-template-columns:7rem minmax(0,1fr)}.issue-tags{display:none}}
+  @media(max-width:60rem){.archive-newsletter,.archive-footer{padding-inline:clamp(1.25rem,4vw,2.5rem)}}
+  @media(max-width:35rem){.year-tabs{gap:1.3rem;overflow:auto}.issue-row{grid-template-columns:5.5rem minmax(0,1fr);gap:.7rem}.issue-row strong{font-size:.95rem}.archive-newsletter{grid-template-columns:1fr;gap:.9rem}.archive-footer{flex-direction:column;align-items:flex-start;gap:1rem}.archive-footer .footer-pages{display:none}.archive-footer nav{align-self:flex-start}}
+</style>

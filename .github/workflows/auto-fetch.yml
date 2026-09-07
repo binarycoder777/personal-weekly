@@ -48,6 +48,20 @@ jobs:
       - name: 生成周刊
         run: python src/hacker_news_weekly.py
 
+      - name: 验证周刊输出
+        run: python scripts/health_check.py --expect-current-month
+
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: 验证站点构建
+        run: |
+          npm ci
+          npm run build
+
       - name: 提交并推送
         run: |
           git config user.name "github-actions[bot]"

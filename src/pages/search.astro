@@ -1,0 +1,26 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+---
+
+<StarlightPage frontmatter={{ title: '搜索', description: '搜索科技奇闻汇的全部内容。', template: 'splash' }}>
+  <section class="search-page">
+    <p>SEARCH</p>
+    <h1>搜索周刊内容</h1>
+    <p>正在打开站内搜索。你也可以在任意页面按 <kbd>⌘ / Ctrl</kbd> + <kbd>K</kbd> 搜索。</p>
+  </section>
+</StarlightPage>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelector<HTMLButtonElement>('site-search [data-open-modal]')?.click();
+  }, { once: true });
+</script>
+
+<style>
+  :global(main > .content-panel:first-child) { display: none; }
+  .search-page { width: min(100%, 48rem); margin: 0 auto; padding: clamp(2rem, 7vw, 5rem) 1.25rem; color: #111; }
+  .search-page > p:first-child { margin: 0; color: #e95b28; font-size: .7rem; font-weight: 800; letter-spacing: .1em; }
+  h1 { margin: .9rem 0 1rem; font-size: clamp(2.4rem, 6vw, 4.4rem); letter-spacing: -.075em; line-height: 1; }
+  .search-page > p:last-child { color: #77777c; line-height: 1.7; }
+  kbd { padding: .12rem .35rem; border: 1px solid #dededb; border-radius: .25rem; background: #f3f3f0; color: #111; font: .75em inherit; }
+</style>

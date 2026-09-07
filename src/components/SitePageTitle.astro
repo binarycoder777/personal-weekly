@@ -1,0 +1,17 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+
+const { entry } = Astro.props as Props;
+const isWeeklyArticle = /^\d{4}年\/\d{1,2}月\/\d{1,2}期$/.test(entry.slug);
+const issue = entry.data.title.match(/第(\d+)期/)?.[1]?.padStart(3, '0');
+---
+
+{isWeeklyArticle && <p class="weekly-article-kicker"><i></i> BINARY WEEKLY {issue ? `· ISSUE ${issue}` : ''}</p>}
+<h1 id="_top" class:list={{ 'weekly-article-title': isWeeklyArticle }}>{entry.data.title}</h1>
+
+<style>
+  h1 { margin-top:1rem; color:var(--sl-color-white); font-size:var(--sl-text-h1); font-weight:600; line-height:var(--sl-line-height-headings); }
+  .weekly-article-kicker { display:flex; align-items:center; gap:.8rem; margin:0!important; color:var(--weekly-muted); font-size:.68rem; font-weight:800; letter-spacing:.1em; }
+  .weekly-article-kicker i { width:2rem; height:2px; background:#f04b23; }
+  .weekly-article-title { margin:.8em 0 0!important; color:var(--weekly-ink); font-family:"Songti SC",STSong,"Noto Serif SC",Georgia,serif; font-size:clamp(2.25rem,5vw,4rem); letter-spacing:-.06em; line-height:1.12; }
+</style>

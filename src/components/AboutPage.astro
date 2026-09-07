@@ -1,0 +1,30 @@
+---
+import heroImage from '../assets/hero.jpeg';
+import WeeklyFooter from './WeeklyFooter.astro';
+---
+
+<section class="about-page">
+  <header class="about-hero">
+    <p class="about-kicker"><i></i> ABOUT</p>
+    <h1>关于这份周刊</h1>
+    <p class="about-subtitle">记录技术，也记录技术之外的思考。</p>
+  </header>
+
+  <section class="about-body" aria-label="关于这份周刊">
+    <div class="about-copy">
+      <article><h2>为什么写</h2><p>在快速变化的技术世界里，信息从不稀缺，稀缺的是经过思考的视角。<br />我希望通过这份周刊，独立筛选值得关注的技术进展、产品动态与行业观察，并结合自己的实践经验，记录真实的思考与判断。</p></article>
+      <article><h2>关注什么</h2><p>这份周刊主要关注 AI 与大模型、软件工程与开发工具、产品与创业、开源生态，以及长期主义的思考。我们不仅讨论技术本身，也关注技术如何影响工作方式、创造新的可能，以及在更长的时间维度里带来的变化。</p></article>
+      <article><h2>关于作者</h2><p>BinaryCoder777（Auren Tao），一名来自重庆的后端开发工程师，关注 Java、AI Agent 与产品创造。我喜欢通过写作梳理思考，尝试在技术、产品和生活之间找到平衡。希望这份周刊能成为一个持续记录、不断成长的长期项目。</p></article>
+    </div>
+    <aside class="author-card">
+      <img src={heroImage.src} alt="深色几何建筑与光影" width={heroImage.width} height={heroImage.height} loading="lazy" />
+      <h2>BinaryCoder777 <span>/ Auren Tao</span></h2>
+      <p>流水不争先，争的是滔滔不绝。</p>
+      <div class="contact-links"><a href="https://github.com/binarycoder777/personal-weekly">◉　GitHub <b>→</b></a><a href="https://binarycoder777.com/">◒　即刻 <b>→</b></a><a href="mailto:atao67276@gmail.com">✉　邮件联系 <b>→</b></a></div>
+    </aside>
+  </section>
+
+  <section class="manifesto"><p class="about-kicker"><i></i> OUR MANIFESTO</p><h2>保持好奇，独立思考，长期记录。</h2></section>
+  <section class="reprint"><strong>关于转载</strong><p>欢迎引用或转载本周刊的内容，请注明出处为「BINARY WEEKLY」，并保留原文链接。<br />如果你有合作或其他需求，欢迎通过邮件与我联系。</p></section>
+  <WeeklyFooter />
+</section>

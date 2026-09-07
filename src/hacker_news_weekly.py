@@ -292,6 +292,7 @@ def generate_markdown(
         "---",
         f"title: {json.dumps(title, ensure_ascii=False)}",
         f"description: {json.dumps(first['summary'], ensure_ascii=False)}",
+        f"lastUpdated: {publication_date.isoformat()}",
         "---",
         "",
         '<div align="center">',

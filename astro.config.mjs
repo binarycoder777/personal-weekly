@@ -34,7 +34,7 @@ function weeklySidebar() {
 
       return {
         label: year.name,
-        collapsed: false,
+        collapsed: year.name !== years[0]?.name,
         items: months.map((month) => {
           const monthDirectory = join(yearDirectory, month.name);
           const issues = readdirSync(monthDirectory, { withFileTypes: true })
@@ -43,7 +43,7 @@ function weeklySidebar() {
 
           return {
             label: month.name,
-            collapsed: false,
+            collapsed: month.name !== months[0]?.name,
             items: issues.map((issue) => ({
               label: pageTitle(join(monthDirectory, issue.name)) ?? issue.name.replace(/\.mdx?$/, ''),
               link: `/${year.name}/${month.name}/${issue.name.replace(/\.mdx?$/, '')}/`,
@@ -64,11 +64,8 @@ export default defineConfig({
     // 你的自定义 CSS 文件的相对路径
     './src/styles/custom.css', '@fontsource-variable/dancing-script'],
     title: {
-      'zh-CN': 'BinaryCoder777 weekly',
-      en: 'BinaryCoder777 Weekly'
-    },
-    logo: {
-      src: './src/assets/favicon.webp'
+      'zh-CN': '科技奇闻汇',
+      en: 'TechWeekly'
     },
     sidebar: weeklySidebar(),
     // 为此网站设置中文为默认语言。
@@ -82,6 +79,11 @@ export default defineConfig({
       github: 'https://github.com/binarycoder777/personal-weekly',
       twitter: 'https://x.com/binarycoder777',
       discord: 'https://discord.gg/7k3fsuas',
-    }
+    },
+    components: {
+      Header: './src/components/SiteHeader.astro',
+      PageTitle: './src/components/SitePageTitle.astro',
+      Footer: './src/components/SiteFooter.astro',
+    },
   }), react()]
 });

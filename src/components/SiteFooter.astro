@@ -1,0 +1,9 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import WeeklyFooter from './WeeklyFooter.astro';
+
+const { entry } = Astro.props as Props;
+const isWeeklyArticle = /^\d{4}年\/\d{1,2}月\/\d{1,2}期$/.test(entry.slug);
+---
+
+{isWeeklyArticle && <WeeklyFooter />}

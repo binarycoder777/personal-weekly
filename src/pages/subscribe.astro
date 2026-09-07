@@ -1,0 +1,50 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+---
+
+<StarlightPage frontmatter={{ title: '订阅科技奇闻汇', description: '通过 RSS 订阅科技奇闻汇。', template: 'splash' }}>
+  <section class="subscribe-page">
+    <p>SUBSCRIBE · RSS</p>
+    <h1>订阅科技奇闻汇</h1>
+    <div class="subscribe-card">
+      <h2>通过 RSS 获取每周更新</h2>
+      <p>将 RSS 地址添加到任意阅读器，即可在新一期发布时收到更新。无需注册，也不会收集邮箱。</p>
+      <div class="rss-row">
+        <code data-rss-url>https://weekly.binarycoder.org/rss.xml</code>
+        <button data-copy-rss>复制地址</button>
+      </div>
+      <a href="/rss.xml">打开 RSS Feed <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</StarlightPage>
+
+<script>
+  document.querySelector('[data-copy-rss]')?.addEventListener('click', async (event) => {
+    const button = event.currentTarget;
+    const rssUrl = document.querySelector('[data-rss-url]')?.textContent?.trim() || '';
+    try {
+      await navigator.clipboard.writeText(rssUrl);
+      if (button instanceof HTMLButtonElement) {
+        button.textContent = '已复制';
+        window.setTimeout(() => (button.textContent = '复制地址'), 1600);
+      }
+    } catch {
+      if (button instanceof HTMLButtonElement) button.textContent = '请手动复制';
+    }
+  });
+</script>
+
+<style>
+  :global(main > .content-panel:first-child) { display: none; }
+  .subscribe-page { width: min(100%, 48rem); margin: 0 auto; padding: clamp(2rem, 7vw, 5rem) 1.25rem; color: #111; }
+  .subscribe-page > p { margin: 0; color: #e95b28; font-size: .7rem; font-weight: 800; letter-spacing: .1em; }
+  h1 { margin: .9rem 0 2rem; font-size: clamp(2.5rem, 6vw, 4.6rem); letter-spacing: -.075em; line-height: 1; }
+  .subscribe-card { padding: clamp(1.4rem, 4vw, 2.25rem); border: 1px solid #dededb; border-radius: .55rem; background: #f4f4f1; box-shadow: 0 .75rem 2rem rgb(32 32 28 / .035); }
+  .subscribe-card h2 { margin: 0; font-size: 1.25rem; letter-spacing: -.04em; }
+  .subscribe-card p { margin: .8rem 0 0; color: #68686d; line-height: 1.7; }
+  .rss-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .7rem; margin-top: 1.25rem; padding: .55rem; border: 1px solid #dededb; background: #fff; }
+  code { overflow: hidden; padding: .25rem; color: #505055; text-overflow: ellipsis; white-space: nowrap; }
+  button, .subscribe-card a { border: 0; border-radius: .3rem; padding: .55rem .75rem; background: #111; color: #fff; font-size: .8rem; font-weight: 700; text-decoration: none; cursor: pointer; }
+  .subscribe-card > a { display: inline-flex; gap: .6rem; margin-top: 1rem; }
+  @media (max-width: 28rem) { .rss-row { grid-template-columns: 1fr; } }
+</style>

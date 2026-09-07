@@ -1,25 +1,35 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
-import LandingPage from './landPage.astro';
+import LandingPage from '../components/LandingPage.astro';
 ---
 
 
 
-<StarlightPage frontmatter={{ title: '',template:'splash' }}>
+<StarlightPage frontmatter={{
+  title: '科技奇闻汇',
+  description: '每周精选前沿科技、开源社区与奇趣故事，快速了解值得关注的新鲜事。',
+  template: 'splash',
+}}>
   <LandingPage />
 </StarlightPage>
 
 <style is:global>
-    *, *::before, *::after {
-        box-sizing: initial !important;
-    }
-  .content-panel {
-    padding: 0 !important;
+  body:has(.editorial-home) {
+    background: var(--weekly-bg);
   }
-  .content-panel .sl-container {
-    width: 100% !important;
-    max-width: 100% !important;
+
+  /* The landing page supplies its own visible H1 and layout. */
+  main > .content-panel:first-of-type {
+    display: none;
+  }
+
+  main > .content-panel + .content-panel {
+    padding: 0;
+  }
+
+  main > .content-panel + .content-panel > .sl-container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
   }
 </style>
-
-
