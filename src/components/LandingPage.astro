@@ -1,8 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import heroImage from '../assets/hero.jpeg';
-import architectureImage from '../assets/editorial-architecture-hero.webp';
-import coastImage from '../assets/editorial-coast-feature.webp';
 import { issueDate, sortWeeklyIssues } from '../utils/issues';
 import WeeklyFooter from './WeeklyFooter.astro';
 
@@ -16,8 +14,16 @@ const fullDate = (issue: (typeof issues)[number]) => new Intl.DateTimeFormat('zh
   year: 'numeric', month: '2-digit', day: '2-digit', timeZone: 'Asia/Shanghai',
 }).format(issueDate(issue)).replaceAll('/', '.');
 const minutes = (text = '') => Math.max(5, Math.ceil(text.length / 90));
-const images = [architectureImage, heroImage, coastImage];
 const categories = ['产品观察', '开源项目', '随手记'];
+const firstArticleImage = (issue: (typeof issues)[number]) => {
+  const body = issue.body ?? '';
+  const htmlImage = /<img\b[^>]*?\bsrc=["']([^"']+)["']/i.exec(body);
+  const markdownImage = /!\[[^\]]*\]\(([^\s)]+)(?:\s+["'][^"']*["'])?\)/i.exec(body);
+  const match = [htmlImage, markdownImage]
+    .filter((item): item is RegExpExecArray => Boolean(item))
+    .sort((a, b) => a.index - b.index)[0];
+  return match?.[1].replaceAll('&amp;', '&') ?? heroImage.src;
+};
 ---
 
 <section class="weekly-home editorial-home" aria-labelledby="home-title">
@@ -34,7 +40,7 @@ const categories = ['产品观察', '开源项目', '随手记'];
 
     {latestIssue && <section class="lead-grid" aria-label="本周重点内容">
       <article class="lead-story">
-        <a class="lead-image" href={latestHref}><img src={heroImage.src} alt="星际探索概念场景" width={heroImage.width} height={heroImage.height} /></a>
+        <a class="lead-image" href={latestHref}><img src={firstArticleImage(latestIssue)} alt={`${latestIssue.data.title}文章配图`} fetchpriority="high" /></a>
         <p class="category">AI & 工程</p>
         <h2><a href={latestHref}>{latestIssue.data.title}</a></h2>
         <p class="description">{latestIssue.data.description}</p>
@@ -42,7 +48,7 @@ const categories = ['产品观察', '开源项目', '随手记'];
       </article>
       <div class="side-list">
         {sideIssues.map((issue, index) => <article>
-          <a class="side-image" href={`/${issue.slug}/`}><img src={images[index].src} alt="" width={images[index].width} height={images[index].height} loading="lazy" /></a>
+          <a class="side-image" href={`/${issue.slug}/`}><img src={firstArticleImage(issue)} alt={`${issue.data.title}文章配图`} loading="lazy" /></a>
           <div>
             <p class="category">{categories[index]}</p>
             <h3><a href={`/${issue.slug}/`}>{issue.data.title}</a></h3>
