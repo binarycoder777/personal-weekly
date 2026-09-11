@@ -1,0 +1,211 @@
+---
+title: "第38期 · DeepSeek 发布 V4.1-Flash 模型"
+description: "DeepSeek 推出 V4.1-Flash，号称更智能、快速且高效。该模型采用非对称架构：552B 参数 MoE，输入仅 8B 活跃参数、输出 16B，具备原生视觉理解。相比前代，KV 缓存所需 HBM 降至 1/4、SSD 存储降至 1/8，API 价格更低，并已在 DeepSeek API 上线，同时开源支持社区部署。"
+lastUpdated: 2026-09-12
+---
+
+<div align="center">
+
+# 科技周刊 第38期 · 2026.09.12
+
+本期精选 19 篇高质量科技内容
+
+</div>
+
+## 人工智能
+
+### [DeepSeek 发布 V4.1-Flash 模型](https://twitter.com/deepseek_ai/status/2097930608790167907)
+
+<div align="center">
+<img src="https://pbs.twimg.com/media/HR1UyHiaAAAtpqw?format=webp&amp;name=large" width="400" alt="" loading="lazy" />
+</div>
+
+DeepSeek 推出 V4.1-Flash，号称更智能、快速且高效。该模型采用非对称架构：552B 参数 MoE，输入仅 8B 活跃参数、输出 16B，具备原生视觉理解。相比前代，KV 缓存所需 HBM 降至 1/4、SSD 存储降至 1/8，API 价格更低，并已在 DeepSeek API 上线，同时开源支持社区部署。
+
+---
+
+### [Cognition 发布 SWE-2 编程模型，对标 Fable 5.1 与 GPT-Astra](https://cognition.com/blog/swe-2)
+
+<div align="center">
+<img src="https://cognition.com/images/swe-2/cover.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Cognition 发布 SWE-2，称其推进能力-成本帕累托前沿。在 FrontierCode 1.1 Main 上得分 50.0%，比 Fable 5.1 仅低 1 分但便宜 64%。SWE-2 基于 Kimi K3 后训练，首次将 RL 扩展到数万亿参数规模，并引入单次训练覆盖所有推理强度、成本惩罚等新方法。
+
+---
+
+### [OpenAI 推出 Agents API](https://developers.openai.com/api/docs/guides/agents-api/overview)
+
+<div align="center">
+<img src="https://developers.openai.com/og/api/docs/guides/agents-api/overview.png" width="400" alt="" loading="lazy" />
+</div>
+
+OpenAI 发布 Agents API 文档，提供构建智能体的核心能力：代理定义、会话与运行、事件与项目、沙箱环境、工具与集成、多代理编排、可观测性与追踪等。该 API 支持 Web 搜索、函数调用、MCP 连接、插件、文件与工件等，并配套 Agents SDK，方便开发者构建和评估代理工作流。
+
+---
+
+### [Anthropic 发布 2026 年 9 月 AI 滥用检测与反制报告](https://www.anthropic.com/threat-intelligence-report-september-2026)
+
+<div align="center">
+<img src="https://cdn.sanity.io/images/4zrzovbb/website/7a4426f8ffe57e7de23ff36906fb1cc3efe2a82b-1200x630.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Anthropic 威胁情报团队在 2025 年 12 月至 2026 年 8 月间识别并阻止多起恶意使用 Claude 的行动，覆盖网络攻击、影响行动、监控、诈骗、生物滥用、常规武器与模型蒸馏七类。攻击者包括疑似国家支持组织、商业间谍软件商等；Anthropic 已加强防护并与当局及行业伙伴共享情报。
+
+---
+
+### [使用 OpenRouter 前需要知道的坑](https://mmoustafa.com/blog/so-you-want-to-use-openrouter/)
+
+作者运营 iMessage AI 助手 Olly，累计处理超 1800 万条消息，其中约三分之一通过 OpenRouter 调用开源模型。文章指出：同一模型在不同提供商处基准差异巨大，工具调用分数可差 20 分；视觉模型可能遇到“盲”提供商；reasoning.effort 并非所有提供商都生效；量化过滤也不保证质量。
+
+---
+
+## 开源社区
+
+### [Shopify 收购 Tailwind Labs](https://tailwindcss.com/blog/tailwind-is-joining-shopify)
+
+<div align="center">
+<img src="https://tailwindcss.com/_next/static/media/og-image.103kpqahmns2b.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Tailwind CSS 创始人 Adam Wathan 宣布 Tailwind Labs 加入 Shopify。Tailwind 每周安装量超 1.1 亿次，被 ChatGPT、X、Cloudflare、Reddit 等使用。加入后 Tailwind CSS 等开源项目仍保持 MIT 许可并由原团队维护，但商业产品停止新用户注册，以便专注在 Shopify 内开发框架。
+
+---
+
+### [Proof of Capture：开源且使用隐写术的苹果参考图像替代方案](https://merybenavente.me/blog/proof-of-capture)
+
+<div align="center">
+<img src="https://merybenavente.me/blog/proof-of-capture/camera-enclosure.png" width="400" alt="" loading="lazy" />
+</div>
+
+作者用树莓派 Zero、加密芯片等不到 100 美元搭建相机，在拍摄时签名图像。方案将签名后的感知哈希以频域水印（DWT+DCT）嵌入像素，而非元数据，因此能抵御压缩和缩放。签名由 ATECC608 芯片完成，私钥永不离开芯片。作者认为这比苹果 Reference Image 更开放，但屏摄攻击仍无法解决。
+
+---
+
+## 编程开发
+
+### [Shopify 从 React Native 迁回 Swift 与 Kotlin](https://shopify.engineering/back-to-native)
+
+<div align="center">
+<img src="https://cdn.shopify.com/b/shopify-brochure2-assets/74f109ae9b0c3034a78a3b63294ae2e6.png" width="400" alt="" loading="lazy" />
+</div>
+
+Shopify 宣布移动端重新拥抱原生开发。2020 年全面押注 React Native 曾节省大量重复开发成本，但编码模型能力大幅提升后，用 Swift 和 Kotlin 实现同一功能的成本已不再高昂。LLM 改变了当年决策的核心假设，因此 Shopify 从第一性原理重新评估移动技术栈，决定回归原生。
+
+---
+
+### [Deathray：不可信网站冻结 Mac 的简单方法](https://auberon.xyz/blog/posts/deathray/)
+
+研究者发现，不可信网站可利用 WebGPU 着色器冻结 Mac 图形系统。一个计算着色器在缓冲区中无限循环，顶点着色器依赖同一缓冲区，导致 GPU 任务堆积，WindowServer 无响应，最终触发内核恐慌并重启。该问题在 macOS 上的 Chrome、Firefox 和 Safari 均可复现，其他操作系统不受影响。用户只需点击链接即可中招。
+
+---
+
+### [衡量代码的“垃圾度”：如果编码已被解决，接下来呢？](https://earendil.com/posts/measuring-code-sloppiness/)
+
+<div align="center">
+<img src="https://earendil.com/static/og/posts/measuring-code-sloppiness.png" width="400" alt="" loading="lazy" />
+</div>
+
+文章指出，LLM 已能生成形式正确的代码，但可能引入不必要抽象、重复和糟糕决策，导致代码行数爆炸，人类难以掌控。作者认为，用 AI 评判代码质量往往不可靠，让 AI 在 A/B 方案中选择会因改名而改变偏好；人类评审虽好却难以规模化。衡量代码“垃圾度”仍是难题。
+
+---
+
+### [Windows XP 用什么算法选择初始用户图片？](https://devblogs.microsoft.com/oldnewthing/20260909-00/?p=112683)
+
+<div align="center">
+<img src="https://devblogs.microsoft.com/oldnewthing/wp-content/uploads/sites/38/2019/02/ShowCover.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Raymond Chen 解释，Windows XP 首次创建账户时，会从默认图片目录中随机选择用户头像。随机数生成器使用 RtlRandomEx，以 GetTickCount() 作为初始种子，并采用单遍随机选择算法。相比先统计总数再随机取索引的两遍算法，单遍算法减少文件系统调用，也避免目录文件数变化带来的复杂性；采样上限为 100 张图片。
+
+---
+
+### [Logo 编程语言](https://el.media.mit.edu/logo-foundation/what_is_logo/logo_programming.html)
+
+<div align="center">
+<img src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="400" alt="" loading="lazy" />
+</div>
+
+Logo 是 Lisp 方言，为学习而设计，具备交互性、模块化、可扩展性和数据类型灵活性。它通常以解释器实现，提供即时反馈和描述性错误信息。程序由小型过程组成，用 to 定义、end 结束，用户定义过程与内置原语用法一致。Logo 处理单词和列表，允许逐步构建复杂项目，类似人类学习语言的方式。
+
+---
+
+### [Show HN：如果光速只有 5 公里/小时会怎样？](https://rivendell.dmitrybrant.com/relativity/)
+
+开发者 Dmitry Brant 制作了 Relativity Park 交互模拟，在光速仅为 5 公里/小时的世界中步行体验狭义相对论。所有运动效应均物理精确：长度收缩、时间膨胀、特雷尔旋转、多普勒颜色变化和相对论性光束效应等。用户可用方向键加速，观察前方蓝移、后方红移，以及钟表变慢。项目开源。
+
+---
+
+## 产品创新
+
+### [苹果发布首款折叠屏 iPhone Duo](https://www.apple.com/iphone-duo/)
+
+<div align="center">
+<img src="https://www.apple.com/v/iphone-duo/a/images/meta/iphone-duo_overview__bmsaaq50eyaa_og.png?202609092000" width="400" alt="" loading="lazy" />
+</div>
+
+苹果推出首款折叠 iPhone“iPhone Duo”，采用钛金属边框与铰链，展开后为史上最大最薄的 iPhone 屏幕，比 iPhone 18 Pro Max 大 50%，外屏面积超 iPhone 18 Pro 的 90%。搭载 48MP 双融合相机、A20 Pro 芯片、双电池系统与 Siri AI，重新设计 iOS 以适配多种折叠形态。
+
+---
+
+## 技术架构
+
+### [PlanetScale 推出分片 Postgres 服务 Neki](https://planetscale.com/blog/introducing-neki)
+
+<div align="center">
+<img src="https://planetscale.com/assets/introducing-neki-social-O6Jxs-bC.png" width="400" alt="" loading="lazy" />
+</div>
+
+PlanetScale 发布 Neki，让 Postgres 跨多台机器分片，同时每个分片仍是完整 Postgres 集群，保留扩展、SQL 支持和原生性能。应用通过标准 Postgres 协议连接 Neki 路由器，现有驱动和 ORM 可继续使用。用户可选择分片键和数据拓扑，架构变更、升级、故障转移和重新分片均为在线工作流。
+
+---
+
+### [Visa 和 Mastercard 到底做什么？卡网络入门](https://tautology.town/2026/06/01/card-networks.html)
+
+<div align="center">
+<img src="https://tautology.town/assets/map.svg" width="400" alt="" loading="lazy" />
+</div>
+
+文章解释 Visa 和 Mastercard 是卡网络而非发卡行、银行或支付处理商。其核心职责有四：运营电信网络转发交易消息；协调银行网络清算和结算；设计激励措施鼓励使用网络；制定并执行网络规则，包括争议机制。它们连接持卡人/发卡行与商户/收单行，构成双边市场。
+
+---
+
+## 技术趋势
+
+### [Waymo 效应：AI 如何悄然让研究更不合作](https://www.researchagenda.news/articles/the-waymo-effect.html)
+
+<div align="center">
+<img src="https://www.researchagenda.news/assets/cards/the-waymo-effect-d66b2c0d.png" width="400" alt="" loading="lazy" />
+</div>
+
+作者提出“Waymo 效应”：当技术消除与真人打交道的摩擦时，我们视其为纯粹收益，因为摩擦的成本可见，而收益未被宣扬。作者与同事在旧金山乘坐 Waymo 后，既享受无人车的安静与免社交，也意识到两个跨洲见面的人竟为一项核心功能是不用说话的技术而高兴。研究领导者应警惕这种对协作的侵蚀。
+
+---
+
+### [真正的创造力是新的护城河](https://www.inventbuild.studio/blog/genuine-creativity-is-your-new-moat)
+
+<div align="center">
+<img src="https://www.inventbuild.studio/images/ibs-open-graph.png" width="400" alt="" loading="lazy" />
+</div>
+
+文章认为，AI 让复制现有产品变得又快又容易，因此竞争优势不再是功能或价格，而是想法。作者回顾 Flash 时代，指出那是一个创意爆发期，Flash 网站、微站和实验作品层出不穷。如今应养成发明新事物的习惯，因为 AI 时代真正的护城河是原创创造力，而非复制能力。
+
+---
+
+## 其他
+
+### [用于操纵卫星照片的技术如今揭示古代图像](https://spinoff.nasa.gov/Manipulating_Satellite_Photos_Now_Reveals_Ancient_Images)
+
+<div align="center">
+<img src="https://spinoff.nasa.gov/themes/spinoff/images/spinoff-banner-bg.png" width="400" alt="" loading="lazy" />
+</div>
+
+NASA 喷气推进实验室开发的“去相关拉伸”技术最初用于增强卫星图像对比度，如今被广泛用于研究古代岩画。该技术将原始颜色映射到扩展的颜色范围，使褪色到几乎不可见的图像显现。数学背景的 Jon Harman 将其做成 ImageJ 插件和移动应用 Dstretch，在柬埔寨吴哥窟等地发现了约 200 幅隐藏画作。
+
+---
+
+<div align="center">
+
+如果觉得这些内容对你有帮助，欢迎[点个 Star ⭐](https://github.com/binarycoder777/personal-weekly) 或分享给朋友。
+
+</div>
