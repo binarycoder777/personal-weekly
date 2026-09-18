@@ -1,0 +1,231 @@
+---
+title: "第39期 · 英伟达为 Rust 带来原生 GPU 编程能力"
+description: "英伟达发布 CUDA Rust，提供两条编写 GPU 内核的路径：cuda-oxide 通过自定义 rustc 代码生成后端，把 SIMT 风格内核直接编译为 PTX；cutile-rs 基于 CUDA Tile IR，在稳定版 Rust 上做分块式 GPU 编程，由编译器负责线程映射与内存布局。二者都在编译期保障内存安全。cutile-rs 已用于 HuggingFace 的 Grout 推理引"
+lastUpdated: 2026-09-19
+---
+
+<div align="center">
+
+# 科技周刊 第39期 · 2026.09.19
+
+本期精选 22 篇高质量科技内容
+
+</div>
+
+## 编程开发
+
+### [英伟达为 Rust 带来原生 GPU 编程能力](https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels/)
+
+<div align="center">
+<img src="https://developer-blogs.nvidia.com/wp-content/uploads/2026/09/image1-1.webp" width="400" alt="" loading="lazy" />
+</div>
+
+英伟达发布 CUDA Rust，提供两条编写 GPU 内核的路径：cuda-oxide 通过自定义 rustc 代码生成后端，把 SIMT 风格内核直接编译为 PTX；cutile-rs 基于 CUDA Tile IR，在稳定版 Rust 上做分块式 GPU 编程，由编译器负责线程映射与内存布局。二者都在编译期保障内存安全。cutile-rs 已用于 HuggingFace 的 Grout 推理引
+
+---
+
+### [Bend：用证明阻止 AI 犯错、并能跑在 GPU 上的语言](https://bend-lang.com/)
+
+Bend 是面向 AI 编程时代的语言，语法接近 Python，编译为原生代码，单核性能接近 C，同一二进制还能自动并行到多核甚至 GPU。其类型检查器即证明检查器，检查耗时约一秒；开发者可在 LAWS.bend 声明不可破坏的定律，AI 必须提交 PROOF.bend 证明，违反定律的改动会被阻止合并。官方把它称为“由证明背书的 AGENTS.md”。
+
+---
+
+### [用 Verus 开发可证明正确的 Rust 代码](https://www.amazon.science/blog/developing-provably-correct-rust-code-with-verus)
+
+<div align="center">
+<img src="https://cdn.amazon.science/dims4/default/d5f871c/2147483647/strip/true/crop/1200x630+0+23/resize/1200x630!/quality/90/?url=https%3A%2F%2Famzn-science-production-science.s3.us-east-1.amazonaws.com%2Fscience%2F05%2Fce%2Fe48c2a0b4372889838ed019562f3%2Fverus-16x9.gif" width="400" alt="" loading="lazy" />
+</div>
+
+亚马逊科学博客介绍 Verus：一个面向 Rust 的形式化验证工具，让开发者在保留 Rust 性能与所有权语义的前提下，通过写规范和证明来验证代码正确性。文章面向工程实践，说明如何把验证条件嵌入 Rust 程序并由工具静态检查，从而在系统软件中减少难以靠测试覆盖的错误。
+
+---
+
+### [Bend 2 与“氛围编程”陷阱](https://blog.liampwll.com/posts/bend_vibe_coding/)
+
+作者以 Bend 2 为例批评氛围编程的陷阱：开发者可能在尚未了解既有领域之前，就凭 LLM 造出庞杂方案。Bend 宣称用“定律加证明”约束 AI 生成代码，却在其官网与代码库中从未提及“形式化验证”这一成熟领域。作者让 LLM 用 SPARK 复现同一示例，说明一次入门级调研就能给出更成熟的路径。
+
+---
+
+### [程序员似乎不喜欢 reduce](https://evanhahn.com/posts/2026-09-13-programmers-dislike-reduce/)
+
+作者根据代码评审经验观察到：人们普遍接受 map 与 filter，但对 reduce 常给出“这段不好读”的反馈，且实际出现频率远低于同类函数。他猜测原因是 reduce 更难读、更不熟悉，在 JavaScript、Python、Swift 等语言中性能与优雅度都不占优，不过他在写 Clojure 时并未遇到这种反馈。他承认这也许只是错觉，通常直接改写后继续推进。
+
+---
+
+## 人工智能
+
+### [微软高管称 AI 抓取是“人类历史上最大的劳动盗窃”](https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/)
+
+<div align="center">
+<img src="https://techcrunch.com/wp-content/uploads/2023/11/GettyImages-1778706504.jpg?resize=1200,783" width="400" alt="" loading="lazy" />
+</div>
+
+TechCrunch 报道，《纽约时报》诉 OpenAI 与微软版权案的新解封文件显示，微软高管私下把 AI 训练数据抓取称为“盗窃”，OpenAI 领导层承认模型对出版商构成“生存威胁”。文件还指称两家公司绕过付费墙、大规模抓取并删除训练数据中的版权声明。微软内部数据称 Copilot 使《纽约时报》域名点击率最多下降 93%，被其应用科学总监形容为“末日循环”。
+
+---
+
+### [Bonsai 2 27B：体积缩小 9 倍的近无损压缩](https://prismml.com/news/bonsai-2-27b)
+
+<div align="center">
+<img src="https://cdn.prod.website-files.com/699604cc2b9dd89bdbda0608/6a6d0e0bc0d5f9a97a5164c0_69cc089669ab0df26e921aac_prism-og-img%2520(2).png" width="400" alt="" loading="lazy" />
+</div>
+
+PrismML 发布 Ternary Bonsai 2 27B，基于 Qwen3.8 27B，采用负一、零、正一三值权重与 FP16 分组缩放，约合每权重 1.76 比特，总体积仅 5.9GB，比全精度版本小 9 倍以上，同时保留 98.2% 综合基准性能。该模型支持 262K 上下文与图文多模态输入，以 Apache 2.0 许可发布，主打本地设备上的推理、编码、视觉与智能体长任务能力。
+
+---
+
+### [训练 4B 模型产出比 Postgres 快 81% 的查询计划](https://rohanbansal.com/qorl)
+
+<div align="center">
+<img src="https://rohanbansal.com/og/qorl-20260916.png" width="400" alt="" loading="lazy" />
+</div>
+
+作者用监督微调与智能体强化学习后训练 Qwen 4B 模型，让其生成优于 Postgres 默认计划的查询计划。在 113 条连接密集查询上取得 44.7% 的延迟下降，而原模型对其中 99 条根本无法给出计划。实验还搭建了降低页缓存争用的 Postgres 测量环境，设计适配噪声的 GRPO 变体，并把强化学习分散到 vLLM 与四台数据库容器上运行。
+
+---
+
+### [ZCode 被指静默上传你的完整 Git 历史](https://tokenstead.ai/guides/zcode-silent-git-history-upload)
+
+<div align="center">
+<img src="https://tokenstead.ai/og/guides/zcode-silent-git-history-upload.png" width="400" alt="" loading="lazy" />
+</div>
+
+开发者逆向发现，智谱 Z.ai 的 AI 编程桌面应用 ZCode 在登录后会静默打包整个工作区，包括完整 .git 历史、LFS 资产缓存与 reflog，加密后上传至阿里云 OSS。其加密公私钥由服务器下发，私钥仅存于 Z.ai 云端，本地无法解密。打包清单显示近九成内容来自 .git，界面开关无法阻止上传，隐私政策也未提及此事。
+
+---
+
+### [编码智能体 Harness 设计的实证研究](https://arxiv.org/abs/2609.20804)
+
+<div align="center">
+<img src="https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png" width="400" alt="" loading="lazy" />
+</div>
+
+论文用执行循环固定、只改变规划、动作空间与上下文管理的轻量级 harness，在 SWE-Bench Verified 与 Terminal-Bench 2.1 上以四个模型评估 176 组配置。结论包括：上下文预算越紧，上下文管理收益越大，主要来自避免溢出失败；规则式删减先于 LLM 摘要效率最佳；规划对弱模型是准确率支架、对强模型主要是省成本；预定义工具利好 bash 能力弱的模型，强模型仅用
+
+---
+
+### [Cloudflare 开源 security-audit-skill，把编码智能体变成安全审计员](https://github.com/cloudflare/security-audit-skill)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/003e5786ddc3e78afdd4cb6a2df4092ca5b4a21f556c453c79437d21577be2cf/cloudflare/security-audit-skill" width="400" alt="" loading="lazy" />
+</div>
+
+Cloudflare 发布开源技能包 security-audit-skill，让编码智能体执行六阶段安全审计：侦察并产出架构图与覆盖台账、按覆盖度猎取漏洞、候选验证、结构化输出、独立记录核验以及目标无关的报告。该技能源自 Cloudflare 的漏洞发现 harness，是这套多阶段、全舰队系统最初演化出的单仓库起点。
+
+---
+
+### [如何用 LLM 写作](https://sockpuppet.org/blog/2026/09/17/how-to-write-with-an-llm/)
+
+<div align="center">
+<img src="https://sockpuppet.org/blog/2026/09/17/how-to-write-with-an-llm/workshop_hu_1de7cdec7d0e03c9.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+作者主张把 LLM 当文字编辑而非代笔，并给出两条规则：第一，绝不采用 LLM 建议的任何具体措辞，因为前沿模型擅长制造讨喜的“杂志标题式”表达，容易让文章落入恐怖谷；第二，不要接受 LLM 的鼓励，它会一味称赞初稿的结构、段落与用词，诱使你保留本该重写的部分，让文字带上人工调味感。
+
+---
+
+### [SemIf：在浏览器里本地比较模型的概率读数](https://openjev.com/)
+
+独立研究项目 SemIf（原 OpenJev）提供纯浏览器、无后端的实验：让同一个本地模型用两种方式回答选择题，一是直接读取选项 logits 并归一化，二是要求模型逐 token 生成 JSON 概率，用户可在自己的 GPU 上比较耗时与结果。模型权重从 Hugging Face 下载并缓存在浏览器，输入不离开页面，可选 Qwen3 0.6B、MiniCPM5 2B 与 Qwen3.5 4B。
+
+---
+
+## 其他
+
+### [用堆溢出与 SSO 配置错误攻入 OpenAI 内部仓库](https://www.hacktron.ai/blog/hacking-openai)
+
+<div align="center">
+<img src="https://www.hacktron.ai/_astro/CwjuS_y3.png" width="400" alt="" loading="lazy" />
+</div>
+
+Hacktron AI 披露，2026 年 7 月他们串联 libheif 图像解码堆溢出漏洞（源自 Debian 缺失安全回补）与 community.openai.com 的 SSO 身份缺陷，接管多名 OpenAI 员工的 ChatGPT 与 Codex 账户，进而访问其内部仓库，并用员工 Codex 提交 PR 以证明权限。整个链条从发现到获取仓库访问不到 72 小时，OpenAI 支付 
+
+---
+
+### [我不喜欢 Passkeys](https://hawksley.dev/blog/i-dont-like-passkeys)
+
+<div align="center">
+<img src="https://hawksley.dev/og/blog/i-dont-like-passkeys.jpg?v=7" width="400" alt="" loading="lazy" />
+</div>
+
+作者认为 passkey 能防钓鱼与服务器端泄露，适合企业却不适配个人安全：个人最大风险是账户永久锁定、自动封禁与设备丢失。硬件密钥无法备份且有账户数量上限；同步 passkey 绑定苹果或谷歌账号，一旦账号被封将同时失去所有第三方登录。恢复方式仍是安全短板，跨平台互操作尚不成熟，而密码至少能由用户手工导出。
+
+---
+
+### [GitLab.com 的速率限制即将调整](https://about.gitlab.com/blog/rate-limit-change-2026/)
+
+<div align="center">
+<img src="https://res.cloudinary.com/about-gitlab-com/image/upload/v1785336708/ww4mlighwlvvzgnmbe6w.png" width="400" alt="" loading="lazy" />
+</div>
+
+GitLab 宣布自 2026 年 10 月 19 日起，GitLab.com 的速率限制将按订阅层级区分：免费与未认证请求先行生效，Premium 和 Ultimate 于 2027 年 1 月跟进。未认证请求统一限制为每 IP 每小时 60 次，登录后可获得更高额度。官方将在 10 月 7 日和 14 日进行两次短暂预演，以应对平台负载和智能体自动化流量的快速增长。
+
+---
+
+## 开源社区
+
+### [Hister：为你访问过的网页与保存的文件打造的私有搜索引擎](https://github.com/asciimoo/hister)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/e6fb4102a25ea6468b1c128ba4d77af26e57b002a5f4bc44d97ec3d57aa07dad/asciimoo/hister" width="400" alt="" loading="lazy" />
+</div>
+
+开源项目 Hister 提供自托管的私有搜索引擎，索引用户浏览过的页面和本地保存的文件，数据完全留在本机，无需把个人搜索历史交给云端。项目用 Go 编写并提供 Web 界面，附 Docker、Nix 与 systemd 部署方式，GitHub 上已获得约 4.8k 星，定位是“你自己的搜索引擎”。
+
+---
+
+### [由捐赠资助的 Servo 开发：一年回顾](https://servo.org/blog/2026/09/15/one-year-of-sponsorship/)
+
+<div align="center">
+<img src="https://servo.org/svg/servo-color-positive.svg" width="400" alt="" loading="lazy" />
+</div>
+
+Servo 项目回顾首位由捐款资助的兼职维护者 Josh Bowman-Matthews 的一年成果：提名 8 位新维护者、评审 1150 个 PR、提交 114 个面向新贡献者的 issue 且 92% 已修复，并撰写借用风险、实验特性、AI 政策等文档。他还协助 JS 引擎集成大规模重写，解决垃圾回收引发的间歇性崩溃，并让大量不稳定测试趋于稳定。
+
+---
+
+### [jemalloc 5.4.0 发布](https://github.com/jemalloc/jemalloc/releases/tag/5.4.0)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/757edfa22c8cec63243b6db8691aa148bbcede35b72fb0f10a038fa3aa43da14/jemalloc/jemalloc/releases/tag/5.4.0" width="400" alt="" loading="lazy" />
+</div>
+
+jemalloc 发布 5.4.0，包含 160 多个提交，重点清理技术债：重构、修错、补测试与整理选项，并按上游反馈改善可移植性。新增 EXTENT_ALLOC_FLAG_PINNED，允许自定义 extent 分配钩子把不可回收映射（如 HugeTLB 页）标记为优先复用；新增 stats.pinned 等 mallctl 接口报告固定内存与互斥锁统计，并支持用 thread.arena 恢复
+
+---
+
+## 技术架构
+
+### [x86 模拟之痛：在 ARM 上模拟 x86 总存储序内存模型](https://fex-emu.com/Scourge-of-emulation/)
+
+<div align="center">
+<img src="https://fex-emu.com/images/posts/scourge/before_patch.png" width="400" alt="" loading="lazy" />
+</div>
+
+FEX-Emu 团队撰文详解在 ARM 弱一致性内存模型上模拟 x86 总存储序（x86-TSO）的困难：需要处理原子指令、强制拆分锁、非缓存内存语义等一系列问题，并逐一给出可解与不可解的应对方式。文章先厘清一致性与原子性的区别，再说明 x86 与 ARM 这对极端模型差异为何让模拟在正确性和性能上都长期受限。
+
+---
+
+## 产品创新
+
+### [Cloudflare Quick Tunnels：一条命令把本地应用发布到公网](https://try.cloudflare.com/)
+
+Cloudflare 推出 Quick Tunnels，开发者无需注册账号、配置 DNS 或证书，用一条 cloudflared 命令即可把本地 localhost 上的应用通过 trycloudflare.com 临时域名暴露到公网。流量经 Cloudflare 边缘网络转发，自动提供 HTTPS 与 DDoS 防护，且不在本机开放端口，适合实时预览、CI/CD 集成与团队协作。
+
+---
+
+### [Show HN：能听见鸟鸣、并把鸟画成 19 世纪插画的电子墨水相框](https://github.com/arnegiacomo/fugleramme)
+
+<div align="center">
+<img src="https://repository-images.githubusercontent.com/1294088656/7d2dbd8d-ec72-4781-8363-f4f5b9afc352" width="400" alt="" loading="lazy" />
+</div>
+
+开源项目 fugleramme 基于树莓派，用麦克风实时识别鸟鸣，推理完全在本地运行，再把识别到的鸟以手工剪裁风格的 19 世纪鸟类插画渲染到电子墨水屏上。仓库提供检测器、示例、hooks 与 Docker 等完整工程代码，GitHub 已获约 3k 星，展示了本地 AI 与复古硬件、纸面美学的结合。
+
+---
+
+<div align="center">
+
+如果觉得这些内容对你有帮助，欢迎[点个 Star ⭐](https://github.com/binarycoder777/personal-weekly) 或分享给朋友。
+
+</div>
