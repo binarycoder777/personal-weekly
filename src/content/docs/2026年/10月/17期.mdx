@@ -1,0 +1,245 @@
+---
+title: "第43期 · Muse Spark Open：迄今最强的美国开放权重模型"
+description: "Meta AI 发布 Muse Spark Open，称其为迄今最强的美国开放权重模型。该模型总参数 8160 亿、激活 420 亿，原生多模态，支持 100 万 token 上下文，面向编码与智能体任务。权重开放在 Hugging Face、SageMaker 等平台下载，并优化支持 Apple M5 Ultra Mac Studio 本地运行。"
+lastUpdated: 2026-10-17
+---
+
+<div align="center">
+
+# 科技周刊 第43期 · 2026.10.17
+
+本期精选 22 篇高质量科技内容
+
+</div>
+
+## 人工智能
+
+### [Muse Spark Open：迄今最强的美国开放权重模型](https://research.meta.ai/blog/muse-spark-open)
+
+<div align="center">
+<img src="https://research.meta.ai/articles/muse-spark-open/social/muse-spark-1-2-open-weights-social-v2.webp" width="400" alt="" loading="lazy" />
+</div>
+
+Meta AI 发布 Muse Spark Open，称其为迄今最强的美国开放权重模型。该模型总参数 8160 亿、激活 420 亿，原生多模态，支持 100 万 token 上下文，面向编码与智能体任务。权重开放在 Hugging Face、SageMaker 等平台下载，并优化支持 Apple M5 Ultra Mac Studio 本地运行。
+
+---
+
+### [苹果 ML 研究：在 Mac Studio 上用 MLX 本地运行 Muse Spark Open](https://machinelearning.apple.com/research/mlx-distributed-inference)
+
+<div align="center">
+<img src="https://mlr.cdn-apple.com/media/MLX_icon_F001_TC_2048_2600_6439f2ba0f.png" width="400" alt="" loading="lazy" />
+</div>
+
+苹果机器学习研究团队展示用 MLX 与 RDMA over Thunderbolt 在 Mac Studio 集群上运行近万亿参数的 Muse Spark Open，四台 M5 Ultra 可达每秒 36 token 以上。文章对比 M5 Ultra 与 M3 Ultra，并测试 Mistral Medium 3.5、Qwen 3.8 等模型，强调本地与分布式推理。
+
+---
+
+### [神经网络已经是干净的：重新审视多义性与叠加](https://already-clean.goodfire.com/)
+
+<div align="center">
+<img src="https://already-clean.goodfire.com/assets/social/city-and-knot-20261015.png" width="400" alt="" loading="lazy" />
+</div>
+
+Goodfire 的 Nick Cammarata 提出，早期模型中被归因于“叠加”的多义神经元，多由架构缺陷等可修复问题造成，称为递归泛化。作者认为网络自身机制就是可读构件，机制可解释性前景比预想更好，可直接研究网络而非先解耦。
+
+---
+
+### [Jev 遇上电车难题](https://zachlandes.com/trolley-problem/)
+
+<div align="center">
+<img src="https://zachlandes.com/assets/og/trolley-problem.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+作者用“决策模型”Jev 与 OpenAI Decisions API、十一个本地模型测试电车难题。多数模型像多数人类一样选择牺牲一人救五人，但不同问法会改变结果。文章借此探讨决策模型的一致性、可解释性与伦理倾向。
+
+---
+
+## 技术趋势
+
+### [我知道数学家为何哭泣：论技术性悲伤](https://www.derekthompson.org/p/i-know-why-the-mathematicians-weep)
+
+<div align="center">
+<img src="https://substackcdn.com/image/fetch/$s_!oJ0i!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2f5d4086-5119-48b4-93bd-c1c7cc96fe16_1080x501.jpeg" width="400" alt="" loading="lazy" />
+</div>
+
+Derek Thompson 撰文讨论 OpenAI 发布大量数学证明后数学界的震惊与悲伤，引用菲尔兹奖得主等说法，认为 AI 正冲击以人类智力定义价值的人群。文章以与数学家 Steven Strogatz 的对话展开，探讨技术性悲伤与人类独特性。
+
+---
+
+### [西蒙斯基金会启动 1500 万美元计划，助数学家应对 AI 时代](https://www.simonsfoundation.org/news/simons-foundation-launches-15m-effort-to-help-mathematicians-navigate-ai-era/)
+
+<div align="center">
+<img src="https://www.simonsfoundation.org/wp-content/uploads/2026/10/SEO_SF-OpenAi_c.Lucy-Reading-Ikkanda-Simons-Foundation-1.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+西蒙斯基金会宣布投入 1500 万美元，帮助数学界适应 AI 时代，支持研究、合作与人才培养。背景是 OpenAI 等发布大量数学发现引发数学界震动。该计划旨在让数学家更好利用 AI 并应对其影响。
+
+---
+
+### [你好多伦多：Waymo 即将驶入](https://waymo.com/blog/2026/10/waymo-in-toronto/)
+
+<div align="center">
+<img src="https://lh3.googleusercontent.com/oT69lnzKavWqyUu7BiCQCRwO5_quNkMhToRgNG_txw-llzetBvuR1663he58eSjZiEfPPVIzga1NGPvOJSlF-PbJfiAQVSboho1oVbK3Q6phCM2t" width="400" alt="" loading="lazy" />
+</div>
+
+Waymo 宣布进军加拿大，将在多伦多布局全自动叫车服务，目标 2028 年迎接首批乘客。公司先进行高清地图绘制与人工驾驶测试，并与 Element Fleet Management 合作。Waymo 称其自动驾驶已行驶超 4 亿公里，严重伤害事故比人类少 95%。
+
+---
+
+## 其他
+
+### [AdFection：定向广告如何变成零点击雇佣间谍软件管道](https://citizenlab.ca/research/how-discover-tech-turned-targeted-ads-into-a-pipeline-for-spyware/)
+
+<div align="center">
+<img src="https://citizenlab.ca/wp-content/uploads/2026/10/discover-report_updated-01-e1792025505984.png" width="400" alt="" loading="lazy" />
+</div>
+
+多伦多大学 Citizen Lab 首次公开证实，半岛电视台设备遭通过定向广告投递的零点击雇佣间谍软件感染，称该技术为 AdFection。以色列公司 Discover-Tech 的 Controlium 平台被指帮助商业间谍供应商对设备去匿名化、指纹识别并自动感染，分析涉及 40 亿条竞价记录。
+
+---
+
+## 技术架构
+
+### [RPKI 现已保护 70% 的互联网路由，一年前为 54%](https://ipinfo.io/blog/rpki-protects-70-internet-routes)
+
+<div align="center">
+<img src="https://storage.ghost.io/c/b1/57/b157bf7f-0fe2-447f-a945-12d7951755b3/content/images/2026/10/ipinfo-rpki-social-share-2400x1256-1.png" width="400" alt="" loading="lazy" />
+</div>
+
+IPinfo 分析一年数据发现，70.3% 的路由前缀已获 RPKI 有效验证，高于一年前的 54%。中国贡献主要增长，其有效路由 IPv4 地址占比从 3.7% 升至 83%。无效路由传播极少，但宽松 ROA 仍是最大漏洞，ASPA 快速部署但覆盖率仍低。
+
+---
+
+## 编程开发
+
+### [OpenCode 2.0 发布：重构客户端/服务端与 API](https://anoma.ly/notes/opencode-2-0/)
+
+<div align="center">
+<img src="https://anoma.ly/notes/og/opencode-2-0.png" width="400" alt="" loading="lazy" />
+</div>
+
+OpenCode 2.0 是重大重构，服务端默认作为单一后台进程运行，TUI、网页与桌面端共享同一核心。新版重写 API，支持会话、工作树等操作，并让模型调用自身 API 完成建工作树、重命名会话等任务；还推出 @opencode/client 与代码模式。
+
+---
+
+### [用人工智能逆向工程硬件](https://blogs.gnome.org/uraeus/2026/10/15/aiandreverseengineerhardware/)
+
+<div align="center">
+<img src="https://blogs.gnome.org/uraeus/files/2026/10/drivercompare.png" width="400" alt="" loading="lazy" />
+</div>
+
+Christian Schaller 分享用 Claude 搭建 Windows 虚拟机捕获 USB 数据，为 Linux 开发 Plustek 8200i 扫描仪 SANE 驱动，数小时即完成首张扫描，随后完善并支持红外。他还用同样方法改进笔记本 MIPI 摄像头内核与 libcamera 驱动。
+
+---
+
+### [C++26 契约：前置条件与后置条件入门](https://www.cppstories.com/2026/cpp26_contracts/)
+
+<div align="center">
+<img src="https://www.cppstories.com/2026/images/contracts.png" width="400" alt="" loading="lazy" />
+</div>
+
+文章介绍 C++26 契约特性，通过 P2900 可在函数声明与定义中使用 pre 和 post 表达前置与后置条件。相比 assert，契约把要求暴露在接口中，并支持忽略、报告等不同求值语义；文章还讨论编译选项、常量参数与谓词开销等注意事项。
+
+---
+
+### [双栈滑动窗口聚合](https://orlp.net/blog/two-stack-sliding-window-aggregation/)
+
+文章介绍用双栈实现滑动窗口聚合的算法，可处理无逆运算的聚合，如最小值、分位数、HyperLogLog，甚至浮点求和。算法摊还 O(1)，比单调整队列更通用，作者追溯其来源并给出 empty/unit/combine/finalize 抽象。
+
+---
+
+### [庆祝 Fortran 诞生 70 周年](https://fortran-lang.org/news/2026/09-15-Fortran-birthday/)
+
+首本 Fortran 手册出版至今 70 年，该语言仍广泛用于核工程、天气气候预测与材料科学。剑桥大学 ICCS 将于 2026 年 12 月在曼彻斯特举办纪念活动，包括回顾演讲、闪电演讲与圆桌讨论，并展望未来 70 年。
+
+---
+
+### [我爱软件渲染](https://www.jamesfmackenzie.com/2026/10/13/i-love-software-rendering/)
+
+<div align="center">
+<img src="https://www.jamesfmackenzie.com/img/software-rendering-quake-action-gib.png" width="400" alt="" loading="lazy" />
+</div>
+
+作者以 Quake 在 DOS 软件渲染下 800×600 锁定 60fps 为例，说明软件渲染像素级采样带来的锐利与颗粒感，以及 256 色调色板光照的独特风格。文章也指出其依赖 CPU 性能，并讨论现代硬件让高分辨率软件渲染重新可行。
+
+---
+
+### [又一种不用括号调用函数的方法](https://blog.ikaes.de/yet-another-way-to-invoke-functions-without-parentheses/)
+
+<div align="center">
+<img src="https://blog.ikaes.de/static/01a10710-829b-7587-9e27-10e88ffa7349.png" width="400" alt="" loading="lazy" />
+</div>
+
+作者发现一种在 JavaScript 中不使用括号调用任意函数的新方法：覆盖 Error.prepareStackTrace，并操纵 Array.prototype.toString 与 Error.prototype.toString 生成代码，再通过 valueOf 间接调用。该技术常用于绕过 CSP 等限制，属于安全研究。
+
+---
+
+## 开源社区
+
+### [谢谢你，Deno](https://www.vlt.io/blog/competition-keeps-javascript-moving)
+
+<div align="center">
+<img src="https://www.vlt.io/api/og/blog?data=eyJ0aXRsZSI6IlRoYW5rIHlvdSwgRGVubyIsImJhbm5lciI6Imh0dHBzOi8vd3d3LnZsdC5pby9pbWFnZXMvYmxvZy9jb21wZXRpdGlvbi1rZWVwcy1qYXZhc2NyaXB0LW1vdmluZy9iYW5uZXIucG5nIn0%3D" width="400" alt="" loading="lazy" />
+</div>
+
+Deno 团队加入 Cloudflare，运行时将在一年内逐步收尾，JSR 继续运行。文章回顾 Deno 从 2018 年提出 URL 依赖、TypeScript 一等公民等理念，到后来引入 npm 兼容的转变，认为虽未成为主流，但推动了 Node 生态的竞争与改进。
+
+---
+
+### [Libreboot 26.10“不祥橄榄”发布，支持 UEFI 与 Chromebook](https://libreboot.org/news/libreboot2610.html)
+
+<div align="center">
+<img src="https://av.vimuser.org/bootmenu.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+开源引导固件 Libreboot 发布 26.10 版，默认采用 EDK2 UEFI 载荷，并导入 MrChromebox 的 233 款 Intel/AMD Chromebook 支持。此次为重大设计变更，新增现代 GPU 支持与多项修复；项目还在 AGENTS.md 中加入强反 AI 政策。
+
+---
+
+### [把 Mac 任意窗口投到 iPhone 和 iPad 上](https://github.com/Saffsanity/sill)
+
+<div align="center">
+<img src="https://repository-images.githubusercontent.com/1381093165/b456f715-a301-4b82-a109-a5c6dfe34815" width="400" alt="" loading="lazy" />
+</div>
+
+开源项目 Sill 可将 Mac 的任意窗口或整个桌面实时显示在 iPhone/iPad 上，支持触摸、Apple Pencil、触控板和键盘输入，无需服务器。项目采用 Swift/SwiftUI，基于 ScreenCaptureKit、VideoToolbox 与 HEVC，Apache-2.0 许可。
+
+---
+
+### [Show HN：Flipflop——基于 Iroh 的持久文件共享隧道](https://github.com/andunieee/flipflop)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/17896260be55c303c4f3c9dc07c7a1fbc7de3890f6adb263a84647a4ba44ca9b/andunieee/flipflop" width="400" alt="" loading="lazy" />
+</div>
+
+Flipflop 是开源文件共享工具，利用 Iroh 在两个或多个设备间建立可信隧道，之后可随时发送文件，支持蓝牙、局域网和互联网。适合家庭设备间共享链接、文本等，采用 Rust 开发，GPL-3.0 许可。
+
+---
+
+### [面向 Linux 的拟物化 Wayland 桌面 DEsk](https://github.com/fyzugx/DEsk)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/d81b13648a69565030991a4bdde08f889f9d3928672ae291292ccd150b99d032/fyzugx/DEsk" width="400" alt="" loading="lazy" />
+</div>
+
+DEsk 是新的 Wayland 桌面环境，名称意为 Desktop Environment 与 desk 的结合，强调拟物化设计。项目在 GitHub 获近千星，已发布 v0.1.2 Beta，含 Fedora 安装器，并提供 Discord 社区。
+
+---
+
+## 产品创新
+
+### [E Ink 发布 Kaleido 4 彩色电子纸平台](https://www.eink.com/news/detail/EInk-Launches-Latest-Version-of-Color-ePaper-Platform-E-Ink-Kaleido-4)
+
+<div align="center">
+<img src="https://www.eink.com/upload/2026_10_16/95_20261016001841kdokdsSnG4.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+E Ink 发布 Kaleido 4 彩色电子纸，色域体积翻倍至 40K 以上，白色反射率提升 15%，对比度提升 50%，并支持最高 18fps 视频播放。汉王 M10C II 为首款搭载设备，采用氧化物 TFT 背板，翻页滚动速度提升 27%。
+
+---
+
+<div align="center">
+
+如果觉得这些内容对你有帮助，欢迎[点个 Star ⭐](https://github.com/binarycoder777/personal-weekly) 或分享给朋友。
+
+</div>
