@@ -1,0 +1,189 @@
+---
+title: "第44期 · PyPI 上的 LiteLLM 1.107.0 被投毒，植入凭据窃取器与后门"
+description: "安全公司披露，PyPI 上 LiteLLM 1.107.0 的七个 wheel 包（覆盖 Linux、macOS、Windows）中被植入凭据窃取器与远程代码执行后门，以 cook.py 和 sitecustomize.py 等三个文件形式写入 site-packages，任何 Python 进程启动即触发，即使不导入 litellm 也会执行。上游 GitHub 源码不含恶意代码，说明发布环节被"
+lastUpdated: 2026-10-24
+---
+
+<div align="center">
+
+# 科技周刊 第44期 · 2026.10.24
+
+本期精选 18 篇高质量科技内容
+
+</div>
+
+## 其他
+
+### [PyPI 上的 LiteLLM 1.107.0 被投毒，植入凭据窃取器与后门](https://safedep.io/litellm-pypi-compromise-credential-stealer-backdoor/)
+
+<div align="center">
+<img src="https://safedep.io/images/litellm-pypi-compromise-credential-stealer-backdoor-banner.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+安全公司披露，PyPI 上 LiteLLM 1.107.0 的七个 wheel 包（覆盖 Linux、macOS、Windows）中被植入凭据窃取器与远程代码执行后门，以 cook.py 和 sitecustomize.py 等三个文件形式写入 site-packages，任何 Python 进程启动即触发，即使不导入 litellm 也会执行。上游 GitHub 源码不含恶意代码，说明发布环节被
+
+---
+
+### [八比特的信任：eMudhra 的 CA 私钥被毫秒级破解](https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/)
+
+<div align="center">
+<img src="https://storage.ghost.io/c/ee/88/ee889f88-37ef-43e5-9180-f9b88ee6261d/content/images/size/w1200/2026/10/emudhra.png" width="400" alt="" loading="lazy" />
+</div>
+
+安全研究者 Scott Helme 发现，eMudhra 八个中间 CA 证书的 P-384 私钥实际上是单字节数值——例如就是 4、56、115，前 47 字节全为零，因此最多 255 步即可从公开证书反推出私钥，他在笔记本上不到一秒便恢复了全部八把密钥。这些中间证书包含六个 TLS 签发 CA 和两个代码签名 CA，均于 2025 年 4 月创建，并被 Sectigo 根交叉签名。Chrome
+
+---
+
+### [DeepInfer：面向 DeepSeek 模型的高性能推理框架](https://github.com/deepseek-ai/DeepInfer)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/07d0f3114384958332eb07d5cb3493698528a7f166e875974c440b9daaf4c7db/deepseek-ai/DeepInfer" width="400" alt="" loading="lazy" />
+</div>
+
+DeepSeek 官方在 GitHub 开源 DeepInfer，定位为支撑其大规模生产环境的高性能推理框架，采用 Apache-2.0 许可，已获约 2 万星、2300 余次 fork。仓库包含 C++ 核心、集群调度、评测与示例脚本，并分别提供 NVIDIA 与昇腾的依赖清单，显示出对国产加速硬件的支持意图。作为模型厂商自研推理栈，它为社区提供了观察大规模部署工程实践的直接样本，但公开提交数仍
+
+---
+
+### [大模型正让形式化软件验证在大规模上变得可行](https://www.anthropic.com/research/formal-verification)
+
+<div align="center">
+<img src="https://www-cdn.anthropic.com/images/4zrzovbb/website/80cf520cb540989c3643907f004b2514ec4d01f1-1200x630.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Anthropic 与 Theorem 合作发布研究，称使用 Claude 在超过 100 个真实开源库的 RISC-V 汇编层面完成了安全属性的形式化证明，这是首次将 AI 形式化验证大规模用于生产级软件。作者指出，形式化验证过去因证明体量巨大、技能稀缺而成本高昂（如 seL4 内核实现约 2 人年、验证却需 20 人年），而前沿模型可自主产出证明，过程中还发现了历经万亿次测试仍未暴露的缺陷。团
+
+---
+
+### [PHP 8.2.35 发布：修复两个可致远程代码执行的高危漏洞](https://github.com/php/php-src/releases/tag/php-8.2.35)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/b382b97f570c6673dfdefc3fb9a0a772f2031a00c0a2d8b99a13a55cda4b0645/php/php-src/releases/tag/php-8.2.35" width="400" alt="" loading="lazy" />
+</div>
+
+PHP 开发团队发布 8.2.35 安全版本，修复两个严重漏洞（CVE-2026-109618、CVE-2026-109619），攻击者可在未认证情况下实现远程代码执行。官方强调目前不存在完整的缓解措施，升级是唯一安全选择，所有 8.2 用户被强烈建议立即更新。同时提醒 PHP 8.2 将于 2026 年 12 月 31 日停止支持，此后不再提供安全修复，用户应尽早规划升级到受支持的版本。
+
+---
+
+### [Railway 安全事件披露：部分环境变量疑遭解密泄露](https://blog.railway.com/p/security-disclosure-wednesday-october-21st)
+
+<div align="center">
+<img src="https://cms.railway.com/media/cf05de70-b435-4fe9-8d52-540e0b585874-blog-security-disclosure-wednesday-october-21st.png?w=1200&amp;q=90" width="400" alt="" loading="lazy" />
+</div>
+
+部署平台 Railway 披露，10 月 21 日清晨检测到存储客户环境变量的系统出现异常活动，初步调查显示未授权第三方可能访问了加密的环境变量，其中一部分已被解密获取。这些变量常包含 API 密钥、数据库与镜像仓库凭据。公司认为这是近期针对平台型企业、意在窃取 AI 推理服务密钥的一系列攻击的一部分，已通知上游供应商主动吊销密钥，并建议所有用户立即轮换环境变量、检查日志。调查期间全部部署暂停。
+
+---
+
+### [今天，我们攻破了原本设定的目标：iPhone](https://blog.calif.io/p/iphone)
+
+<div align="center">
+<img src="https://substackcdn.com/image/youtube/w_728,c_limit/_GJVKVNMczM" width="400" alt="" loading="lazy" />
+</div>
+
+安全研究团队 Calif 在巴黎 Hexacon 会议上公布了一系列针对 iPhone 的攻击演示，宣称实现了对 Signal 的一键利用，并在随后几条中暗示攻击面覆盖 iMessage 等系统级通信，配文以“APT 意为 Apple Persistent Threat”调侃苹果。文章正文极为简短，仅列出演示条目与截图，未披露技术细节、受影响版本或漏洞编号，并称相关材料将在适当时候公开。因此目前只
+
+---
+
+### [告别 Arc 浏览器](https://arc.net/)
+
+<div align="center">
+<img src="https://arc.net/farewell/og.png" width="400" alt="" loading="lazy" />
+</div>
+
+The Browser Company 宣布 Arc 将于 2026 年 12 月 22 日正式停止服务。官方称在 AI 时代维持浏览器的安全需要持续投入，团队将把工程与安全资源转向全新浏览器 Dia。迁移路径已铺好：密码、书签、扩展、历史记录、Spaces 与文件夹可导入 Dia 并对应为配置文件与标签组，Arc 中常用功能在 Dia 中免费、AI 能力可选。时间线为 10 月 22 日停止新注
+
+---
+
+### [Claude Duet：主动型个人 AI 助理](https://claude.com/product/claude-duet)
+
+<div align="center">
+<img src="https://claude.com/static/claude-duet/og.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Anthropic 推出研究预览产品 Claude Duet，定位为“主动型代理”，由 Opus 5.5 驱动，先在美国的 Pro 与 Max 套餐开放候补。它能理解哪些事项需要用户处理：每天早上给出简报、起草下一步动作，随后保持静默直到确有需要；也能承接搭建仪表盘、安排会议等较大任务，并在关键节点等待用户确认。产品接入超过 6000 个连接器与插件，并继承 Claude 应用中的记忆、技能与已有
+
+---
+
+### [Docker 其实很怪](https://codeandcake.dev/posts/2026-10-22-docker-is-weird)
+
+一位开发者为了学习而自研容器运行时，总结出 Docker 的若干“怪”处：容器并非虚拟化实体，只是加了限制的普通进程，可在 /proc 中找到；它由命名空间、cgroups、网络等多项内核机制拼合而成；镜像本质是被 chroot 或 pivot_root 切换为根目录的文件夹。作者还指出 Go 语言并不适合写容器运行时——其多线程运行时迫使 runc 用 C 模块先执行需单线程的系统调用，且 Go
+
+---
+
+### [WorldTUI：我训练了一个 3.6 亿参数模型来假装成终端](https://simedw.com/2026/10/21/world-model-terminal/)
+
+<div align="center">
+<img src="https://simedw.com/2026/10/21/world-model-terminal/images/worldtui-cowsay.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+作者微调 3.6 亿参数的 Qwen2.5-Coder 模型，让它扮演一个终端：背后没有真实的 shell 与文件系统，每次按键作为输入，模型预测屏幕如何变化。它可以创建文件、运行 vim 与 tmux、玩贪吃蛇，通常还能记住几步之前写下的内容。难点在于终端不是线性追加文本，而是一个字符网格，清除屏幕、光标跳转都需建模，因此模型输出“重写哪几行、光标落点”，并并行解码各行。训练数据来自 Docke
+
+---
+
+### [OpenShell：面向自主 AI 智能体集群的安全私有运行时](https://github.com/NVIDIA/OpenShell)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/a38334d16fef7af03b7b6ec775e7e32a5113e8ca4263c91484905624a77ee06a/NVIDIA/OpenShell" width="400" alt="" loading="lazy" />
+</div>
+
+英伟达在 GitHub 开源 OpenShell，将其定位为面向自主 AI 智能体集群的安全、私密运行时，采用 Apache-2.0 许可，已获约 1.86 万星。仓库以 Rust crate 组织核心实现，配套 SDK、Python 绑定、provider 插件、部署与端到端测试目录，并提供文档站点与安全策略文件，还包含面向多种编码智能体的技能与配置目录。项目提交数达 1800 余次，显示出较高
+
+---
+
+### [OpenAI 官方命令行工具 openai-cli](https://github.com/openai/openai-cli)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/60bbe80945d8ba4d0858b48f38fbb592da445e1312d8539840b8c4ba74b77f6e/openai/openai-cli" width="400" alt="" loading="lazy" />
+</div>
+
+OpenAI 在 GitHub 发布官方 CLI，用于调用 OpenAI API，采用 Apache-2.0 许可，已获约 1100 星。代码以 Go 编写，包含 cmd/openai 入口、api_reference 与 generated 目录、内部实现与测试，并配置了 goreleaser 发布流程与 release-please 版本管理。仓库声明仅协作者可提交 PR，说明项目以官方维护为
+
+---
+
+### [Quad9 宣布退出法国](https://quad9.net/news/blog/au-revoir-france/)
+
+<div align="center">
+<img src="https://quad9.net/images/cover_c2f081e020.png" width="400" alt="" loading="lazy" />
+</div>
+
+瑞士非营利 DNS 服务商 Quad9 宣布，自 11 月 24 日起不再向法国境内用户提供免费的网络安全解析服务。起因是法国法院在 beIN 提起的版权案中作出不利判决，要求 Quad9 对一批被指侵权的域名在法国境内停止递归解析，否则按日罚款；罚款虽从 58 万欧元降至每日 1000 欧元，但 Quad9 认为递归解析应是中立被动的服务，拒绝篡改 DNS 应答，且技术上难以做到仅按地域过滤。它
+
+---
+
+### [瑞典政府办公室禁用 ChatGPT 与 Claude](https://www.sverigesradio.se/artikel/chat-gpt-och-claude-forbjuder-regeringskansliet)
+
+<div align="center">
+<img src="https://static-cdn.sr.se/images/83/4f267bc3-0129-4628-bd75-1e593f208dfc.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+据瑞典广播电台 Ekot 报道，瑞典政府办公室（Regeringskansliet）自周一起在员工办公电脑上屏蔽 ChatGPT 与 Claude，要求使用经批准的 AI 工具，例如微软 Copilot，并在内部审查后提升了 Copilot 的安全配置。数字化主管表示，使用未签约的 AI 服务可能影响信息安全。报道还指出瑞典税务局、国家机构理事会等已实施类似封锁，交通管理局内部审计也发现十余种 A
+
+---
+
+### [用大模型生成置信度分数是个坏主意](https://rumple.github.io/blog/2026/10/20/asking-llm-for-confidence.html)
+
+作者指出，许多智能体设计者让 LLM 输出概率或置信度，但这类数字缺乏可信依据。他以天气预报为例说明置信度的含义：置信度应是由信息与规则计算得出的结果，相同信息下两人应得同一数值；其准确性只能通过长期校准检验——在所有声称 70% 置信的事件中，实际发生比例应接近 70%。而 LLM 给出的数字既无校准保证，也不反映其真实不确定来源，直接用于下游决策会带来系统性风险。
+
+---
+
+### [“自然语言编程”的愚蠢（1978）](https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD667.html)
+
+这是 Dijkstra 档案中 EWD 667 一文。他回顾人们长期抱怨编程要求形式符号所需的严谨，寄望于能用母语直接指挥机器。Dijkstra 反驳说，接口的选择并非固定工作量的分配，跨接口的沟通成本会叠加，改变接口很容易让两侧的工作量同时增加，这也是“窄接口”更受青睐的原因。他以希腊数学因停留于文字与图形而停滞、伊斯兰代数退回修辞风格而衰亡为例，主张形式化并非负担，而是现代文明得以出现的前提。
+
+---
+
+### [比 earcut 更快：489 毫秒三角化 370 万个地图多边形](https://globus.software/blog/2026/10/16/cutting-map-polygons/)
+
+<div align="center">
+<img src="https://globus.software/img/social-card.webp" width="400" alt="" loading="lazy" />
+</div>
+
+地图引擎厂商 Globus 以 ISC 许可开源了多边形三角化库 earstrip：单个 C++ 头文件，并提供与 earcut 参数一致的 npm WebAssembly 版本。基准显示其在 C++ 下比 earcut.hpp 快 14%，浏览器中比 earcut.js 快 1.4 到 2.1 倍。作者以华沙某区域 331 个多边形、5151 个顶点生成 4514 个三角形为例，说明原引擎使用的
+
+---
+
+<div align="center">
+
+如果觉得这些内容对你有帮助，欢迎[点个 Star ⭐](https://github.com/binarycoder777/personal-weekly) 或分享给朋友。
+
+</div>
