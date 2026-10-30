@@ -1,0 +1,187 @@
+---
+title: "第45期 · Mistral 发布 Large 4 开放权重"
+description: "Mistral 发布 Mistral Large 4（Le Chonk）权重，这是一款 1 万亿参数的原生多模态模型。经过三周额外强化学习，它在编码和防御性网络安全基准上领先开放权重模型，并强调更高的 token 效率和三种推理模式。模型在欧洲基础设施上从零训练，支持自托管和定制，主打主权 AI。"
+lastUpdated: 2026-10-31
+---
+
+<div align="center">
+
+# 科技周刊 第45期 · 2026.10.31
+
+本期精选 16 篇高质量科技内容
+
+</div>
+
+## 人工智能
+
+### [Mistral 发布 Large 4 开放权重](https://mistral.ai/news/mistral-large-4-oss/)
+
+<div align="center">
+<img src="https://mistral.ai/cms-media/api/media/file/cover-mistral-sovereign%20copie.webp" width="400" alt="" loading="lazy" />
+</div>
+
+Mistral 发布 Mistral Large 4（Le Chonk）权重，这是一款 1 万亿参数的原生多模态模型。经过三周额外强化学习，它在编码和防御性网络安全基准上领先开放权重模型，并强调更高的 token 效率和三种推理模式。模型在欧洲基础设施上从零训练，支持自托管和定制，主打主权 AI。
+
+---
+
+### [Qwenputer：Qwen3.5 内可运行的确定性 RISC-V CPU](https://divagr.com/blog/qwenputer)
+
+<div align="center">
+<img src="https://divagr.com/qwenputer/og.png" width="400" alt="" loading="lazy" />
+</div>
+
+开发者将确定性 RISC-V CPU 编译进 Qwen 3.5 4B 权重，并利用 Gated DeltaNet 层作为精确 RAM：门控设为 1、写强度设为 1、采用 one-hot 键值，使每次写入覆盖一行并可精确读取。该 CPU 完全在模型前向传播内运行算术、C 和 MicroPython，无需外部运行时，还实验了模型内文件存储。
+
+---
+
+### [我们在《我的世界》和《Mindustry》中运行 AI 智能体集群](https://labs.ycombinator.com/projects/games/index.html)
+
+<div align="center">
+<img src="https://labs.ycombinator.com/og.png" width="400" alt="" loading="lazy" />
+</div>
+
+研究者与 Olam Labs 在 Minecraft 和 Mindustry 中运行多智能体集群，并开源 Minecraft 测试框架。50 个 GPT-6.1 Sol 智能体在生存世界运行 3 小时，目标为建立繁荣文明；它们形成等级、制定配给账本和规则、发送约 5900 条消息，并在 90 秒内砍光出生点附近大部分树木。
+
+---
+
+### [僵尸统计：AI 引用的数字从何而来](https://trakkr.ai/trakkr-research/zombie-stats)
+
+<div align="center">
+<img src="https://trakkr.ai/images/research/og/zombie-stats.png" width="400" alt="" loading="lazy" />
+</div>
+
+Trakkr 研究向 ChatGPT、Perplexity、Gemini、Claude 和 Google AI Overviews 提出 200 个需要数字的问题，追踪 1285 条引用，发现不到一半最终指向结论一致的研究。例如“44% 的销售只跟进一次就放弃”被五个助手一致引用，却找不到原始研究，引用链常止于二手统计页面。
+
+---
+
+### [LLM 腔调](https://martinfowler.com/bliki/LLM-Voice.html)
+
+<div align="center">
+<img src="https://martinfowler.com/logo-sq.png" width="400" alt="" loading="lazy" />
+</div>
+
+Martin Fowler 讨论“LLM 腔调”：读到疑似大模型生成的文字时，读者会像落入语言恐怖谷般失去阅读欲望。他怀疑检测工具的意义，因为反应发生在工具判断之前；并建议作者不要让 LLM 写初稿或接受改写建议，结构提纲尚可，但正文应由人写，否则很难清除腔调。
+
+---
+
+## 编程开发
+
+### [Cursor 市场中的 Claude Code VS Code 扩展被植入后门](https://phorion.io/blog/offical-claude-code-vsx-compromise/)
+
+<div align="center">
+<img src="https://phorion.io/images/default-social-card.png" width="400" alt="" loading="lazy" />
+</div>
+
+Phorion 发现 Cursor Marketplace 上官方 Claude Code for VS Code 2.1.313 扩展包被注入立即执行函数，加载即运行，投放持久 SSH 后门并回传主机侦察信息。Cursor 已下架该版本，npm 与 VS Code 注册表也移除。macOS 上启用 SSH 的检查存在缺陷，但后门仍会安装持久化。
+
+---
+
+## 其他
+
+### [Android 零点击静默远程拒绝服务漏洞](https://smsofdeath.com/)
+
+单个畸形 WAP Push 短信触发 Android 电话框架中未检查的整数转换，负数数组大小导致 com.android.phone 崩溃。攻击零点击、静默，可中断通话包括紧急呼叫，并在进程重启时造成短暂断网；运营商重试会放大为持久 DoS。Android 12 至 16 可复现，Google 2026 年 10 月修复覆盖 14 至 17，旧版本无补丁。
+
+---
+
+### [币安 63 亿美元黑客攻击仅用 20 分钟完成](https://www.wired.com/story/the-dollar63-billion-binance-hack-was-pulled-off-in-just-20-minutes/)
+
+<div align="center">
+<img src="https://media.wired.com/photos/6ae463bdc091c8b8d1ec019e/191:100/w_1280,c_limit/102026-Binance%20Hacked.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+黑客在约 20 分钟内从币安跨至少十条区块链的热钱包盗取约 63 亿美元，TRM Labs 称准备至少提前 36 小时并测试攻击代码。币安暂停存取并称已冻结约一半资金。Elliptic、TRM 和 Chainalysis 怀疑朝鲜 TraderTraitor 团伙，若属实，这一单几乎翻倍朝鲜加密盗窃总额。
+
+---
+
+### [PHP2Shell 漏洞链攻陷 25 台服务器，含美国政府系统](https://dreamgroup.com/blog/chained-php2shell-exploit-roots-25-servers)
+
+<div align="center">
+<img src="https://cdn.prod.website-files.com/6a146a5aca0b1a41051708a5/6adf6b3b5ddc1bc1311cd370_6a32a0cab8a1061a5787637e_17.jpeg" width="400" alt="" loading="lazy" />
+</div>
+
+Dream 研究人员发现攻击者将 PHP2Shell 漏洞链与 Fragnesia 内核提权结合，攻陷 25 台 PAN-OS 防火墙及管理服务器，包括美国政府相关环境中的三台，并进一步攻击 Active Directory。Unit 42 独立验证了工具与结果，Palo Alto 发布修复版本。痕迹显示攻击基础设施使用 AI 辅助，但并非完全自主的国家级攻击。
+
+---
+
+### [美国土安全部 4.1 万员工数据泄露，含 ICE 卧底探员](https://www.wired.com/story/massive-leak-exposes-41000-homeland-security-workers-including-undercover-ice-agents/)
+
+<div align="center">
+<img src="https://media.wired.com/photos/6ae126cfb5fdd6fa181bb24f/191:100/w_1280,c_limit/Security_Massive%20Leak%20Exposes%2041,000%20DHS%20Employees_v1.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+DDoSecrets 与研究者 maia arson crimew 发布“Icepick”档案，称数据来自 DHS 的 Okta 登录系统，包含 4.1 万余名员工或承包商的邮箱、电话、办公地址，以及内部系统、卧底和监控项目线索，最后更新于 2026 年 8 月 19 日。Okta 称无系统被攻破证据，DHS 表示正在处理潜在泄露。
+
+---
+
+## 技术架构
+
+### [Azure 最薄弱环节：五起完整跨租户入侵](https://www.binarysecurity.no/posts/2026/10/one-root-case)
+
+<div align="center">
+<img src="https://www.binarysecurity.no/assets/images/dark_png.png" width="400" alt="" loading="lazy" />
+</div>
+
+Binary Security 披露 Azure Logic Apps API Connections 的五起跨租户漏洞，可诱使共享 API Management 对他人连接执行令牌交换，从而访问受害者 Key Vault、Azure SQL 以及 Jira、Salesforce 等后端。作者因此获得 20 万美元赏金。根因在于多层输入校验难以覆盖所有边缘情况。
+
+---
+
+### [Northflank 遭入侵，要求用户轮换密钥](https://status.northflank.com)
+
+<div align="center">
+<img src="https://northflank.instatus.com/api/og" width="400" alt="" loading="lazy" />
+</div>
+
+云平台 Northflank 状态页确认安全事件，网络、证书、服务、插件等多个组件大面积故障。官方要求所有用户假定环境变量已被解密，立即轮换 Postgres、MongoDB 及 AI 密钥，并建议关闭插件的公网暴露。时间线显示 Wiz 告警后团队打补丁并请求 CIRT 支持。
+
+---
+
+## 技术趋势
+
+### [AI 成本担忧引发美国科技股大幅下跌](https://www.bbc.co.uk/news/articles/cvwy72e0n72yo)
+
+<div align="center">
+<img src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/10b0/live/dcdf2a60-d46e-11f1-9dda-1ba6fcc7d159.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+受 AI 支出接近 1 万亿美元及回报不及预期担忧影响，美国科技股连续第二日大跌，纳斯达克跌逾 3.5%。英特尔一度跌 30%，Alphabet 前一日市值蒸发逾 5000 亿美元，亚马逊和 Reddit 亦下跌。Meta、Alphabet、Oracle、亚马逊、微软 2026 年合计承诺支出 8006 亿美元，投资者担忧 AI 泡沫。
+
+---
+
+### [AI 并未取代 SRE，而是在让其技能退化](https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling)
+
+<div align="center">
+<img src="https://substackcdn.com/image/fetch/$s_!Hgvq!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F530d847f-26cb-4ddd-a6de-875cbbaf8fab_6233x4167.webp" width="400" alt="" loading="lazy" />
+</div>
+
+文章借 1983 年《自动化的讽刺》指出，AI 接管告警降噪、已知问题处置等日常响应后，SRE 对罕见高危故障的实操经验反而减少，技能逐渐退化。问题不是 AI 取代 SRE，而是自动化让人在仅剩的关键干预中更缺乏准备。
+
+---
+
+### [Proton CEO 取消 AI“重新面试”](https://www.404media.co/protons-ceo-cancels-ai-re-interviews/)
+
+<div align="center">
+<img src="https://storage.ghost.io/c/0f/76/0f76b548-bc58-4f25-abc3-3f5ebca07da4/content/images/size/w1200/2026/10/andy4.png" width="400" alt="" loading="lazy" />
+</div>
+
+404 Media 报道 Proton CEO Andy Yen 推动近乎全员“重新面试”，要求员工解释如何使用 AI，未达领导层期望可能被解雇。在调查曝光其忽视安全顾虑、嘲讽要求先渗透测试的员工后，Yen 在全员会上取消该计划并承认沟通失败，但称仍会推进 AI。员工认为这是反抗压力所致。
+
+---
+
+## 开源社区
+
+### [Pico CSS 停止维护](https://github.com/picocss/pico/discussions/754)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/3a6d74ffc646cd0aef45becc597592b9912ffb260ae8ee5d318d49d43eb92f14/picocss/pico/discussions/754" width="400" alt="" loading="lazy" />
+</div>
+
+Pico CSS 维护者宣布 v2.1.1 为最终版，仓库归档为只读，不再接受 issue、PR 或新版本；npm、jsDelivr 和官网长期在线，MIT 许可允许分叉。原因之一是 AI 能按需生成轻量、独立、可访问的 HTML，极简语义 CSS 框架的相关性下降，而全面重写成本过高。
+
+---
+
+<div align="center">
+
+如果觉得这些内容对你有帮助，欢迎[点个 Star ⭐](https://github.com/binarycoder777/personal-weekly) 或分享给朋友。
+
+</div>
