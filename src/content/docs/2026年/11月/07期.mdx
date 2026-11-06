@@ -1,0 +1,229 @@
+---
+title: "第46期 · sshole：musl 版 OpenSSH 的长密码认证漏洞"
+description: "文章揭示 Alpine、OpenWrt 等使用 musl 的系统上，OpenSSH 对密码字段为 * 的账户存在认证绕过：输入超过 256 字符的任意密码，musl 的 crypt() 失败返回 *，sshd 比较时误判为有效哈希。影响 root、仅密钥部署账户等，需尽快修复。"
+lastUpdated: 2026-11-07
+---
+
+<div align="center">
+
+# 科技周刊 第46期 · 2026.11.07
+
+本期精选 20 篇高质量科技内容
+
+</div>
+
+## 技术架构
+
+### [sshole：musl 版 OpenSSH 的长密码认证漏洞](https://sshhole.com)
+
+<div align="center">
+<img src="https://sshhole.com/receipts/3bsd-passwd.png" width="400" alt="" loading="lazy" />
+</div>
+
+文章揭示 Alpine、OpenWrt 等使用 musl 的系统上，OpenSSH 对密码字段为 * 的账户存在认证绕过：输入超过 256 字符的任意密码，musl 的 crypt() 失败返回 *，sshd 比较时误判为有效哈希。影响 root、仅密钥部署账户等，需尽快修复。
+
+---
+
+### [Launch HN：Rivet（YC W23）——在 S3 上扩展与编排智能体](https://github.com/rivet-dev/rivet)
+
+<div align="center">
+<img src="https://repository-images.githubusercontent.com/654560183/d4b2fdae-1a15-4420-a2a3-17256a51ae24" width="400" alt="" loading="lazy" />
+</div>
+
+Rivet 是面向智能体工作负载的编排器，强调快速、高密度和可扩展，基于 Rust，支持持久对象、实时多人、无服务器等场景，提供多语言 SDK。它试图简化智能体所需各类工作负载的调度与状态管理。
+
+---
+
+### [英伟达 Kubernetes 引擎（NVKE）](https://github.com/dsx-ai-factory/nvke)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/72eafa1c514b61083dccc96874a73ea28372cc599d346ffbf552669aecf93c65/dsx-ai-factory/nvke" width="400" alt="" loading="lazy" />
+</div>
+
+NVKE 是面向裸金属 GPU Kubernetes 的管理平面，基于 Cluster API 等组件，提供集群生命周期管理、GPU 节点部署与运维能力。项目在 GitHub 开源，目标是简化大规模 GPU 集群的构建和管理。
+
+---
+
+## 人工智能
+
+### [AI 用于科学发现：研究人员如何使用 Claude](https://www.anthropic.com/research/how-researchers-use-claude)
+
+<div align="center">
+<img src="https://www-cdn.anthropic.com/images/4zrzovbb/website/0c1a04cc7042949252ee54565755780fe21d5ecf-1200x630.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Anthropic 分析 20.7 万条 Claude 与 Claude Code 科研会话，发现计算机、数学等正式科学使用更多，健康与实验室科学较少；数据分析和写作占主导，想法生成与数据收集较少。若广泛采用现有能力，部分领域研究产出可翻倍；若承担全部非物理工作，计算机等领域产出可提升至 15 倍。
+
+---
+
+### [百度发布 ERNIE 5.5 Flash Base](https://ernie.baidu.com/release/ernie-5-5-flash-base/)
+
+<div align="center">
+<img src="https://ernie.baidu.com/assets/wenxin-mark.svg" width="400" alt="" loading="lazy" />
+</div>
+
+百度发布稀疏 MoE 基础模型 ERNIE-5.5-Flash-Base，总参数 280B、每 token 激活 14B，在 33.5T token 上从零预训练，训练上下文 128K，支持 1M token 微调与推理。发布的是预训练结束权重，供社区做领域适配、指令微调和强化学习研究，强调高效训练与推理。
+
+---
+
+### [Thinking Machines 发布 Inkling 2 Small](https://thinkingmachines.ai/news/inkling-2-small/)
+
+<div align="center">
+<img src="https://thinkingmachines.ai/news/inkling-2-small/images/cover-social.png" width="400" alt="" loading="lazy" />
+</div>
+
+Thinking Machines Lab 推出第二代模型 Inkling 2 Small，594B 总参数、17B 激活的 MoE，支持图像输入和可变推理强度；在 Artificial Analysis 智能指数得分 31，代理编程、视觉、知识工作和推理均有提升。先通过 Tinker 以闭权重提供，完成外部安全测试后计划以 Apache 2.0 开放权重。
+
+---
+
+### [库班：Facebook 明知故犯地投放 AI 深度伪造诈骗广告；文件称相关欺诈收入达 160 亿美元](https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html)
+
+<div align="center">
+<img src="https://s.yimg.com/lo/mysterio/api/c7b9e208fd6dff01b9115dea6cf00d560e269c36a6987f309be6e79d843e306b/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fmoneywise_327%2F892777675c4b84ce45a666a8bfe1fb93.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Mark Cuban 指控 Facebook 明知并允许 AI 深度伪造诈骗广告；报道援引 Meta 内部文件称相关欺诈收入达 160 亿美元。内容强调平台在 AI 生成诈骗广告治理上的责任与利益冲突，但具体证据仍需进一步核实。
+
+---
+
+### [Gemini Omni 1.2 Flash：15 秒视频与更低价格](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/)
+
+<div align="center">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-omni-1.2_FZLql41.width-1300.png" width="400" alt="" loading="lazy" />
+</div>
+
+谷歌发布 Gemini Omni 1.2 Flash，支持生成 15 秒视频片段，提升一致性，并降低价格、加快生成速度，面向更高效、低成本的内容创作场景。
+
+---
+
+### [Pangram Image 1.0 发布](https://www.pangram.com/blog/introducing-pangram-image-1-0)
+
+<div align="center">
+<img src="https://cdn.sanity.io/images/6vunltag/production/d9e0f2c5b335fbb748927abe54503f2daf0c132b-2400x1350.png" width="400" alt="" loading="lazy" />
+</div>
+
+Pangram 推出 Image 1.0 与 Flash 1.0，声称在 AI 图像和视频检测上达到最先进水平；Image 1.0 提供热力图定位 AI 内容，对编辑、压缩和低分辨率更稳健，最低支持 256×256。在 12 个前沿生成器生成的 1200 张合成图上准确率达 99.96%，并增加视频逐帧分析和 Chrome 扩展/API。
+
+---
+
+### [MCP 详解](https://mcp-explained.com/)
+
+<div align="center">
+<img src="https://mcp-explained.com/og.png" width="400" alt="" loading="lazy" />
+</div>
+
+文章解释 Model Context Protocol：一个连接 AI 应用与工具/数据的开放标准。服务器声明能力，应用把能力展示给模型，模型决定调用后由应用执行并回传结果。MCP 并非 REST，使用 JSON-RPC，经 stdin/stdout 或 HTTP 传输，定义方法、能力协商、传输与认证。
+
+---
+
+### [我很难相信 AI 研发如此巧妙](https://www.lesswrong.com/posts/DALNiKBjMGMF8grme/arjun-panickssery-s-shortform?commentId=fJtaHHHfx45tD7BSL)
+
+<div align="center">
+<img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1654295382/new_mississippi_river_fjdmww.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+作者通过 Scrabble 引擎、终极井字棋、哲学研究等项目观察，认为当前模型在判断力上仍有明显缺陷：难以识别关键文献、设计信息量不足的实验、陷入琐碎方向。例外是反馈快的爬山任务；模型报告也常难理解，需要追问。
+
+---
+
+## 其他
+
+### [已知 15,579 个网站被感染，如何通知它们？](https://scotthelme.co.uk/we-know-15-579-websites-are-infected-how-do-we-tell-them/)
+
+<div align="center">
+<img src="https://storage.ghost.io/c/ee/88/ee889f88-37ef-43e5-9180-f9b88ee6261d/content/images/size/w1200/2026/11/Responsible-Disclosure-at-Scale.png" width="400" alt="" loading="lazy" />
+</div>
+
+Report URI 识别出 15,579 个网站感染恶意 JavaScript，保守估计月访问量超 1.35 亿；攻击包括信用卡窃取、ClickFix、设备漏洞利用和重定向，入口涉及 WordPress 漏洞、供应链脚本、XSS 及过期域名复活。作者指出负责任披露速度跟不上发现速度，公开求助如何通知受影响组织。
+
+---
+
+### [塔塔汽车 App 中的硬编码凭证等问题](https://www.cert-in.org.in/s2cMainServlet?pageid=PUBVLNOTES01&VLCODE=CIVN-2026-0537)
+
+<div align="center">
+<img src="https://www.cert-in.org.in/Images/home.gif" width="400" alt="" loading="lazy" />
+</div>
+
+CERT-In 披露塔塔汽车 iRA 2.0 与 iRA.ev 应用存在多个高危漏洞：应用包内硬编码服务账户凭证、API 密钥和令牌，可被提取并访问后端；WebView 配置不安全，可能导致令牌泄露和用户冒充。影响远程车辆控制等服务。
+
+---
+
+## 开源社区
+
+### [Blender 的 UI 与运行时：比 GPUI 快得多](https://github.com/ppmpreetham/BUI)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/386bd017b56657db6191449081a28d8c44354accf5a9a059e5122a09e45e79e0/ppmpreetham/BUI" width="400" alt="" loading="lazy" />
+</div>
+
+BUI 项目将 Blender 的 GPU 加速 UI 从原代码库解耦，支持 Rust、Python、JS、React、C 和 C++，声称性能约为 GPUI 的两倍。项目以 GPL-3.0 开源，在 GitHub 获得大量关注，目标是提供跨语言的高性能原生 UI 运行时。
+
+---
+
+### [我们做了 11 年的开源特性开关服务器](https://github.com/Unleash/unleash)
+
+<div align="center">
+<img src="https://repository-images.githubusercontent.com/24594933/0ee96080-d406-11eb-856d-7df51ff2efbb" width="400" alt="" loading="lazy" />
+</div>
+
+Unleash 是一个开源特性管理平台，支持激活策略、实验、变体、SDK 与持续交付集成，已持续开发 11 年，GitHub 星标超过 1.4 万。文章/仓库展示其长期维护、社区协作和企业级特性开关能力。
+
+---
+
+## 编程开发
+
+### [一种冷门音频编解码器为何完美适配 N64](https://phoboslab.org/log/2026/11/n64-ulc-codec)
+
+文章回顾 N64 音频存储与 CPU/RSP 限制，指出 ADPCM 占空间大、Opus/MP3 解码开销高，而一种超低复杂度变换编解码器可在 44.1kHz 立体声下达到接近 Opus 的码率，仅占用约 4% CPU，适合 N64 游戏实时音频。
+
+---
+
+### [Rune：跨平台原生 GPU 渲染 Rust UI 框架](https://github.com/anomalyco/rune)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/6e15632b12262207d953f1ec34e6c61a49690728c314eda26f0aea5a652ca9e3/anomalyco/rune" width="400" alt="" loading="lazy" />
+</div>
+
+Rune 是面向 macOS、Windows、Linux 和 Web 的原生 Rust UI 框架，自带渲染器、文本、布局和弹簧动画系统；每个应用可无头运行，让智能体渲染 PNG、导出元素树并用脚本输入驱动，便于自动化测试与 agent 操作。
+
+---
+
+### [使用 UEFI 进行裸机编程的第一步](https://kevinboone.me/efitest_index.html)
+
+<div align="center">
+<img src="https://kevinboone.me/img/chip.png" width="400" alt="" loading="lazy" />
+</div>
+
+Kevin Boone 的系列文章面向有经验的 Linux 开发者，介绍在 UEFI 固件 PC 上进行裸机开发：所需工具、编译与链接、创建 EFI 系统分区、制作 DVD/USB 启动镜像，以及用 Simple File Protocol 处理文件。适合学习底层启动与固件编程。
+
+---
+
+## 技术趋势
+
+### [Hackintosh 重生……借助 AI](https://www.naut.ca/blog/2026/11/05/the-hackintosh-reborn-with-ai/)
+
+<div align="center">
+<img src="https://www.naut.ca/blog/content/images/2026/11/Screenshot-2026-11-05-at-1.25.41-PM.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+作者回顾 Hackintosh 历史，指出 Apple 转向 ARM 与 macOS 27 不再兼容 x86 后，社区看似走向终结；但借助 Claude Code、Ghidra 等 AI 工具，近期出现 macOS 27 跑在 Snapdragon 笔记本、RK3588 ARM SBC、iOS 17 跑在 Switch 等进展，显示 AI 正加速非官方移植。
+
+---
+
+## 产品创新
+
+### [Kugelblitz：Mac 原生 Google Earth 替代品](https://apps.metaebene.me/en/kugelblitz)
+
+<div align="center">
+<img src="https://apps.metaebene.me/media/8bbe20e7cd5817792e865718e36f743e659171e01dcf60f21dc32cdbff595c55/og.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Kugelblitz 是 macOS 上的 3D 地球与地图集应用，使用 OpenStreetMap 等开放地理数据，在真实地形上叠加影像、道路和地形图，支持 3D 建筑、多投影地图集、SpaceMouse 飞行、Vision Pro 输出和 5000 年日食等事件。无需账户，数据可缓存共享。
+
+---
+
+<div align="center">
+
+如果觉得这些内容对你有帮助，欢迎[点个 Star ⭐](https://github.com/binarycoder777/personal-weekly) 或分享给朋友。
+
+</div>
