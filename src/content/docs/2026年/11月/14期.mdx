@@ -1,0 +1,203 @@
+---
+title: "第47期 · Anthropic 启动 IPO"
+description: "Anthropic 公布 IPO 路演材料：2026 年第三季度营收 170 亿美元、同比增长逾 12 倍，年付超 10 万美元客户逾 1.19 万家；净亏损 233 亿美元，其中含 219 亿美元与可转债、衍生负债等公允价值变动相关的非现金费用。公司以公益公司定位强调 AI 安全与巨大社会影响。"
+lastUpdated: 2026-11-14
+---
+
+<div align="center">
+
+# 科技周刊 第47期 · 2026.11.14
+
+本期精选 18 篇高质量科技内容
+
+</div>
+
+## 人工智能
+
+### [Anthropic 启动 IPO](https://ipo.anthropic.com/us/)
+
+<div align="center">
+<img src="https://ipo.anthropic.com/assets/share-image-eAr8nJRP.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Anthropic 公布 IPO 路演材料：2026 年第三季度营收 170 亿美元、同比增长逾 12 倍，年付超 10 万美元客户逾 1.19 万家；净亏损 233 亿美元，其中含 219 亿美元与可转债、衍生负债等公允价值变动相关的非现金费用。公司以公益公司定位强调 AI 安全与巨大社会影响。
+
+---
+
+### [Gemini 4 Hydrogen 与 Orchestrator 登陆 Google Antigravity](https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/)
+
+<div align="center">
+<img src="https://antigravity.google/assets/image/blog/4-Hydrogen---Wide.png" width="400" alt="" loading="lazy" />
+</div>
+
+Google Antigravity 上线 Gemini 4 Hydrogen，并新增 Orchestrator 模型选项：将 Hydrogen 与 Gemini 4 Carbon 等最强模型组合，面向长周期任务平衡质量、效率与延迟。此前 Carbon 与 /swarm 已用于并行 agent 团队处理大型工程任务。
+
+---
+
+### [中国前沿 AI 模型带有出口管制 Blackwell GPU 指纹](https://unemploymentlabs.com/checkpoint-forensics)
+
+<div align="center">
+<img src="https://unemploymentlabs.com/checkpoint-forensics-og.png?v=4" width="400" alt="" loading="lazy" />
+</div>
+
+Unemployment Labs 对公开模型权重做法证分析，称 DeepSeek、Moonshot、MiniMax 和蚂蚁的 6 个 2026 年新模型出现与 NVIDIA Blackwell 匹配的数值模式，早期模型则匹配 Hopper。作者强调这只能提供权重生成硬件线索，不能证明训练地点或出口违规。
+
+---
+
+### [Apple 新 Mac 应用 Harbor：把 Mac 变成私有 AI 推理服务器](https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/)
+
+<div align="center">
+<img src="https://9to5mac.com/wp-content/uploads/sites/6/2026/10/Mac-mini.jpg?quality=82&amp;strip=all&amp;resize=1200,628" width="400" alt="" loading="lazy" />
+</div>
+
+泄露信息显示 Apple 正开发 Harbor，可在 Apple Silicon 上本地运行开放权重模型，数据不出硬件；通过 Thunderbolt 5 连接多台 Mac 池化统一内存，以运行更大模型或提高并发。应用号称分钟级部署，目前以 Claris 品牌私有预览。
+
+---
+
+### [Edge0-145B：可在个人电脑运行的开源 145B 模型](https://edge0.ai/blog/introducing-edge0-145b-frontier-ai-capabilities-on-your-own-computer)
+
+<div align="center">
+<img src="https://cdn.hashnode.com/uploads/covers/6aea03219fa4aa99923b5acf/de5ebdea-3436-4b9a-b3f2-e9910f3a0abc.png" width="400" alt="" loading="lazy" />
+</div>
+
+Edge0 开源 145B 端侧模型及 120B 版本、推理框架和部署工具，称在兼容笔记本上峰值内存约 29GB、解码 80+ tokens/s，支持 128K–256K 上下文，可离线完成编码、推理与 agent 任务；代价是仍需相应硬件与电力。
+
+---
+
+### [AI 帮助解锁哥德尔笔记中的数百个已证明定理](https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths)
+
+<div align="center">
+<img src="https://i.guim.co.uk/img/media/6eeccf216579fe2181ae737d30f31abd7590125c/210_58_1759_1407/master/1759.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;precrop=40:21,offset-x50,offset-y0&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=334efc63d7472a97d72be0ffd23af8bb" width="400" alt="" loading="lazy" />
+</div>
+
+赫尔辛基大学团队用 Claude 解析哥德尔 1940 年代 16 本笔记，共 1009 页，多为过时 Gabelsberger 速记；此前每周约推进一页，Claude 数日内给出全面摘要，称其中包含数百个此前未知的已证明定理。研究者认为哥德尔比想象中更高产。
+
+---
+
+### [Apple Foundation Models 框架](https://developer.apple.com/foundation-models-framework/)
+
+<div align="center">
+<img src="https://developer.apple.com/news/images/og/foundation-models-framework-og.png" width="400" alt="" loading="lazy" />
+</div>
+
+Apple 推出 Swift 原生 Foundation Models 框架，统一接入端侧 Apple 基础模型、Private Cloud Compute 及 Claude/Gemini 等服务器模型；内置引导生成、工具调用、图像理解和 Dynamic Profiles，并通过 Language Model 协议允许第三方模型提供 Swift 包。
+
+---
+
+## 技术架构
+
+### [Microsoft 全球宕机后称邮件服务“接近正常水平”](https://www.cnn.com/2026/11/12/business/live-news/microsoft-global-outage-intl-hnk)
+
+<div align="center">
+<img src="https://media.cnn.com/api/v1/images/stellar/prod/ap26313845581210.jpg?c=16x9&amp;q=w_800,c_fill" width="400" alt="" loading="lazy" />
+</div>
+
+Microsoft 365/Exchange Online 发生全球性中断逾 12 小时，影响数百万用户；官方称部分基础设施跨区域负载过高，已暂停部署、迁移流量并重启服务器。CNN 报道称底层问题已处理、服务接近正常，且非网络安全事件。
+
+---
+
+### [与 AMD Mike Clark 深入谈 Zen 6](https://chipsandcheese.com/p/talking-zen-6-with-mike-clark-at)
+
+<div align="center">
+<img src="https://substackcdn.com/image/youtube/w_728,c_limit/AdyPoLBp4No" width="400" alt="" loading="lazy" />
+</div>
+
+AMD 原 Zen 架构师 Mike Clark 解释 Zen 6 双核心家族：Zen 6c 在较低频率目标下增大浮点调度器等队列容量，配备每核 4MB L3，32 核共 128MB，并追求与 Zen 6 相同的软件优化体验；前端继续优化双解码簇的单线程利用。
+
+---
+
+### [把 22 年前的 PostgreSQL 类型混淆原语变成 RCE](https://mehmetince.net/part-3-6-how-i-ended-up-turning-a-22-year-old-postgresql-type-confusion-primitive-into-rce-cve-2026-6460/)
+
+<div align="center">
+<img src="https://mehmetince.net/wp-content/uploads/2026/11/postgresql-composite-type-confusion-primitive-rce-cve-2026-6460.png" width="400" alt="" loading="lazy" />
+</div>
+
+作者从 pg_clickhouse 漏洞利用延伸到 PostgreSQL 核心，发现 CVE-2026-6460：在复合类型中写入值后更改字段类型再读回，可触发类型混淆并形成高可靠内存破坏利用。文章复盘其借助 AI agent 学习 Datum、OID 等内部机制的过程。
+
+---
+
+## 编程开发
+
+### [Rust 1.100 正式发布](https://blog.rust-lang.org/2026/11/12/Rust-1.100.0/)
+
+<div align="center">
+<img src="https://www.rust-lang.org/static/images/rust-social-wide.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Rust 1.100 稳定 never type（!），结束十年五次失败后终于落地，并使 Infallible 成为其别名；同时改变旧 edition 的 never type fallback，可能带来少量兼容影响。版本还包含 Allocator API、DropGuard、Cargo 未使用依赖报告与缓存改进等。
+
+---
+
+### [Jane Street 的软件工程面试略有变化](https://blog.janestreet.com/software-engineering-interviews-are-changing-a-little/)
+
+<div align="center">
+<img src="https://blog.janestreet.com/static/img/header.png" width="400" alt="" loading="lazy" />
+</div>
+
+Jane Street 称 LLM 已改变日常开发，因此试点减少写代码、增加软件设计、代码质量/意图验证和用 LLM 生成代码的面试；多数轮次仍为无 LLM 的传统编程面试。公司强调不要求候选人已有成熟 agent 工作流，只看软件构建判断力。
+
+---
+
+### [为什么系统编程选择 Zig 而非 C](https://www.mtsoukalos.eu/2026/11/why-zig-over-c-for-systems-programming/)
+
+作者认为 Zig 与 C 同样贴近机器且无 GC，但 errdefer 让资源清理紧邻分配并按逆序执行，便于用 FailingAllocator 测试每条失败路径；Zig 直接调用 C 库并使用 C ABI。作者仍喜爱 C，但不愿再用 C 写新代码。
+
+---
+
+### [Relax：减少 Rust 构建等待的 JIT 编译器](https://makepad.github.io/relax/)
+
+Relax 是实验性 Rust 实时编译器/JIT 运行时，直接从源码运行 Cargo 包，无需 rustc、LLVM 或链接器；按函数首次调用编译、热函数运行中优化，并热补丁编辑保留状态。优化代码比 release 慢约 1.12×（x64）/1.24×（arm64），仅用于开发迭代。
+
+---
+
+## 开源社区
+
+### [AWS 开源本地 AWS API 模拟器](https://github.com/aws/aws-emulator)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/f498b0c8076d5c5e4918be9c9b5332e3210426bd5e538eaee4b810f108a5d212/aws/aws-emulator" width="400" alt="" loading="lazy" />
+</div>
+
+AWS 发布 aws-emulator，可在本机、开发服务器或 CI 中模拟 AWS API，无需 AWS 账号即可测试软件，请求不发送到云端；项目采用 CC0 许可，已有约 7k stars，目标是在部署前用模拟资源替代真实 AWS 资源。
+
+---
+
+### [300 美元刺绣机要订阅，我自建了开源应用 ZigZag](https://github.com/simpsoka/zigzag)
+
+<div align="center">
+<img src="https://opengraph.githubassets.com/22f5c77c74a5c28f05aa34b608df6ed797e1523b5b525438754b7df1ba1a0eda/simpsoka/zigzag" width="400" alt="" loading="lazy" />
+</div>
+
+作者因刺绣机配套软件采用订阅制，开发免费开源 ZigZag：Rust 编写的 Mac/Windows 可视化刺绣编辑器，可把 SVG 转成针迹、编辑 stitch，并通过 MCP 让 AI agent 参与设计。项目采用 Apache-2.0 许可。
+
+---
+
+## 技术趋势
+
+### [Brave Search API 通过 x402 协议支持智能体支付](https://brave.com/blog/search-api-agentic-payments/)
+
+<div align="center">
+<img src="https://brave.com/blog/search-api-agentic-payments/images/featured.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Brave Search API 新增 x402 即时按次付费：AI agent 收到 HTTP 402 后可用 Base 链上 USDC 签名支付并重试，无需传统 API key；LLM Context 等端点每次 0.005 美元，Brave 自营 facilitator，限时承担 Gas 费。
+
+---
+
+## 其他
+
+### [逆向工程 Coway 空气净化器以摆脱云端](https://scottjg.com/posts/2026-11-11-reverse-engineering-my-coway-air-purifier-to-ditch-the-cloud/)
+
+<div align="center">
+<img src="https://scottjg.com/posts/2026-11-11-reverse-engineering-my-coway-air-purifier-to-ditch-the-cloud/coway-airmega-icons-cover.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+作者为把 Coway Airmega 接入 Apple Home，先依赖 Home Assistant 的 IoCare 云集成，但常因厂商封禁、改版、HTML 变化或服务器离线失效。文章讨论其逆向动机与智能家居云服务风险，并探索本地控制以减少对 Coway 云的依赖。
+
+---
+
+<div align="center">
+
+如果觉得这些内容对你有帮助，欢迎[点个 Star ⭐](https://github.com/binarycoder777/personal-weekly) 或分享给朋友。
+
+</div>
