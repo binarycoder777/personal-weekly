@@ -1,0 +1,231 @@
+---
+title: "第48期 · Nginx 存在未认证远程代码执行漏洞"
+description: "Wiz 等团队发现两个 NGINX HTTP/2 严重漏洞 CVE-2026-123633 与 CVE-2026-123007，CVSS 4.0 评分 9.2，可未认证远程执行代码。影响超 2.25 亿网站，即使应用代码安全也可能暴露，利用需启用 HTTP/2。F5 已于 11 月 18 日发布修复，建议尽快升级。"
+lastUpdated: 2026-11-21
+---
+
+<div align="center">
+
+# 科技周刊 第48期 · 2026.11.21
+
+本期精选 20 篇高质量科技内容
+
+</div>
+
+## 技术架构
+
+### [Nginx 存在未认证远程代码执行漏洞](https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities)
+
+<div align="center">
+<img src="https://www.datocms-assets.com/75231/1794936719-img_7875.png?fm=webp" width="400" alt="" loading="lazy" />
+</div>
+
+Wiz 等团队发现两个 NGINX HTTP/2 严重漏洞 CVE-2026-123633 与 CVE-2026-123007，CVSS 4.0 评分 9.2，可未认证远程执行代码。影响超 2.25 亿网站，即使应用代码安全也可能暴露，利用需启用 HTTP/2。F5 已于 11 月 18 日发布修复，建议尽快升级。
+
+---
+
+### [别买内存，压缩它！](https://curiousbits.nl/blog/do-not-buy-ram-compress/)
+
+<div align="center">
+<img src="https://curiousbits.nl/static/blog/do-not-buy-ram-compress/apps.png" width="400" alt="" loading="lazy" />
+</div>
+
+作者在 32GB 内存的 Linux 工作站上因并行任务耗尽内存，改用 zram 内存压缩后获得最高约 1:4 的压缩比。文章指出 Windows、macOS 与部分 Linux 发行版已默认启用，Ubuntu 等则没有；压缩仅增加少量 CPU 开销和延迟，却能显著降低云主机扩容成本。
+
+---
+
+### [群晖发布安全公告](https://www.synology.com/en-uk/security/advisory/Synology_SA_26_21)
+
+<div align="center">
+<img src="https://fileres.synology.com/images/common/meta-tag-preview-image/img_synology.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+群晖披露 DSM 与 BeeStation OS 中的严重漏洞 CVE-2026-120382，CVSS 3.1 评分 9.8，属 OAuth API 命令参数定界符处理不当，可被远程攻击者利用读写任意文件并发动拒绝服务。DSM 7.4/7.3 已修复，7.2 等仍在处理中；缓解措施为停用 OAuth Service 套件。
+
+---
+
+## 人工智能
+
+### [Gemini 4 Neon 发布](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/)
+
+<div align="center">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-neon__blog-header__sm.width-1300.png" width="400" alt="" loading="lazy" />
+</div>
+
+Google DeepMind 发布 Gemini 4 Neon，主打前沿智能与快速端到端任务完成，覆盖复杂软件工程、知识工作和科学流程，并强调生产级代码与企业、分析、科研场景。官方称其在效率与成本上有所优化。
+
+---
+
+### [Claude 解决黑洞物理中的两个开放问题](https://www.anthropic.com/research/claude-black-hole-physics)
+
+<div align="center">
+<img src="https://assets.claude.com/57a443b51d13727573b7c1290130d09c5f434b2c.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Anthropic 称 Claude 在理论物理中解决两个黑洞相关开放问题：完成二十多年前提出却未解的全息对偶计算，证明黑洞形成的突变相变在时空失去确定形状时仍存在；并给出检验量子引力候选理论所用最简单方法的精确极限。成果以预印本发布。
+
+---
+
+### [Frostbite：由 AI 端到端发现、设计并验证的新 CPU 架构](https://architectlabs.com/blog/frostbite)
+
+<div align="center">
+<img src="https://main--gleeful-begonia-6bb5f3.netlify.app/_next/static/media/frostbite-cover.3n9ytugnquhlr.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+Architect Labs 让 AI 系统自主迭代编译器、ISA、微架构、RTL 与验证，设计出基于交互网的新通用 CPU Frostbite。在 25 个负载（15 个留作最终测试）上，每瓦性能达现代超标量核心的 4.59 倍。团队称 AI 可跨软硬件协同优化，发现人类难以设计的硬件原语。
+
+---
+
+### [语言模型能够重写自身权重](https://arxiv.org/abs/2611.21885)
+
+<div align="center">
+<img src="https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png" width="400" alt="" loading="lazy" />
+</div>
+
+arXiv 论文提出“自改写”：一个开放 27B 模型根据自身权重、评分答案与运行结果诊断失败并直接改写权重，无需梯度或训练。其在未见问题上准确率提升 6.6 个百分点，连续八次会话持续改进，并能修复受损副本。作者认为这迈向递归自我改进，打破训练与推理的界限。
+
+---
+
+### [Signal 认真对待你的隐私保护](https://signal.org/blog/protecting-your-privacy/)
+
+<div align="center">
+<img src="https://signal.org/blog/images/protecting-your-privacy-opengraph.png" width="400" alt="" loading="lazy" />
+</div>
+
+Signal 宣布限制 iOS 27 与 Android 上系统级 AI 助手读取屏幕内容，防止 Gemini、Siri 等 agent 捕获并存储 Signal 消息，延续此前对抗 Windows Recall 的做法。Signal 称 OS 级 AI 截屏使其无法独立保证隐私，但承认该措施无法覆盖文件系统等其他访问途径。
+
+---
+
+### [Inkling 2 Mini 发布](https://thinkingmachines.ai/news/inkling-2-mini/)
+
+<div align="center">
+<img src="https://thinkingmachines.ai/news/inkling-2-mini/images/cover-social.png" width="400" alt="" loading="lazy" />
+</div>
+
+Thinking Machines Lab 发布可在笔记本运行的小模型 Inkling 2 Mini，采用循环 Transformer，对每个 token 重复中间层三次，以更少 token 完成推理。其 26.4B 总参数、3.4B 激活，在 100B 以下开放权重模型中领先 DeepSWE v1.1 等基准，权重以 NVFP4 为主，内存约 20GB，可离线运行。
+
+---
+
+### [谷歌员工要求公司不要惩罚不愿使用 AI 的学校](https://www.motherjones.com/politics/2026/11/google-alphabet-union-school-ai-protest-gemini-workers-petition/)
+
+<div align="center">
+<img src="https://www.motherjones.com/wp-content/uploads/2026/11/google-chromebook-la-school-covid.jpg?w=1200&amp;h=630&amp;crop=1" width="400" alt="" loading="lazy" />
+</div>
+
+数百名谷歌员工通过 Alphabet Workers Union 请愿，要求撤回一项政策：从明年起，关闭 Gemini AI 工具的学校将失去谷歌搜索访问权。员工认为切断搜索无法说服用户，反而会促使学校弃用谷歌产品。纽约、洛杉矶、芝加哥等学区正讨论替代搜索引擎，多地已爆发抗议。
+
+---
+
+### [我把音频转 MIDI 模型效率提升 60 倍](https://kobi.music/research/dettato)
+
+<div align="center">
+<img src="https://kobi.music/og.png" width="400" alt="" loading="lazy" />
+</div>
+
+kobimusic 发布开源音频转 MIDI 模型 Dettato，仅 2000 万参数，约为 MuScriptor 的 1/65，却在复合、起始点、帧与鼓等基准上超过后者，并略高于闭源 Mirelo A2M v1.1 Pro。训练未使用任何受版权保护的录音，输出可商用。作者称瓶颈在架构而非数据。
+
+---
+
+## 其他
+
+### [无外力 Euler/Navier-Stokes 奇点与广义黎曼猜想](https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/)
+
+<div align="center">
+<img src="https://secure.gravatar.com/blavatar/bd4bda4207561b6998f10dec44b570f04ff4072b20f89162d525b186dfca3e49?s=200&amp;ts=1795210752" width="400" alt="" loading="lazy" />
+</div>
+
+Terence Tao 汇总三项进展：Alpöge、Buckmaster、Coiculescu 在 AI 辅助下给出三维无外力不可压 Euler 方程有限时间爆破的可读证明并 Lean 形式化；Navier-Stokes 也有类似证明；Alpöge 还用内部 AI 模型生成广义黎曼猜想的 Lean 证明，尚待验证与消化。
+
+---
+
+### [病毒注射使三名胰腺癌患者病情停滞](https://www.newscientist.com/article/2528235-pancreatic-cancer-halted-by-virus-injection-in-three-patients/)
+
+<div align="center">
+<img src="https://www.newscientist.com/wp-content/uploads/2026/05/28111438/SEI_299218241.jpg" width="400" alt="" loading="lazy" />
+</div>
+
+一项美国早期安全性试验中，一种溶瘤病毒使三名胰腺癌患者的肿瘤停止生长和扩散，患者均存活且病情临床稳定。研究者仅注射了目标剂量的十分之一，效果超出预期。但样本极小、无对照组，需更大规模试验；晚期胰腺癌患者通常仅存活三到六个月。
+
+---
+
+## 编程开发
+
+### [PostgreSQL 19 发布](https://www.postgresql.org/docs/release/19.0/)
+
+<div align="center">
+<img src="https://www.postgresql.org/media/img/about/press/elephant.png" width="400" alt="" loading="lazy" />
+</div>
+
+PostgreSQL 19 正式发布，新增 REPACK 命令及并发版本以回收空间、重组表内容；引入 pg_plan_advice 与 pg_stash_advice 控制查询计划；改进 I/O 工作进程自动伸缩、外键检查与并行 autovacuum；逻辑复制可在 wal_level=replica 下免重启启用，并支持序列复制与备库 read-your-writes。
+
+---
+
+### [如果停止写代码，你审查代码的能力也会退化](https://cekrem.github.io/posts/if-you-stop-writing-code-you-also-get-worse-at-reviewing-it/)
+
+<div align="center">
+<img src="https://codimg.alwaysdata.net/code.svg?input=%7B-%0A+++++++++++_+++++++++++++++++++++++++++++++++++_+_+++_+++++++++++_+++++++++++_+++++++%0A++++++++++%7C+%7C+++++++++++++++++++++++++++++++++%28_%29+%7C+%7C+%7C+++++++++%7C+%7C+++++++++%28_%29++++++%0A+++___+___%7C+%7C+___+__+___+_+__+___+++++++++__+_+_%7C+%7C_%7C+%7C__++_+++_%7C+%7C__++++++++_++___++%0A++%2F+__%2F+_+%5C+%7C%2F+%2F+%27__%2F+_+%5C+%27_+%60+_+%5C+++++++%2F+_%60+%7C+%7C+__%7C+%27_+%5C%7C+%7C+%7C+%7C+%27_+%5C++++++%7C+%7C%2F+_+%5C+%0A+%7C+%28_%7C++__%2F+++%3C%7C+%7C+%7C++__%2F+%7C+%7C+%7C+%7C+%7C++_++%7C+%28_%7C+%7C+%7C+%7C_%7C+%7C+%7C+%7C+%7C_%7C+%7C+%7C_%29+%7C++_++%7C+%7C+%28_%29+%7C%0A++%5C___%5C___%7C_%7C%5C_%5C_%7C++%5C___%7C_%7C+%7C_%7C+%7C_%7C+%28_%29++%5C__%2C+%7C_%7C%5C__%7C_%7C+%7C_%7C%5C__%2C_%7C_.__%2F++%28_%29+%7C_%7C%5C___%2F+%0A++++++++++++++++++++++++++++++++++++++++++__%2F+%7C++++++++++++++++++++++++++++++++++++++%0A+++++++++++++++++++++++++++++++++++++++++%7C___%2F+++++++++++++++++++++++++++++++++++++++%0A%0A+++cekrem.github.io%2Fposts%2Fif-you-stop-writing-code-you-also-get-worse-at-reviewing-it%0A-%7D%0A%0Atitle+%3A+String%0Atitle+%3D+%22If+you+stop+writing+code%2C+you+also+get+worse+at+reviewing+it%22%0A%0Adescription+%3A+String%0Adescription+%3D%0A++++%22Before+2022+10%2F10+engineers+would+agree+wholeheartedly.+%22%0A++++++++%2B%2B+%22Somehow+it+changed.%28%3F%21%29%22&amp;lang=elm" width="400" alt="" loading="lazy" />
+</div>
+
+作者以音乐家和作家类比指出，软件工程同样需要持续练习。若工程师只审阅 AI 生成的代码而不亲手编写，理解代码、识别坏味道和设计架构的能力会下降；仅靠“审阅 Claude 产出”难以维持技艺。文章主张工程师应保持动手实践，才能有效判断代码质量。
+
+---
+
+### [我们把开发者提拔成架构师，却没有告诉他们](https://manidoraisamy.com/developer-to-architect.html)
+
+<div align="center">
+<img src="https://near.tl/utils/resize/image?cdn=https://cdn.neartail.com/1FAIpQLScjbts-yMOruG0IK47bi0s9ciOCA6pyW7RlmwKwcFIRnw9HUQ/1795197373296/markdown/thumbnail.png&amp;w=1200&amp;h=630" width="400" alt="" loading="lazy" />
+</div>
+
+作者以 Google Forms 插件加载慢为例：同事用 AI 生成的日志代码在欢迎页同步调用多个 Google API，导致 15 秒延迟。AI 只按功能需求写代码，不会评估用户规模、性能与安全权衡，也不愿反驳需求。结论是工程师应先定义架构与数据模型，再让 AI 在约束内编码。
+
+---
+
+### [Jujutsu 入门指南](https://ethanlowman.com/posts/jj-primer/)
+
+<div align="center">
+<img src="https://ethanlowman.com/img/penrose.png" width="400" alt="" loading="lazy" />
+</div>
+
+面向 Git 用户的 Jujutsu（jj）简明教程，介绍其自动变基、原生撤销、变更 ID 与提交 ID 分离等特性，并讲解安装配置、revset、冲突处理、操作日志、squash 工作流、书签与堆叠 PR。jj 可与 Git 仓库并存，便于开发者渐进试用。
+
+---
+
+## 技术趋势
+
+### [为什么 iOS 上仍然没有非 WebKit 浏览器](https://blog.mozilla.org/en/mozilla/internet-policy/apple-ios-browser-engine-rules/)
+
+<div align="center">
+<img src="https://blog.mozilla.org/wp-content/blogs.dir/278/files/2026/11/Mozilla_Illustrations_Pixelgram_Arrows_Orange-1082x721.png" width="400" alt="" loading="lazy" />
+</div>
+
+Mozilla 指出，尽管欧盟 DMA 与日本新规要求苹果开放替代浏览器引擎，近三年仍无开发者能在 iOS 推出非 WebKit 浏览器。苹果要求另建独立应用、迁移书签密码等，用户摩擦过高；Mozilla 称这些条件“看似开门实为陷阱”，呼吁真正公平的竞争环境。
+
+---
+
+### [为什么 AI 想要本地化](https://thedataexchange.media/pete-warden-moonshine/)
+
+<div align="center">
+<img src="https://thedataexchange.media/wp-content/uploads/2026/11/pete-warden-local-ai.001.jpeg" width="400" alt="" loading="lazy" />
+</div>
+
+Pete Warden 在访谈中讨论本地 AI 的进展：开放权重模型、量化与浏览器/笔记本推理日趋成熟；低延迟语音模型有望让语音成为自然接口。他还谈及专用模型与端到端模型之争、本地 AI 的经济性，以及可能挑战 GPU 主导地位的新型硬件。
+
+---
+
+## 开源社区
+
+### [FFmpeg 9.1“Gauss”发布](https://ffmpeg.org/download.html#release_9.1)
+
+<div align="center">
+<img src="https://ffmpeg.org/img/ffmpeg3d_white_20.png" width="400" alt="" loading="lazy" />
+</div>
+
+FFmpeg 发布 9.1 版本，代号 Gauss，提供源码下载并附 PGP 签名验证；部分发布还带后量子签名（ML-DSA-87+Ed448 与 SLH-DSA-256s）。项目继续以 Git 开发，鼓励使用开发快照，并列出 Linux、Windows、macOS 的第三方预编译包获取渠道。
+
+---
+
+<div align="center">
+
+如果觉得这些内容对你有帮助，欢迎[点个 Star ⭐](https://github.com/binarycoder777/personal-weekly) 或分享给朋友。
+
+</div>
